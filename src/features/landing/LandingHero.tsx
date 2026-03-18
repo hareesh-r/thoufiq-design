@@ -1,7 +1,108 @@
+import "plyr/dist/plyr.css";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import data from "../../data/hero.json";
 import site from "../../data/site.json";
 import styles from "./LandingHero.module.css";
+
+const PLYR_CONTROLS = [
+  "play-large",
+  "play",
+  "progress",
+  "current-time",
+  "duration",
+  "mute",
+  "volume",
+  "pip",
+  "fullscreen",
+] as const;
+
+function HeroIntroVideo() {
+  const hero = data;
+  const [playing, setPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const playerRef = useRef<{ destroy: () => void } | null>(null);
+
+  useEffect(() => {
+    if (!playing) return;
+    const el = videoRef.current;
+    if (!el) return;
+    let cancelled = false;
+
+    void import("plyr").then((mod) => {
+      const PlyrCtor = mod.default as new (
+        t: HTMLElement,
+        o?: { controls?: readonly string[] }
+      ) => { destroy: () => void; play: () => Promise<void> };
+      if (cancelled || !el.isConnected) return;
+      const instance = new PlyrCtor(el, { controls: [...PLYR_CONTROLS] });
+      if (cancelled) {
+        instance.destroy();
+        return;
+      }
+      playerRef.current = instance;
+      void instance.play().catch(() => {});
+    });
+
+    return () => {
+      cancelled = true;
+      playerRef.current?.destroy();
+      playerRef.current = null;
+    };
+  }, [playing]);
+
+  return (
+    <div className={styles.videoInner}>
+      {!playing ? (
+        <>
+          <img
+            className={styles.videoThumb}
+            src={hero.videoThumbnail}
+            alt=""
+            width={1242}
+            height={596}
+            decoding="async"
+          />
+          <button
+            type="button"
+            className={styles.playFab}
+            aria-label={hero.videoPlayLabel}
+            aria-expanded={false}
+            onClick={() => setPlaying(true)}
+          >
+            <span className={styles.playGlassRing} aria-hidden />
+            <span className={styles.playFabInner} aria-hidden>
+              <img src="/assets/hero-play.svg" alt="" width={28} height={28} />
+            </span>
+          </button>
+          <div className={styles.videoQuoteOverlay}>
+            <p className={styles.videoQuote}>
+              <span className={styles.quoteMark} aria-hidden>
+                “
+              </span>
+              {hero.videoQuotePrefix}
+              <strong className={styles.videoQuoteBold}>{hero.videoQuoteEmphasis}</strong>
+              {hero.videoQuoteSuffix}
+              <span className={styles.quoteMark} aria-hidden>
+                ”
+              </span>
+            </p>
+          </div>
+        </>
+      ) : (
+        <div className={styles.plyrHost}>
+          <video
+            ref={videoRef}
+            playsInline
+            crossOrigin="anonymous"
+            poster={hero.videoThumbnail}
+          >
+            <source src={hero.videoSrc} type="video/mp4" />
+          </video>
+        </div>
+      )}
+    </div>
+  );
+}
 
 const ROTATE_MS = 4000;
 
@@ -117,35 +218,7 @@ export function LandingHero() {
           <p className={styles.videoDesc}>{data.videoDescription}</p>
 
           <div className={styles.videoFrame}>
-            <div className={styles.videoInner}>
-              <img
-                className={styles.videoThumb}
-                src={data.videoThumbnail}
-                alt=""
-                width={1242}
-                height={596}
-                decoding="async"
-              />
-              <button type="button" className={styles.playFab} aria-label={data.videoPlayLabel}>
-                <span className={styles.playGlassRing} aria-hidden />
-                <span className={styles.playFabInner} aria-hidden>
-                  <img src="/assets/hero-play.svg" alt="" width={28} height={28} />
-                </span>
-              </button>
-              <div className={styles.videoQuoteOverlay}>
-                <p className={styles.videoQuote}>
-                  <span className={styles.quoteMark} aria-hidden>
-                    “
-                  </span>
-                  {data.videoQuotePrefix}
-                  <strong className={styles.videoQuoteBold}>{data.videoQuoteEmphasis}</strong>
-                  {data.videoQuoteSuffix}
-                  <span className={styles.quoteMark} aria-hidden>
-                    ”
-                  </span>
-                </p>
-              </div>
-            </div>
+            <HeroIntroVideo />
           </div>
         </div>
       </div>

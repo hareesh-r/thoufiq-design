@@ -1,0 +1,38 @@
+{
+  "seoTitle": "Wishlist — Design Council",
+  "seoDescription": "Courses you’ve saved. Enroll when you’re ready.",
+  "eyebrow": "Your picks",
+  "title": "Wishlist",
+  "intro": "Review saved courses and continue to enrollment.",
+  "countLine": "{count} {label} saved",
+  "countLabel": "course",
+  "countLabelPlural": "courses",
+  "empty": {
+    "title": "Nothing saved yet",
+    "body": "Browse the course and tap the heart to add programs here.",
+    "cta": { "label": "View course", "href": "/#pricing" },
+    "secondaryCta": { "label": "Home", "href": "/" }
+  },
+  "cardCta": { "label": "Enroll", "href": "/#final-enquiry" },
+  "bar": {
+    "caption": "Ready to start?",
+    "cta": { "label": "Enroll now", "href": "/#final-enquiry" }
+  },
+  "removeModal": {
+    "title": "Remove from wishlist?",
+    "body": "You can add this course again anytime.",
+    "cancel": "Cancel",
+    "confirm": "Remove"
+  },
+  "courses": [
+    {
+      "id": "ui-ux-practical",
+      "icon": "/assets/prog-icon-ux.svg",
+      "title": "UI/UX — Practical Product Design",
+      "meta": "Lifetime access · Project-based",
+      "tag": "Featured",
+      "priceWas": "₹9,999",
+      "priceNow": "₹4,999"
+    }
+  ]
+}

@@ -23,6 +23,7 @@
     }
   ],
   "videoThumbnail": "/assets/video-thumbnail.png",
+  "videoSrc": "/assets/hero/hero.mp4",
   "videoEyebrow": "Just 5 mins watch",
   "videoTitleLead": "Watch this before joining",
   "videoTitleAccent": "any UI/UX course",

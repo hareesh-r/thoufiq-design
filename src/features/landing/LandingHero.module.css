@@ -353,6 +353,45 @@
   background: #e4e7ec;
 }
 
+/* Plyr — match site blue + dark chrome */
+.plyrHost {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: #101828;
+}
+
+.plyrHost :global(.plyr) {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  --plyr-color-main: var(--blue, #2388ff);
+  --plyr-video-background: #101828;
+  --plyr-menu-background: rgba(16, 24, 40, 0.96);
+  --plyr-menu-color: #e4e7ec;
+  --plyr-audio-control-color: #e4e7ec;
+  font-family: var(--font-body, system-ui, sans-serif);
+}
+
+.plyrHost :global(.plyr__control--overlaid) {
+  background: var(--blue, #2388ff);
+  color: #fff;
+}
+
+.plyrHost :global(.plyr__control--overlaid:hover) {
+  background: #1a6fd4;
+}
+
+.plyrHost :global(.plyr__video-wrapper) {
+  height: 100%;
+  background: #101828;
+}
+
+.plyrHost :global(.plyr video) {
+  object-fit: contain;
+}
+
 /* Cropped fill — no full-frame tint; image stays true to source */
 .videoThumb {
   width: 100%;

@@ -30,6 +30,8 @@ pnpm build
 
 Replace placeholder blocks (program carousel, instructor photo, video) with exported images from Figma (`pnpm` + `download_figma_images` via MCP, or manual export).
 
+**Hero intro video:** set `videoSrc` in `hero.json` (e.g. `/assets/hero/hero.mp4`). File lives under `public/assets/`.
+
 ## SEO
 
 Set `baseUrl` and optional `defaultOgImage` in `site.json`. JSON-LD: Organization, WebSite, Course, FAQPage.

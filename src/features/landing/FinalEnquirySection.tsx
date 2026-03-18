@@ -125,9 +125,10 @@ export function FinalEnquirySection() {
               decoding="async"
             />
           </div>
-          <div className={styles.metaDivider} aria-hidden />
           <div className={styles.metaRow}>
-            <span className={styles.copyright}>{data.footer.copyright}</span>
+            <span className={styles.copyright}>
+              © {new Date().getFullYear()} {data.footer.copyrightEntity}
+            </span>
             <span className={styles.metaDot} aria-hidden>
               •
             </span>

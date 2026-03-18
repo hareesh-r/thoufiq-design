@@ -22,7 +22,7 @@ All user-facing text is driven by JSON files in `src/data/`. Changing these file
 
 | Field (path) | Current Value | Purpose |
 |--------------|---------------|---------|
-| `footer.copyright` | `"© 2025 Design Council Private Limited"` | Footer copyright / legal entity name |
+| `footer.copyrightEntity` | `"Design Council Private Limited"` | Legal name after © {current year} in the footer |
 | `footer.email` | `"enquiry@course.com"` | Contact email shown in footer |
 
 ### `src/data/instructor.json`
@@ -44,6 +44,8 @@ All user-facing text is driven by JSON files in `src/data/`. Changing these file
 | `testimonials` | Array of `{ initial, text }` | Rotating social proof (4s interval, width animates to content) |
 | `videoTitleLead` / `videoTitleAccent` | Split headline (Bricolage + Instrument Serif) | Dark-band video section |
 | `videoQuotePrefix` / `videoQuoteEmphasis` / `videoQuoteSuffix` | Quote under video; emphasis = bold |
+| `videoThumbnail` | Poster image before play | |
+| `videoSrc` | e.g. `/assets/hero/hero.mp4` | Intro video (Plyr); file under `public/assets/` |
 
 ### `src/data/pricing.json`
 
@@ -96,7 +98,7 @@ These components read from the JSON data files above. You only need to edit them
 To rebrand the entire site, follow these steps in order:
 
 1. **`src/data/site.json`** — Update `siteName`, `seoTitle`, `seoDescription`, `logoWordmark`, and `baseUrl`
-2. **`src/data/finalCta.json`** — Update `footer.copyright` (legal entity) and `footer.email`
+2. **`src/data/finalCta.json`** — Update `footer.copyrightEntity` and `footer.email`
 3. **`src/data/instructor.json`** — Update `name`, `roleLine`, `bio`, `tags`, and `stats` for the new instructor
 4. **`src/data/hero.json`** — Update `title`, `subtitle`, `testimonials`, and video copy
 5. **`src/data/pricing.json`** — Update prices, features, and CTA labels

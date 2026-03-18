@@ -19,7 +19,7 @@
   },
   "footer": {
     "logoPlaceholder": "/assets/footer-logo-placeholder.svg",
-    "copyright": "© 2025 Design Council Private Limited",
+    "copyrightEntity": "Design Council Private Limited",
     "email": "enquiry@course.com",
     "refund": "Refund Policy"
   }

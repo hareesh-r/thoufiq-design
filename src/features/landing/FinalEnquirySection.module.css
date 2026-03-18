@@ -302,14 +302,19 @@
 
 .footerInner {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: space-between;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  width: 100%;
 }
 
 .logoRow {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
 }
 
 .footerLogoPlaceholder {
@@ -321,31 +326,19 @@
   object-fit: contain;
 }
 
-.metaDivider {
-  width: min(100%, 560px);
-  height: 1px;
-  margin: clamp(1.65rem, 3.5vw, 2.35rem) 0 clamp(1.1rem, 2.5vw, 1.5rem);
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.1) 18%,
-    rgba(255, 255, 255, 0.14) 50%,
-    rgba(255, 255, 255, 0.1) 82%,
-    transparent 100%
-  );
-}
-
 .metaRow {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 0.35rem 0.55rem;
-  text-align: center;
+  text-align: right;
   font-family: var(--font-body);
   font-weight: 400;
   font-size: 14px;
   line-height: 1.43;
+  flex: 1;
+  min-width: min(100%, 260px);
 }
 
 .copyright {

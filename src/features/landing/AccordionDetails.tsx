@@ -1,5 +1,6 @@
 import {
   useEffect,
+  useLayoutEffect,
   useRef,
   type CSSProperties,
   type ReactNode,
@@ -26,6 +27,12 @@ export function AccordionDetails({
   const ref = useRef<HTMLDetailsElement>(null);
   const scrollYRef = useRef(0);
   const programmaticCloseRef = useRef(false);
+
+  useLayoutEffect(() => {
+    if (ref.current && defaultOpen) {
+      ref.current.open = true;
+    }
+  }, [defaultOpen]);
 
   useEffect(() => {
     const d = ref.current;
@@ -77,12 +84,7 @@ export function AccordionDetails({
   }, []);
 
   return (
-    <details
-      ref={ref}
-      className={className}
-      style={style}
-      defaultOpen={defaultOpen}
-    >
+    <details ref={ref} className={className} style={style}>
       {children}
     </details>
   );
