@@ -1,5 +1,8 @@
 node_modules
 dist
+
+# GCP service account keys (if placed in repo root or functions/)
+gridandgoal-*.json
 .DS_Store
 docs/_fig_unpack
 docs/Course Website (1).fig

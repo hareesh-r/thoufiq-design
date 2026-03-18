@@ -15,12 +15,15 @@
     "mobileLabel": "Mobile Number *",
     "mobilePlaceholder": "Enter Mobile Number",
     "submitLabel": "Enquire Now",
-    "footnote": "No spam. Just course details and next steps."
+    "submittingLabel": "Sending…",
+    "footnote": "No spam. Just course details and next steps.",
+    "successFootnote": "Thanks — we'll be in touch.",
+    "errorFootnote": "Something went wrong. Please try again or email us directly."
   },
   "footer": {
     "logoPlaceholder": "/assets/footer-logo-placeholder.svg",
-    "copyrightEntity": "Design Council Private Limited",
-    "email": "enquiry@course.com",
+    "copyrightEntity": "Grid and Goal Private Limited",
+    "email": "support@gridandgoal.com",
     "refund": "Refund Policy"
   }
 }

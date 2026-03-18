@@ -1,10 +1,10 @@
 {
-  "siteName": "Design Council",
-  "baseUrl": "https://example.com",
-  "seoTitle": "UI/UX Course — Not Another UI/UX Course | Design Council",
+  "siteName": "Grid and Goal",
+  "baseUrl": "https://gridandgoal.com",
+  "seoTitle": "UI/UX Course — Not Another UI/UX Course | Grid and Goal",
   "seoDescription": "Not Another UI/UX Course — Something Much More Practical. Comprehensive UI/UX & Product Design program with live sessions, modules, and career guidance.",
   "defaultOgImage": "",
-  "logoWordmark": "Design Council",
+  "logoWordmark": "Grid and Goal",
   "headerCta": { "label": "Enquire Now", "href": "#final-enquiry" },
   "heroCta": { "label": "Enroll Now", "href": "#pricing" }
 }

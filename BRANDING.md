@@ -12,17 +12,17 @@ All user-facing text is driven by JSON files in `src/data/`. Changing these file
 
 | Field | Current Value | Purpose |
 |-------|---------------|---------|
-| `siteName` | `"Design Council"` | Used in SEO meta tags (`og:site_name`), JSON-LD schemas (Organization, WebSite, Course provider) |
-| `seoTitle` | `"UI/UX Course — Not Another UI/UX Course \| Design Council"` | `<title>` tag and `og:title` / `twitter:title` |
+| `siteName` | `"Grid and Goal"` | Used in SEO meta tags (`og:site_name`), JSON-LD schemas (Organization, WebSite, Course provider) |
+| `seoTitle` | `"UI/UX Course — Not Another UI/UX Course \| Grid and Goal"` | `<title>` tag and `og:title` / `twitter:title` |
 | `seoDescription` | `"Not Another UI/UX Course — Something Much More Practical..."` | `<meta name="description">` and social sharing descriptions |
-| `logoWordmark` | `"Design Council"` | Header logo text and `aria-label` (rendered in `LandingHeader.tsx`) |
+| `logoWordmark` | `"Grid and Goal"` | Header logo text and `aria-label` (rendered in `LandingHeader.tsx`) |
 | `baseUrl` | `"https://example.com"` | Canonical URLs, Open Graph URLs, JSON-LD |
 
 ### `src/data/finalCta.json`
 
 | Field (path) | Current Value | Purpose |
 |--------------|---------------|---------|
-| `footer.copyrightEntity` | `"Design Council Private Limited"` | Legal name after © {current year} in the footer |
+| `footer.copyrightEntity` | `"Grid and Goal Private Limited"` | Legal name after © {current year} in the footer |
 | `footer.email` | `"enquiry@course.com"` | Contact email shown in footer |
 
 ### `src/data/instructor.json`
@@ -63,7 +63,7 @@ All user-facing text is driven by JSON files in `src/data/`. Changing these file
 
 | Line | What to change | Current Value |
 |------|----------------|---------------|
-| `<title>` tag | Page title (shown before React hydrates) | `"UI/UX Course \| Design Council"` |
+| `<title>` tag | Page title (shown before React hydrates) | `"UI/UX Course \| Grid and Goal"` |
 | `<meta name="description">` | SEO description fallback | `"Not Another UI/UX Course — practical UI/UX & product design training..."` |
 | `<meta name="theme-color">` | Browser theme color | `"#101828"` |
 | `<link rel="icon">` | Favicon path | `/favicon.svg` |

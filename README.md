@@ -1,4 +1,4 @@
-# Design Council — Course Landing (React + Vite + pnpm)
+# Grid and Goal — Course Landing (React + Vite + pnpm)
 
 Implements copy and structure from the Figma file **Course Website (1)** ([desktop](https://www.figma.com/design/tCFRUP9rd9wXFM6Yvl6OoR/Course-Website--1-?node-id=1182-14222), [mobile](https://www.figma.com/design/tCFRUP9rd9wXFM6Yvl6OoR/Course-Website--1-?node-id=1182-19798)). Content is driven by JSON under `src/data/` so you can edit text without touching components.
 
@@ -35,3 +35,7 @@ Replace placeholder blocks (program carousel, instructor photo, video) with expo
 ## SEO
 
 Set `baseUrl` and optional `defaultOgImage` in `site.json`. JSON-LD: Organization, WebSite, Course, FAQPage.
+
+## Enquiry form → Google Sheet
+
+Firebase Cloud Function `submitEnquiry` appends rows to Google Sheets. Setup: **`docs/FIREBASE_ENQUIRY_SHEETS.md`**. Set **`VITE_ENQUIRY_SUBMIT_URL`** before production build (see `.env.example`).

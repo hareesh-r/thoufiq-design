@@ -2,15 +2,62 @@ import { FormEvent, useState } from "react";
 import data from "../../data/finalCta.json";
 import styles from "./FinalEnquirySection.module.css";
 
-export function FinalEnquirySection() {
-  const [done, setDone] = useState(false);
+type SubmitState = "idle" | "submitting" | "success" | "error";
 
-  function onSubmit(e: FormEvent) {
+export function FinalEnquirySection() {
+  const [state, setState] = useState<SubmitState>("idle");
+
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setDone(true);
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    const name = String(fd.get("name") ?? "").trim();
+    const email = String(fd.get("email") ?? "").trim();
+    const mobile = String(fd.get("mobile") ?? "").trim();
+
+    const url = import.meta.env.VITE_ENQUIRY_SUBMIT_URL?.trim();
+    if (!url) {
+      console.warn(
+        "[enquiry] Set VITE_ENQUIRY_SUBMIT_URL to your Cloud Function URL for production."
+      );
+      setState("success");
+      form.reset();
+      return;
+    }
+
+    setState("submitting");
+    try {
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, mobile }),
+      });
+      const json = (await res.json().catch(() => ({}))) as {
+        error?: string;
+      };
+      if (!res.ok) {
+        throw new Error(json.error || res.statusText);
+      }
+      setState("success");
+      form.reset();
+    } catch {
+      setState("error");
+    }
   }
 
   const f = data.form;
+  const footnoteClass =
+    state === "success"
+      ? styles.footnoteDone
+      : state === "error"
+        ? styles.footnoteError
+        : "";
+
+  let footnoteText = f.footnote;
+  if (state === "submitting") footnoteText = f.submittingLabel;
+  else if (state === "success") footnoteText = f.successFootnote;
+  else if (state === "error") footnoteText = f.errorFootnote;
+
   return (
     <section
       id={data.sectionId}
@@ -49,6 +96,7 @@ export function FinalEnquirySection() {
                       placeholder={f.fullNamePlaceholder}
                       required
                       autoComplete="name"
+                      disabled={state === "submitting"}
                     />
                   </div>
                   <div className={styles.field}>
@@ -63,6 +111,7 @@ export function FinalEnquirySection() {
                       placeholder={f.emailPlaceholder}
                       required
                       autoComplete="email"
+                      disabled={state === "submitting"}
                     />
                   </div>
                   <div className={styles.field}>
@@ -77,12 +126,19 @@ export function FinalEnquirySection() {
                       placeholder={f.mobilePlaceholder}
                       required
                       autoComplete="tel"
+                      disabled={state === "submitting"}
                     />
                   </div>
                 </div>
                 <div className={styles.ctaBlock}>
-                  <button type="submit" className={styles.submit}>
-                    <span className={styles.submitText}>{f.submitLabel}</span>
+                  <button
+                    type="submit"
+                    className={styles.submit}
+                    disabled={state === "submitting"}
+                  >
+                    <span className={styles.submitText}>
+                      {state === "submitting" ? f.submittingLabel : f.submitLabel}
+                    </span>
                     <svg
                       className={styles.submitArrow}
                       viewBox="0 0 16 16"
@@ -101,10 +157,20 @@ export function FinalEnquirySection() {
                     </svg>
                   </button>
                   <p
-                    className={`${styles.footnote} ${done ? styles.footnoteDone : ""}`}
+                    className={`${styles.footnote} ${footnoteClass}`}
+                    role={state === "error" ? "alert" : undefined}
                   >
-                    {done ? "Thanks — we'll be in touch." : f.footnote}
+                    {footnoteText}
                   </p>
+                  {state === "error" ? (
+                    <button
+                      type="button"
+                      className={styles.retryBtn}
+                      onClick={() => setState("idle")}
+                    >
+                      Try again
+                    </button>
+                  ) : null}
                 </div>
               </form>
             </div>
