@@ -6,6 +6,10 @@
   --bonus-body: #94969d;
   --bonus-ink: #0d0d0d;
   --bonus-strike: #ff0000;
+  /* Show top 60% of media; bottom 40% clipped at card edge */
+  --bonus-media-visible: 0.6;
+  --bonus-kit-strip-h: clamp(168px, 22vw, 228px);
+  --bonus-notebook-strip-h: clamp(152px, 17vw, 205px);
   padding-block: clamp(3rem, 8vw, 5rem);
   background: transparent;
 }
@@ -93,7 +97,7 @@
   }
 }
 
-/* Notebook — ~399×388, bottom media clipped */
+/* Notebook — text top, image strip pinned to bottom; ~60% of image visible */
 .cardNotebook {
   background: var(--bonus-card);
   border-radius: 16px;
@@ -101,7 +105,7 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 48px;
+  gap: 0;
   isolation: isolate;
   overflow: hidden;
   min-height: 388px;
@@ -121,6 +125,7 @@
   gap: 20px;
   z-index: 1;
   flex-shrink: 0;
+  margin-bottom: clamp(20px, 3vw, 32px);
 }
 
 .textBlock {
@@ -198,10 +203,10 @@
   position: relative;
 }
 
-/* Clips notebook so image reads “cut” at bottom of card */
+/* Notebook image: flush to card bottom; only top 60% of photo visible */
 .notebookClip {
-  margin: 0 -6px 0;
-  flex: 1;
+  margin: auto -6px 0;
+  flex: 1 1 auto;
   min-height: 0;
   display: flex;
   align-items: flex-end;
@@ -211,11 +216,13 @@
 
 .notebookFrame {
   position: relative;
-  width: calc(100% + 0px);
+  width: 100%;
   max-width: 339px;
-  height: 205px;
+  height: var(--bonus-notebook-strip-h);
   border: 4px solid #ffffff;
   border-radius: 16px;
+  border-bottom: none;
+  border-radius: 16px 16px 0 0;
   filter: drop-shadow(0px 15px 32px rgba(0, 0, 0, 0.12));
   overflow: hidden;
   flex-shrink: 0;
@@ -223,19 +230,18 @@
 
 .notebookImg {
   position: absolute;
-  width: 105%;
-  max-width: none;
-  height: auto;
-  min-height: 175%;
   left: 50%;
-  top: -58px;
+  top: 0;
   transform: translateX(-50%);
+  width: 108%;
+  max-width: none;
+  height: calc(100% / var(--bonus-media-visible));
   object-fit: cover;
-  object-position: center 40%;
+  object-position: center top;
   filter: grayscale(1) contrast(1.03);
 }
 
-/* Designer kit — wide card */
+/* Designer kit — kit row pinned to card bottom */
 .cardKit {
   background: var(--bonus-card);
   border-radius: 16px;
@@ -246,6 +252,7 @@
   isolation: isolate;
   overflow: hidden;
   min-height: 388px;
+  flex: 1 1 auto;
 }
 
 @media (min-width: 960px) {
@@ -261,57 +268,59 @@
   flex-direction: column;
   gap: 20px;
   z-index: 1;
-  padding-bottom: 24px;
+  padding-bottom: 20px;
+  flex-shrink: 0;
 }
 
-/* Top rule + strip: covers overflow hidden (halved at bottom) */
+/* Strip at bottom: covers aligned to bottom edge; top ~60% of each asset visible */
 .kitVisual {
-  margin: 0 -30px 0;
+  margin: auto -30px 0;
+  height: var(--bonus-kit-strip-h);
+  min-height: var(--bonus-kit-strip-h);
   padding: 0 20px 0;
   border-top: 1px solid #e4e7ec;
-  overflow: hidden;
-  min-height: 200px;
-  max-height: 220px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  overflow: hidden;
 }
 
-.kitFan {
+.kitRow {
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   align-items: flex-end;
   justify-content: center;
-  gap: 0;
-  padding-bottom: 0;
-  margin-bottom: -100px;
-  transform: translateY(8px);
+  gap: clamp(10px, 2vw, 18px);
+  width: 100%;
+  max-width: 700px;
+  height: 100%;
 }
 
 .kitCoverWrap {
-  flex: 0 0 auto;
-  width: clamp(100px, 19vw, 148px);
-  z-index: var(--z, 1);
-  margin-left: clamp(-36px, -5vw, -22px);
-  transform: rotate(var(--rotate, 0deg));
-  transform-origin: 50% 100%;
-  filter: drop-shadow(8px 4px 20px rgba(0, 0, 0, 0.18));
-}
-
-.kitCoverWrap:first-child {
-  margin-left: 0;
+  flex: 0 1 auto;
+  width: clamp(82px, 15vw, 124px);
+  max-width: 124px;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  filter: drop-shadow(4px 8px 18px rgba(0, 0, 0, 0.14));
 }
 
 .kitCoverImg {
   display: block;
   width: 100%;
-  height: auto;
-  aspect-ratio: 157 / 222;
+  height: calc(100% / var(--bonus-media-visible));
+  min-height: calc(100% / var(--bonus-media-visible));
   object-fit: cover;
-  border-radius: 11px;
-  border: 3px solid rgba(0, 0, 0, 0.12);
+  object-position: top center;
+  border-radius: 10px 10px 0 0;
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  border-bottom: none;
   box-sizing: border-box;
-  background: #0a0a0a;
+  background: transparent;
 }
 
 @media (max-width: 959px) {
@@ -325,24 +334,25 @@
     max-width: 100%;
   }
 
+  .section {
+    --bonus-kit-strip-h: clamp(148px, 38vw, 200px);
+    --bonus-notebook-strip-h: clamp(140px, 36vw, 180px);
+  }
+
   .kitVisual {
-    min-height: 180px;
-    max-height: 200px;
     margin-inline: -20px;
   }
 
-  .kitFan {
-    margin-bottom: -85px;
-    justify-content: center;
-    padding-inline: 8px;
+  .kitRow {
+    gap: 8px;
+    max-width: 100%;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    row-gap: 0;
   }
 
   .kitCoverWrap {
-    width: 88px;
-    margin-left: -28px;
-  }
-
-  .kitCoverWrap:first-child {
-    margin-left: 0;
+    width: clamp(68px, 18vw, 92px);
+    max-width: 92px;
   }
 }

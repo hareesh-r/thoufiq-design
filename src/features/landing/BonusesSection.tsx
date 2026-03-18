@@ -1,4 +1,3 @@
-import type { CSSProperties } from "react";
 import data from "../../data/bonuses.json";
 import styles from "./BonusesSection.module.css";
 
@@ -83,18 +82,9 @@ export function BonusesSection() {
               </div>
             </div>
             <div className={styles.kitVisual}>
-              <div className={styles.kitFan}>
-                {resourceKit.covers.map((cover, i) => (
-                  <div
-                    key={cover.src}
-                    className={styles.kitCoverWrap}
-                    style={
-                      {
-                        "--rotate": `${cover.rotate}deg`,
-                        "--z": resourceKit.covers.length - i,
-                      } as CSSProperties
-                    }
-                  >
+              <div className={styles.kitRow}>
+                {resourceKit.covers.map((cover) => (
+                  <div key={cover.src} className={styles.kitCoverWrap}>
                     <img
                       src={cover.src}
                       alt={cover.alt}

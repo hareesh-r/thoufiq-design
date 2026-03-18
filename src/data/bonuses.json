@@ -22,10 +22,10 @@
     "worthAmount": "₹2000",
     "cta": "Get for Free!!!",
     "covers": [
-      { "src": "/assets/designerkit/image0.png", "alt": "Figma Plugins Kit cover", "rotate": -8.35 },
-      { "src": "/assets/designerkit/image1.png", "alt": "Useful websites for UX/UI designers cover", "rotate": 0 },
-      { "src": "/assets/designerkit/image2.png", "alt": "Prompt Guide cover", "rotate": 9.23 },
-      { "src": "/assets/designerkit/image3.png", "alt": "Fonts Kit cover", "rotate": -7.15 }
+      { "src": "/assets/designerkit/image0.png", "alt": "Figma Plugins Kit cover" },
+      { "src": "/assets/designerkit/image1.png", "alt": "Useful websites for UX/UI designers cover" },
+      { "src": "/assets/designerkit/image2.png", "alt": "Prompt Guide cover" },
+      { "src": "/assets/designerkit/image3.png", "alt": "Fonts Kit cover" }
     ]
   }
 }

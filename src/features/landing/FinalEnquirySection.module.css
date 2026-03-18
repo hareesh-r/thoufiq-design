@@ -43,9 +43,10 @@
 }
 
 .headlineAccent {
-  font-family: var(--font-caveat);
+  font-family: var(--font-instrument-serif);
   font-weight: 400;
   font-style: italic;
+  color: #fff;
 }
 
 .sub {
@@ -57,69 +58,36 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* ---- Shiny-border card (gradient ring + inner glass) ---- */
-.cardShell {
-  position: relative;
+/* Frame 2147225445 — frosted panel */
+.formCard {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
   width: 100%;
   max-width: 539px;
   margin-inline: auto;
-  border-radius: 32px;
-  padding: 1px;
-  background: linear-gradient(
-    155deg,
-    rgba(255, 255, 255, 0.5) 0%,
-    rgba(186, 210, 255, 0.35) 8%,
-    rgba(255, 255, 255, 0.14) 22%,
-    rgba(255, 255, 255, 0.06) 38%,
-    rgba(120, 160, 220, 0.04) 52%,
-    rgba(255, 255, 255, 0.03) 62%,
-    transparent 78%
-  );
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
-    0 24px 64px rgba(0, 0, 0, 0.35),
-    0 0 80px rgba(35, 136, 255, 0.08);
+  box-sizing: border-box;
+  background: rgba(26, 26, 26, 0.1);
+  border-radius: 40px;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
 }
 
 @media (min-width: 900px) {
-  .cardShell {
+  .formCard {
     margin-inline: 0 0 auto;
   }
 }
 
-/* Soft outer glow (top-left), fades toward bottom-right */
-.cardGlow {
-  position: absolute;
-  inset: -1px;
-  border-radius: 33px;
-  pointer-events: none;
-  background: radial-gradient(
-    ellipse 85% 55% at 12% 0%,
-    rgba(147, 197, 253, 0.22) 0%,
-    transparent 58%
-  );
-  opacity: 0.9;
-}
-
-.card {
-  position: relative;
-  z-index: 1;
-  border-radius: 31px;
+.formCardInner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   padding: 24px;
-  background: linear-gradient(
-    165deg,
-    rgba(18, 26, 48, 0.92) 0%,
-    rgba(10, 14, 28, 0.96) 42%,
-    rgba(6, 8, 16, 0.98) 100%
-  );
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  /* Inner shiny edge — strong top / upper-left, tapers down */
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.28),
-    inset 1px 0 0 rgba(255, 255, 255, 0.08),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.35),
-    inset 0 0 60px rgba(0, 0, 0, 0.15);
+  gap: 24px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .cardHeader {
@@ -127,7 +95,8 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
-  margin-bottom: 24px;
+  margin: 0;
+  width: 100%;
 }
 
 .cardTitle {
@@ -159,7 +128,10 @@
 .form {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   gap: 32px;
+  width: 100%;
+  margin: 0;
 }
 
 .fields {
@@ -227,8 +199,9 @@
   justify-content: center;
   gap: 6px;
   width: 100%;
+  min-height: 50px;
   height: 50px;
-  padding: 17px 24px;
+  padding: 17px 0;
   border: none;
   border-radius: 32px;
   cursor: pointer;

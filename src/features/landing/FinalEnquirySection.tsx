@@ -26,9 +26,8 @@ export function FinalEnquirySection() {
             </h2>
             <p className={styles.sub}>{data.subhead}</p>
           </div>
-          <div className={styles.cardShell}>
-            <div className={styles.cardGlow} aria-hidden />
-            <div className={styles.card}>
+          <div className={styles.formCard}>
+            <div className={styles.formCardInner}>
               <div className={styles.cardHeader}>
                 <h3 className={styles.cardTitle}>
                   {data.cardTitleBefore}
