@@ -1,156 +1,410 @@
-/* Instructor section — Figma desktop */
+/* Meet Your Instructor — Figma 1182:14871 */
 
 .section {
-  padding-block: clamp(3.5rem, 10vw, 7rem);
+  padding-block: clamp(3rem, 8vw, 5.5rem);
+  padding-top: clamp(4rem, 10vw, 6rem);
+  overflow-x: clip;
 }
 
-.grid {
-  display: grid;
-  gap: 2.5rem;
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: clamp(2rem, 4vw, 2.5rem);
+  max-width: 1240px;
+  margin-inline: auto;
 }
 
-@media (min-width: 900px) {
-  .grid {
-    grid-template-columns: minmax(260px, 380px) 1fr;
-    gap: 3rem;
-    align-items: start;
+@media (min-width: 960px) {
+  .wrap {
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
   }
 }
 
-.photoWrap {
-  position: relative;
-}
-
-.photo {
-  aspect-ratio: 1;
-  max-height: 400px;
+/* —— Left: blue frame —— */
+.left {
+  flex: none;
   width: 100%;
-  border-radius: var(--radius-xl);
-  object-fit: cover;
-  object-position: center top;
-  border: 1px solid var(--border);
-  box-shadow: 0 20px 50px rgba(16, 24, 40, 0.08);
-  display: block;
-  background: var(--surface-2);
+  max-width: 539px;
+  margin-inline: auto;
 }
 
-.chip {
+@media (min-width: 960px) {
+  .left {
+    margin-inline: 0;
+  }
+}
+
+.blueCard {
+  position: relative;
+  width: 100%;
+  /* Shorter frame so more of the portrait sits above the blue area */
+  min-height: clamp(440px, 52vh, 600px);
+  border-radius: 50px;
+  background: linear-gradient(0deg, #222cdc 0%, #2388ff 100%);
+  overflow: visible;
+  isolation: isolate;
+}
+
+/* Base grid (~68px) — subtle */
+.gridPattern {
   position: absolute;
-  bottom: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--dark);
-  color: #fff;
-  padding: 0.75rem 1.25rem;
-  border-radius: var(--radius-pill);
-  text-align: center;
-  min-width: 200px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  inset: 0;
+  border-radius: 50px;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  background-color: transparent;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1.37px, transparent 1.37px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1.37px, transparent 1.37px);
+  background-size: 68px 68px;
+  opacity: 0.95;
 }
 
-/* Chip name — Bricolage Grotesque 700 */
-.chip strong {
+/* Soft radial depth */
+.radialGlow {
+  position: absolute;
+  inset: -20%;
+  border-radius: 50px;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    50% 45% at 50% 40%,
+    rgba(255, 255, 255, 0.07) 0%,
+    transparent 55%
+  );
+}
+
+/*
+ * Second grid: own cell size + offset so it doesn’t line up with the first;
+ * stronger line opacity so it reads clearly on the gradient.
+ */
+.gridPatternOverlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.11) 1.37px, transparent 1.37px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.11) 1.37px, transparent 1.37px);
+  background-size: 56px 56px;
+  background-position: 28px 18px;
+  opacity: 1;
+}
+
+/*
+ * Portrait fills the card; wider image + negative margin = tighter side crop (bigger face).
+ * Glass name + icons sit in this layer so backdrop-filter blurs the photo, not empty blue.
+ */
+.photoSlot {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -88px;
+  bottom: 0;
+  z-index: 1;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.photoCrop {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 0 0 50px 50px;
+  pointer-events: none;
+}
+
+/* Zoom + side crop; anchor toward top so head clears the blue card */
+.photo {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%) scale(1.08);
+  transform-origin: center 18%;
+  width: 142%;
+  min-width: 142%;
+  height: 118%;
+  min-height: 118%;
+  object-fit: cover;
+  object-position: center 0%;
   display: block;
+  filter: grayscale(100%) contrast(1.08) brightness(1.03);
+}
+
+.photoShade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 48%;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 15%,
+    rgba(0, 0, 0, 0.18) 55%,
+    rgba(0, 0, 0, 0.45) 100%
+  );
+}
+
+/* Floated on lower portrait — true glass over image */
+.glassStack {
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 22px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.glassStack a {
+  pointer-events: auto;
+}
+
+/* Name pill — Figma: 66px radius, rgba(255,255,255,0.05), glass on photo */
+.nameplate {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 488px;
+  margin-inline: auto;
+  min-height: 123px;
+  padding: 24px;
+  gap: 10px;
+  border-radius: 66px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px) saturate(130%);
+  -webkit-backdrop-filter: blur(20px) saturate(130%);
+}
+
+.nameText {
+  margin: 0;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 18px;
-  line-height: 1.2;
+  font-size: clamp(1.25rem, 3.2vw, 30px);
+  line-height: 1.12;
+  color: #ffffff;
+  text-shadow:
+    0 0 28px rgba(127, 149, 232, 0.55),
+    0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* style_HJSBP3: Bricolage Grotesque 400, 14px, line-height 1.625 */
-.chip span {
+.roleLine {
+  margin: 0;
   font-family: var(--font-display);
   font-weight: 400;
   font-size: 14px;
-  line-height: 1.625;
-  opacity: 0.9;
+  line-height: 22px;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
 }
 
-/* style_J64F2Z / style_5OEJMJ: Manrope 600, 16px, line-height 1.366, 6% spacing, UPPER */
-.heading {
+.socialRow {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  width: 100%;
+  max-width: 488px;
+  margin-inline: auto;
+}
+
+/* Rounded-rectangle glass — equal slots for 4 brand icons */
+.socialBtn {
+  box-sizing: border-box;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 64px;
+  max-width: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 10px;
+  border-radius: 36px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 8px 24px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  color: #ffffff;
+  text-decoration: none;
+  transition: background 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+}
+
+.socialBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.socialSvg {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  display: block;
+}
+
+/* —— Right column —— */
+.right {
+  flex: 1;
+  min-width: 0;
+  max-width: 661px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.eyebrow {
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 16px;
-  line-height: 1.366;
+  line-height: 22px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--blue);
-  margin: 0 0 0.5rem;
+  color: #2388ff;
+  margin: 0 0 16px;
 }
 
-/* style_LG2FUM / style_5YL4MO: Bricolage Grotesque 700, 48px, line-height 1.2, left */
-.subheading {
+.headline {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(1.2rem, 2.5vw, 48px);
+  font-size: clamp(1.75rem, 4vw, 48px);
   line-height: 1.2;
-  margin: 0 0 1rem;
-  color: var(--ink);
+  color: #1a1a1a;
+  margin: 0 0 16px;
+  max-width: 661px;
 }
 
-/* style_94NWWP: Bricolage Grotesque 500, 18px, line-height 1.5 */
+.headlineAccent {
+  font-family: var(--font-instrument-serif);
+  font-weight: 400;
+  font-style: italic;
+  color: #1a1a1a;
+}
+
 .bio {
   font-family: var(--font-display);
   font-weight: 500;
   font-size: 18px;
-  line-height: 1.5;
-  color: var(--muted);
-  margin: 0 0 1.25rem;
+  line-height: 27px;
+  color: #94969d;
+  margin: 0 0 24px;
+  max-width: 36rem;
+  padding-right: clamp(0px, 4vw, 56px);
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
+  gap: 16px;
+  margin-bottom: 32px;
 }
 
-/* style_VTWIID / style_SNXFW6: Bricolage Grotesque 700, 14px, line-height 1.71 */
 .tag {
-  padding: 0.45rem 1rem;
-  background: var(--badge-bg);
-  color: var(--blue-deep);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 32px;
+  background: rgba(35, 136, 255, 0.08);
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.71;
-  border-radius: var(--radius-pill);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #2388ff;
 }
 
 .stats {
-  display: grid;
-  gap: 1rem;
-}
-
-@media (min-width: 640px) {
-  .stats {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
 }
 
 .stat {
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 1.15rem;
-  background: var(--page);
+  box-sizing: border-box;
+  width: 100%;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  background: #ffffff;
+  border: 1px solid #e4e7ec;
+  border-radius: 16px;
 }
 
-/* Stat titles: Bricolage Grotesque 700, ~17px */
-.stat h4 {
-  margin: 0 0 0.5rem;
+.statTitle {
+  margin: 0 0 4px;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 17px;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
-  color: var(--blue-deep);
+  font-size: 14px;
+  line-height: 24px;
+  color: #0d0d0d;
 }
 
-.stat p {
+.statBody {
   margin: 0;
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.625;
-  color: var(--muted);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 24px;
+  color: #94969d;
+}
+
+@media (max-width: 959px) {
+  .blueCard {
+    min-height: clamp(400px, 58vh, 540px);
+  }
+
+  .photoSlot {
+    top: -72px;
+  }
+
+  .photo {
+    width: 138%;
+    min-width: 138%;
+    transform: translateX(-50%) scale(1.05);
+    transform-origin: center 15%;
+  }
+
+  .glassStack {
+    left: 16px;
+    right: 16px;
+    bottom: 18px;
+    gap: 10px;
+  }
+
+  .nameplate {
+    padding: 20px 18px;
+    min-height: 0;
+    border-radius: 48px;
+  }
+
+  .socialBtn {
+    min-height: 64px;
+    max-width: none;
+    flex: 1 1 calc(50% - 3px);
+    border-radius: 32px;
+  }
 }

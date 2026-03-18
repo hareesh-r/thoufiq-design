@@ -2,11 +2,18 @@
   "sectionId": "instructor",
   "portraitImage": "/assets/Mohammad%20Thoufiq.png",
   "name": "Mohammad Thoufiq M",
-  "roleLine": "Product Designer  •  Content Creator",
+  "roleLine": "Product Designer • Content Creator",
   "heading": "Meet Your Instructor",
-  "subheading": "Learn From a Working Product Designer With 5+ Years of Experience",
+  "titleLead": "Learn From a Working Product Designer With ",
+  "titleAccent": "5+ Years of Experience",
   "bio": "When I started learning design, the hardest part wasn’t the tools — it was understanding how to actually think like a UI/UX designer.",
   "tags": ["Product Designer", "UX Mentor", "Content Creator"],
+  "social": [
+    { "label": "YouTube", "href": "https://www.youtube.com/" },
+    { "label": "LinkedIn", "href": "https://www.linkedin.com/" },
+    { "label": "Instagram", "href": "https://www.instagram.com/" },
+    { "label": "Behance", "href": "https://www.behance.net/" }
+  ],
   "stats": [
     {
       "title": "150+ Educational Videos",

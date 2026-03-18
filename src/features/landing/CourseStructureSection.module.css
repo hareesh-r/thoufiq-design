@@ -243,7 +243,7 @@
   border-top: none;
 }
 
-/* Lessons — Bricolage 400 16px, #94969D, gap 16 */
+/* Lessons — bullet per line + Bricolage 400 16px, #94969D, gap 16 */
 .lessons {
   margin: 0;
   padding: 24px 0 0;
@@ -260,5 +260,17 @@
 
 .lessons li {
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 1.1rem;
+  position: relative;
+}
+
+.lessons li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.52em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #94969d;
 }

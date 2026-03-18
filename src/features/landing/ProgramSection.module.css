@@ -226,46 +226,67 @@
   width: 100%;
 }
 
-/* Caption left side — layout_3WQ3UY: row, center, gap 16px */
+/* Frame 42: row, gap 16, max 448px — avatars 140 + gap + caption */
 .captionGroup {
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 16px;
+  width: min(448px, 100%);
+  flex-shrink: 0;
 }
 
-/* Avatar stack — 140x44 container with overlapping circles */
+/* Avatar stack — 140×44, 5× 44px circles, 24px step overlap */
 .avatarStack {
-  display: flex;
+  position: relative;
+  flex: none;
   width: 140px;
   height: 44px;
-  position: relative;
 }
 
-.avatarStack span {
+.avatarImg {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 2px solid #101828;
-  background: #344054;
+  border: 2.66667px solid #ffffff;
+  object-fit: cover;
   display: block;
-  position: absolute;
-  top: 0;
 }
 
-.avatarStack span:nth-child(1) { left: 0; z-index: 5; }
-.avatarStack span:nth-child(2) { left: 24px; z-index: 4; }
-.avatarStack span:nth-child(3) { left: 48px; z-index: 3; }
-.avatarStack span:nth-child(4) { left: 72px; z-index: 2; }
-.avatarStack span:nth-child(5) { left: 96px; z-index: 1; }
+/* Left → right in DOM; higher z on the right so each face stacks over the one to its left */
+.avatarStack .avatarImg:nth-child(1) {
+  left: 0;
+  z-index: 1;
+}
+.avatarStack .avatarImg:nth-child(2) {
+  left: 24px;
+  z-index: 2;
+}
+.avatarStack .avatarImg:nth-child(3) {
+  left: 48px;
+  z-index: 3;
+}
+.avatarStack .avatarImg:nth-child(4) {
+  left: 72px;
+  z-index: 4;
+}
+.avatarStack .avatarImg:nth-child(5) {
+  left: 96px;
+  z-index: 5;
+}
 
-/* style_HBGFG7: Bricolage Grotesque 400 16px, line-height 1.5, left, fill #FFFFFF */
+/* Designers who chose quality — Bricolage 400 16px / 24px, white */
 .captionText {
   font-family: var(--font-display);
   font-weight: 400;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 24px;
   color: #ffffff;
   margin: 0;
+  flex: none;
 }
 
 /* CTA — Figma Frame 1410104214 (this section only) */
@@ -345,6 +366,7 @@
   .captionGroup {
     flex-direction: column;
     text-align: center;
+    margin: 0 auto;
   }
 
   .cta {

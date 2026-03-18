@@ -128,10 +128,11 @@
 
 .heroEnrollShineBeam {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: -28%;
+  bottom: -28%;
   left: 0;
-  width: 45%;
+  width: 48%;
+  transform-origin: center center;
   background: linear-gradient(
     90deg,
     transparent 0%,
@@ -145,12 +146,13 @@
   will-change: transform;
 }
 
+/* Same sweep axis (left → right); tilted reflection band (mirror of previous angle) */
 @keyframes heroEnrollShineSweep {
   0% {
-    transform: translateX(-100%);
+    transform: translateX(-100%) rotate(11deg);
   }
   100% {
-    transform: translateX(320%);
+    transform: translateX(320%) rotate(11deg);
   }
 }
 

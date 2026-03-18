@@ -26,60 +26,89 @@ export function FinalEnquirySection() {
             </h2>
             <p className={styles.sub}>{data.subhead}</p>
           </div>
-          <div className={styles.card}>
-            <h3 className={styles.cardTitle}>{data.cardTitle}</h3>
-            <p className={styles.cardBody}>{data.cardBody}</p>
-            <form onSubmit={onSubmit}>
-              <div className={styles.field}>
-                <label className={styles.label} htmlFor="fe-name">
-                  {f.fullNameLabel}
-                </label>
-                <input
-                  id="fe-name"
-                  name="name"
-                  className={styles.input}
-                  placeholder={f.fullNamePlaceholder}
-                  required
-                  autoComplete="name"
-                />
+          <div className={styles.cardShell}>
+            <div className={styles.cardGlow} aria-hidden />
+            <div className={styles.card}>
+              <div className={styles.cardHeader}>
+                <h3 className={styles.cardTitle}>
+                  {data.cardTitleBefore}
+                  <span className={styles.cardTitleEm}>{data.cardTitleHighlight}</span>
+                  {data.cardTitleAfter}
+                </h3>
+                <p className={styles.cardBody}>{data.cardBody}</p>
               </div>
-              <div className={styles.field}>
-                <label className={styles.label} htmlFor="fe-email">
-                  {f.emailLabel}
-                </label>
-                <input
-                  id="fe-email"
-                  name="email"
-                  type="email"
-                  className={styles.input}
-                  placeholder={f.emailPlaceholder}
-                  required
-                  autoComplete="email"
-                />
-              </div>
-              <div className={styles.field}>
-                <label className={styles.label} htmlFor="fe-mobile">
-                  {f.mobileLabel}
-                </label>
-                <input
-                  id="fe-mobile"
-                  name="mobile"
-                  type="tel"
-                  className={styles.input}
-                  placeholder={f.mobilePlaceholder}
-                  autoComplete="tel"
-                />
-              </div>
-              <button
-                type="submit"
-                className={`btn-cta btn-cta--block ${styles.submit}`}
-              >
-                {f.submitLabel} →
-              </button>
-              <p className={styles.footnote}>
-                {done ? "Thanks — we'll be in touch." : f.footnote}
-              </p>
-            </form>
+              <form className={styles.form} onSubmit={onSubmit}>
+                <div className={styles.fields}>
+                  <div className={styles.field}>
+                    <label className={styles.label} htmlFor="fe-name">
+                      {f.fullNameLabel}
+                    </label>
+                    <input
+                      id="fe-name"
+                      name="name"
+                      className={styles.input}
+                      placeholder={f.fullNamePlaceholder}
+                      required
+                      autoComplete="name"
+                    />
+                  </div>
+                  <div className={styles.field}>
+                    <label className={styles.label} htmlFor="fe-email">
+                      {f.emailLabel}
+                    </label>
+                    <input
+                      id="fe-email"
+                      name="email"
+                      type="email"
+                      className={styles.input}
+                      placeholder={f.emailPlaceholder}
+                      required
+                      autoComplete="email"
+                    />
+                  </div>
+                  <div className={styles.field}>
+                    <label className={styles.label} htmlFor="fe-mobile">
+                      {f.mobileLabel}
+                    </label>
+                    <input
+                      id="fe-mobile"
+                      name="mobile"
+                      type="tel"
+                      className={styles.input}
+                      placeholder={f.mobilePlaceholder}
+                      required
+                      autoComplete="tel"
+                    />
+                  </div>
+                </div>
+                <div className={styles.ctaBlock}>
+                  <button type="submit" className={styles.submit}>
+                    <span className={styles.submitText}>{f.submitLabel}</span>
+                    <svg
+                      className={styles.submitArrow}
+                      viewBox="0 0 16 16"
+                      width={16}
+                      height={16}
+                      aria-hidden
+                    >
+                      <path
+                        d="M3 8h10M9 4l4 4-4 4"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.33"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
+                  <p
+                    className={`${styles.footnote} ${done ? styles.footnoteDone : ""}`}
+                  >
+                    {done ? "Thanks — we'll be in touch." : f.footnote}
+                  </p>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>

@@ -17,15 +17,15 @@
   },
   "resourceKit": {
     "name": "Designer Resource Kit",
-    "description": "A curated set of guides covering Figma plugins, UX/UI reference websites, prompt usage, and font selection and much more",
+    "description": "A curated set of guides covering **Figma plugins, UX/UI reference websites, prompt usage, and font selection and much more**",
     "worthLabel": "Worth",
     "worthAmount": "₹2000",
     "cta": "Get for Free!!!",
     "covers": [
-      { "title": "Figma Plugins Kit", "rotate": -8.35, "gradient": "red" },
-      { "title": "Useful Websites for UX/UI Designers", "rotate": 0, "gradient": "red" },
-      { "title": "Prompt Guide", "rotate": 9.23, "gradient": "amber" },
-      { "title": "Fonts Kit", "rotate": -7.15, "gradient": "amber" }
+      { "src": "/assets/designerkit/image0.png", "alt": "Figma Plugins Kit cover", "rotate": -8.35 },
+      { "src": "/assets/designerkit/image1.png", "alt": "Useful websites for UX/UI designers cover", "rotate": 0 },
+      { "src": "/assets/designerkit/image2.png", "alt": "Prompt Guide cover", "rotate": 9.23 },
+      { "src": "/assets/designerkit/image3.png", "alt": "Fonts Kit cover", "rotate": -7.15 }
     ]
   }
 }

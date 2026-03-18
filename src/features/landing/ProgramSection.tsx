@@ -45,11 +45,16 @@ export function ProgramSection() {
               <div className={styles.bottomBar}>
                 <div className={styles.captionGroup}>
                   <div className={styles.avatarStack} aria-hidden>
-                    <span />
-                    <span />
-                    <span />
-                    <span />
-                    <span />
+                    {data.captionAvatars.map((src) => (
+                      <img
+                        key={src}
+                        src={src}
+                        alt=""
+                        className={styles.avatarImg}
+                        width={44}
+                        height={44}
+                      />
+                    ))}
                   </div>
                   <p className={styles.captionText}>{data.captionText}</p>
                 </div>

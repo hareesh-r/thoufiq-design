@@ -19,7 +19,6 @@ export function CourseStructureSection() {
             </span>
           </h2>
           <p className={styles.desc}>{data.description}</p>
-          <div className={styles.timeline} aria-hidden />
         </div>
         <div className={styles.accordions}>
           {data.modules.map((m, index) => (
