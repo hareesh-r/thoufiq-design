@@ -1,0 +1,41 @@
+{
+  "sectionId": "program",
+  "eyebrow": "Program Overview",
+  "title": "Why you'll love this course",
+  "description": "Our UI/UX & Product Design program delivers industry-leading results through a simplified, hands-on learning approach.",
+  "cards": [
+    {
+      "icon": "/assets/prog-icon-recorded.svg",
+      "title": "20+ Hours Recorded Sessions",
+      "desc": "In-depth, structured lessons you can watch at your own pace — revisit concepts anytime without rushing or missing details."
+    },
+    {
+      "icon": "/assets/prog-icon-ai.svg",
+      "title": "Gen AI–Integrated Curriculum",
+      "desc": "Learn how to use AI as a design assistant — for research, ideation, and more — without replacing design thinking."
+    },
+    {
+      "icon": "/assets/prog-icon-portfolio.svg",
+      "title": "Career & Portfolio Preparation",
+      "desc": "Build work that reads like real product experience — with guidance on case studies, storytelling, and presentation."
+    },
+    {
+      "icon": "/assets/prog-icon-review.svg",
+      "title": "1 - 1 Review Support",
+      "desc": "Get direct feedback on your designs so you know what's working, what's not, and how to improve faster."
+    },
+    {
+      "icon": "/assets/prog-icon-live.svg",
+      "title": "Live Sessions With Industry Professionals",
+      "desc": "Get real insights from designers, developers, and hiring managers about building products and growing your career."
+    },
+    {
+      "icon": "/assets/prog-icon-ux.svg",
+      "title": "Practical UX Design Exercises",
+      "desc": "Apply every concept through hands-on exercises that simulate real-world design problems — not hypothetical tasks."
+    }
+  ],
+  "captionText": "Designers who chose quality",
+  "ctaLabel": "Enroll Now",
+  "ctaHref": "#pricing"
+}

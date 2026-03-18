@@ -1,0 +1,157 @@
+/* Final enquiry / footer section — Figma desktop */
+
+.section {
+  padding-block: clamp(3.5rem, 9vw, 5.5rem) clamp(2.5rem, 5vw, 3.5rem);
+  background: var(--dark);
+  color: #e4e7ec;
+}
+
+.grid {
+  display: grid;
+  gap: 2.5rem;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr minmax(300px, 400px);
+    align-items: start;
+  }
+}
+
+/* style_NR6E1W: Bricolage Grotesque 700, 48px, line-height 1.2, left */
+.headline {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.45rem, 3vw, 48px);
+  line-height: 1.2;
+  color: #fff;
+  margin: 0 0 1rem;
+}
+
+/* Bricolage Grotesque 400, 16px, line-height 1.2, fill rgba(255,255,255,0.8) */
+.sub {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.35rem, 3vw, 1.85rem);
+}
+
+/* style_YGRMXN: Bricolage Grotesque 700, 20px, line-height 1.2 */
+.cardTitle {
+  margin: 0 0 0.45rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #fff;
+}
+
+/* style_8QZ18O: Bricolage Grotesque 300, 14px, line-height 1.43 */
+.cardBody {
+  margin: 0 0 1.35rem;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.43;
+  color: #98a2b3;
+}
+
+.field {
+  margin-bottom: 0.9rem;
+}
+
+/* style_TSBMOL: Bricolage Grotesque 500, 14px, line-height 1.43 */
+.label {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.43;
+  color: #98a2b3;
+  margin-bottom: 0.35rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.8rem 1.1rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(15, 23, 42, 0.5);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.input::placeholder {
+  color: #667085;
+}
+
+.input:focus {
+  outline: 2px solid var(--blue);
+  outline-offset: 1px;
+}
+
+.submit {
+  width: 100%;
+  margin-top: 0.35rem;
+}
+
+/* style_QAZ2XE: Bricolage Grotesque 400, 14px, line-height 1.43 */
+.footnote {
+  margin: 0.85rem 0 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.43;
+  color: #667085;
+  text-align: center;
+}
+
+.footerBar {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footerLogo {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+
+/* style_H4EL69: Bricolage Grotesque 400, 16px, line-height 1.2, center */
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem 0.85rem;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #98a2b3;
+}
+
+.bar a {
+  color: #e4e7ec !important;
+  text-decoration: none !important;
+}
+
+.bar a:hover {
+  color: var(--blue) !important;
+}

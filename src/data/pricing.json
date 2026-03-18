@@ -1,0 +1,19 @@
+{
+  "sectionId": "pricing",
+  "headline": "One investment. Unlimited career returns.",
+  "banner": "Launch price - only few seats left",
+  "priceCurrent": "₹4,999",
+  "priceOriginal": "₹9,999",
+  "footnote": "One-time payment · Lifetime Course Access",
+  "features": [
+    "Live QnA Sessions",
+    "Live Sessions With Industry Professionals",
+    "170+ practical lessons covering UX/UI, Career, Freelancing, communication and much more...",
+    "Full access to 20+ structured course modules",
+    "20+ hours of step-by-step learning content",
+    "Resume, portfolio, and job application guidance",
+    "Interview preparation and career strategy",
+    "Build real portfolio-ready UX case studies"
+  ],
+  "cta": { "label": "Enroll Now", "href": "#final-enquiry" }
+}

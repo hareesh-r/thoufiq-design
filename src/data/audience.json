@@ -1,0 +1,52 @@
+{
+  "sectionId": "audience",
+  "eyebrow": "Is This Course Right for You?",
+  "title": "Built for people who are ",
+  "titleItalic": "serious about design",
+  "subtitle": "Whether you're just starting or leveling up — this program meets you where you are.",
+  "personas": [
+    {
+      "icon": "/assets/aud-icon-uiux.svg",
+      "iconBg": "rgba(43, 63, 243, 0.1)",
+      "iconBorder": "rgba(43, 63, 243, 0.2)",
+      "title": "Current UI/UX Designers",
+      "body": "You know the basics but struggle with advanced workflows, design systems, and articulating your design decisions."
+    },
+    {
+      "icon": "/assets/aud-icon-graphic.svg",
+      "iconBg": "rgba(124, 59, 237, 0.1)",
+      "iconBorder": "rgba(124, 59, 237, 0.2)",
+      "title": "Graphic Designers",
+      "body": "You have a strong visual eye but need to learn UX thinking, user research, and product design strategy."
+    },
+    {
+      "icon": "/assets/aud-icon-career.svg",
+      "iconBg": "rgba(249, 116, 21, 0.1)",
+      "iconBorder": "rgba(249, 116, 21, 0.2)",
+      "title": "Career Changers",
+      "body": "You're switching from another field and need a structured, beginner-friendly path into UI/UX design."
+    },
+    {
+      "icon": "/assets/aud-icon-selftaught.svg",
+      "iconBg": "rgba(32, 172, 107, 0.1)",
+      "iconBorder": "rgba(32, 172, 107, 0.2)",
+      "title": "Self-Taught Designers",
+      "body": "You've learned from YouTube and tutorials but have gaps in your knowledge and no structured portfolio."
+    },
+    {
+      "icon": "/assets/aud-icon-freelancer.svg",
+      "iconBg": "rgba(43, 63, 243, 0.1)",
+      "iconBorder": "rgba(43, 63, 243, 0.2)",
+      "title": "Freelancers",
+      "body": "You want to level up your skills to charge premium rates and deliver better work for your clients."
+    },
+    {
+      "icon": "/assets/aud-icon-portfolio.svg",
+      "iconBg": "rgba(43, 63, 243, 0.1)",
+      "iconBorder": "rgba(43, 63, 243, 0.2)",
+      "title": "Portfolio Builders",
+      "body": "You need real, impressive case studies that showcase your end-to-end UX process and land interviews."
+    }
+  ],
+  "cta": { "label": "Yes, this is for me - Let's go", "href": "#pricing" }
+}

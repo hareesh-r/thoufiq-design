@@ -1,0 +1,112 @@
+/* Bonuses section — Figma desktop */
+
+.section {
+  padding-block: clamp(3.5rem, 10vw, 7rem);
+  background: var(--surface);
+}
+
+.head {
+  margin-bottom: 2rem;
+}
+
+/* Eyebrow: Manrope 600, 16px, line-height 1.366, UPPER, 6% spacing */
+.title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.366;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin: 0 0 0.5rem;
+}
+
+/* Bricolage Grotesque 700, 48px, line-height 1.2 */
+.subtitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.35rem, 2.8vw, 48px);
+  line-height: 1.2;
+  margin: 0;
+  white-space: pre-line;
+  color: var(--ink);
+}
+
+.grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card {
+  background: linear-gradient(145deg, #fffbeb 0%, #fef3c7 45%, #fde68a 100%);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  border: 1px solid rgba(234, 179, 8, 0.25);
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+}
+
+/* style_LYI7UF: Bricolage Grotesque 700, 20px, line-height 1.2 */
+.card h3 {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+/* style_73NNFS: Bricolage Grotesque 600, 16px, line-height 1.5 */
+.card p {
+  margin: 0 0 auto;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--muted);
+  flex: 1;
+}
+
+.worthRow {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(16, 24, 40, 0.08);
+}
+
+.worth {
+  font-family: var(--font-caveat);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1;
+  color: #b45309;
+}
+
+/* style_XLR4YF: Bricolage Grotesque 700, 24px, line-height 1 */
+.price {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.cta {
+  font-family: var(--font-caveat);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1;
+  color: #b45309;
+  margin-left: auto;
+}

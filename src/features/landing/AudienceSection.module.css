@@ -1,0 +1,204 @@
+/* Audience section — matches Figma node 1182:14260 */
+
+.section {
+  padding-block: clamp(3.5rem, 10vw, 7rem);
+}
+
+/* Inner wrapper — layout_Y01B6L: column, center, gap 50px */
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+/* Header block — layout_2PC3QR: column, center, gap 16px, max-width 1240 */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 1240px;
+  width: 100%;
+}
+
+/* Eyebrow + title group — layout_ZNFM0D: column, gap 8px */
+.eyebrowGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+/* style_1QFXUG: Manrope 600 16px, uppercase, 6% spacing, center, #2388FF */
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.366;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #2388ff;
+  margin: 0;
+}
+
+/* style_MEB93X: Bricolage Grotesque 700, 48px max, line-height 1.2, center */
+.title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.75rem, 4vw, 48px);
+  line-height: 1.2;
+  text-align: center;
+  color: var(--ink);
+  margin: 0;
+}
+
+/* Figma 1182:14264 — style_MEB93X applies to full title; same as .title */
+.titleItalic {
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+/* style_42TNFZ: Bricolage Grotesque 600, 16px, line-height 1.2, #94969D */
+.subtitle {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.2;
+  text-align: center;
+  color: #94969d;
+  margin: 0;
+}
+
+/* Cards + CTA area — layout_C6PJXG: column, center, gap 32px */
+.cardsArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+/* Card rows wrapper — layout_3QPY2J: column, gap 16px, width 1241 */
+.cardRows {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 1241px;
+}
+
+/* Each row — layout_965BD1: row, gap 16px, stretch */
+.cardRow {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Each card — layout_H8CL0E: column, gap 20px (inner), padding 24px, bg #FFF, border #E5E7EB 1px, radius 16 */
+.card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  min-width: 0;
+}
+
+/* Icon circle — 56x56, radius 16, accent bg + border */
+.iconCircle {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.iconCircle img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Card text — layout_6Z0ID7: column, gap 7px */
+.cardText {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+/* style_XCUKNE: Bricolage Grotesque 700 17px, line-height 1.5, letter-spacing -2%, left, #0F1729 */
+.cardTitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: #0f1729;
+  margin: 0;
+}
+
+/* style_LU5WY8: Bricolage Grotesque 400 14px, line-height 1.625, left, #646A78 */
+.cardBody {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.625;
+  color: #646a78;
+  margin: 0;
+}
+
+/* CTA button — gradient, radius 32, glow shadow */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 28px;
+  background: linear-gradient(90deg, #222cdc 0%, #2388ff 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 32px;
+  box-shadow: 0px 14px 32px 4px rgba(35, 136, 255, 0.4),
+    inset 0px 0px 4px 0px rgba(255, 255, 255, 1);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+
+.cta:hover {
+  opacity: 0.92;
+}
+
+/* style_NC4LEM / style_ZSD76W: Bricolage Grotesque 700 16px, #FFFFFF */
+.ctaLabel {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.ctaBold {
+  font-weight: 700;
+}
+
+/* Mobile responsive */
+@media (max-width: 767px) {
+  .inner {
+    gap: 32px;
+  }
+
+  .title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  .cardRow {
+    flex-direction: column;
+  }
+}

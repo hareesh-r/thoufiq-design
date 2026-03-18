@@ -1,0 +1,21 @@
+{
+  "sectionId": "bonuses",
+  "title": "Free bonuses",
+  "subtitle": "₹2,499 worth of resources.\nYours free.",
+  "items": [
+    {
+      "name": "Designer Resource Kit",
+      "description": "A curated set of guides covering Figma plugins, UX/UI reference websites, prompt usage, and font selection and much more",
+      "worthLabel": "Worth",
+      "worthAmount": "₹ 2000",
+      "cta": "Get for Free!!!"
+    },
+    {
+      "name": "Figma Plugins Kit",
+      "description": "Curated Figma plugins and workflows to speed up your UI process.",
+      "worthLabel": "Worth",
+      "worthAmount": "₹400",
+      "cta": "Get for Free!!!"
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+/* FAQ section — Figma desktop */
+
+.section {
+  padding-block: clamp(3.5rem, 10vw, 7rem);
+  background: var(--page);
+}
+
+.layout {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .layout {
+    grid-template-columns: minmax(200px, 280px) 1fr;
+    align-items: start;
+  }
+}
+
+/* Bricolage Grotesque 700, 48px, line-height 1.2 */
+.title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.45rem, 2.8vw, 48px);
+  line-height: 1.2;
+  margin: 0 0 1rem;
+  color: var(--ink);
+}
+
+/* style_KQKCHT: Bricolage Grotesque 600, 18px, line-height 1.5 */
+.intro {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.details {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  padding: 0 1rem;
+}
+
+/* style_QV5DRY: Bricolage Grotesque 700, 18px, line-height 1.3 */
+.summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.3;
+  color: var(--ink);
+  list-style: none;
+}
+
+.summary::-webkit-details-marker {
+  display: none;
+}
+
+.chev {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--cta-grad);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.details[open] .chev {
+  transform: rotate(180deg);
+}
+
+/* style_0YFFPT: Bricolage Grotesque 500, 16px, line-height 1.4 */
+.answer {
+  margin: 0;
+  padding: 0 0 1.05rem;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  padding-top: 0.75rem;
+}

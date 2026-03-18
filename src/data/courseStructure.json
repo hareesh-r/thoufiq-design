@@ -1,0 +1,46 @@
+{
+  "sectionId": "course-structure",
+  "eyebrow": "Lorem Ipsum",
+  "title": "Course Structure",
+  "description": "Master web design with our proven 6-module system.\n\nEach lesson builds on the last, taking you",
+  "modules": [
+    { "id": "m0", "code": "Module 0", "title": "Why You're Here & About the Course" },
+    {
+      "id": "m1",
+      "code": "Module 1",
+      "title": "Introduction to UI/UX",
+      "lessons": [
+        "What UX actually means",
+        "What UI actually means",
+        "UX vs UI (Clear Difference)",
+        "Why UX Comes First",
+        "How digital products are built",
+        "Roles Inside a Product Team",
+        "Assignment 1",
+        "Wrap-up"
+      ]
+    },
+    { "id": "m2", "code": "Module 2", "title": "UX Thinking & Psychology" },
+    { "id": "m3", "code": "Module 3", "title": "Fundamentals of UX" },
+    { "id": "m4", "code": "Module 4", "title": "UX Laws & Principles" },
+    { "id": "m5", "code": "Module 5", "title": "Design Thinking Process" },
+    { "id": "m6", "code": "Module 6", "title": "Problem Identification" },
+    { "id": "m7", "code": "Module 7", "title": "FigJam for UX" },
+    { "id": "m8", "code": "Module 8", "title": "Real-Time Implementation" },
+    { "id": "m9", "code": "Module 9", "title": "The Fundamentals of UI Design" },
+    { "id": "m10", "code": "Module 10", "title": "Figma Basic to Advanced" },
+    { "id": "m11", "code": "Module 11", "title": "High-Fidelity UI Screens" },
+    { "id": "m12", "code": "Module 12", "title": "Prototyping" },
+    { "id": "m13", "code": "Module 13", "title": "Figma Make" },
+    { "id": "m14", "code": "Module 14", "title": "AI in UI/UX" },
+    { "id": "m15", "code": "Module 15", "title": "Prompting Techniques" },
+    { "id": "m16", "code": "Module 16", "title": "Case Study Creation" },
+    { "id": "m17", "code": "Module 17", "title": "Resume & Portfolio" },
+    { "id": "m18", "code": "Module 18", "title": "Job Application Strategy" },
+    { "id": "m19", "code": "Module 19", "title": "How to crack Interview" },
+    { "id": "m20", "code": "Module 20", "title": "Current Job Market" },
+    { "id": "m21", "code": "Module 21", "title": "Communication" },
+    { "id": "m22", "code": "Module 22", "title": "Freelancing" },
+    { "id": "m23", "code": "Module 23", "title": "Live Experience Sharing" }
+  ]
+}

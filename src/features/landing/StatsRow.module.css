@@ -1,0 +1,68 @@
+/* Stats row — Figma desktop */
+
+.wrap {
+  background: var(--page);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.cell {
+  flex: 1 1 160px;
+  text-align: center;
+  padding: 1.5rem 1.25rem;
+  position: relative;
+}
+
+.cell:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 22%;
+  height: 56%;
+  width: 1px;
+  background: var(--border);
+}
+
+@media (max-width: 520px) {
+  .cell:not(:last-child)::after {
+    display: none;
+  }
+
+  .cell {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .cell:last-child {
+    border-bottom: none;
+  }
+}
+
+/* style_S5A3YC: Bricolage Grotesque 300, 64px, line-height 1.2, center */
+.value {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2rem, 5vw, 64px);
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+/* style_EHQVVQ: Bricolage Grotesque 400, 24px, line-height 1.2, center */
+.label {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(0.875rem, 2vw, 24px);
+  line-height: 1.2;
+  color: var(--muted);
+  margin-top: 0.35rem;
+}

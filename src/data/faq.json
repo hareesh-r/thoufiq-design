@@ -1,0 +1,27 @@
+{
+  "sectionId": "faq",
+  "title": "Got questions? Good.",
+  "intro": "Got questions? We've got answers. Here are the most common questions from students before they transform their careers with web design.",
+  "items": [
+    {
+      "question": "I'm a complete beginner. Is this for me?",
+      "answer": "100%. This course starts from zero — no design background needed. Most of our successful students started with zero experience."
+    },
+    {
+      "question": "How is this different from free YouTube content?",
+      "answer": "YouTube is great for tips, but this is a full roadmap: structured modules, assignments, live Q&A, portfolio guidance, and interview prep—so you finish hireable, not just informed."
+    },
+    {
+      "question": "What if I get stuck or need help?",
+      "answer": "You’ll have live Q&A sessions, community support, and clear milestones so you’re never guessing what to do next."
+    },
+    {
+      "question": "Do I need to know Figma first?",
+      "answer": "No. We build Figma skills step by step inside the course—from basics through advanced UI and prototyping."
+    },
+    {
+      "question": "How long do I have access?",
+      "answer": "One-time payment · Lifetime Course Access to the materials included with your enrollment."
+    }
+  ]
+}

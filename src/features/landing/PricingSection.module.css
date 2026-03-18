@@ -1,0 +1,115 @@
+/* Pricing section — Figma desktop */
+
+.section {
+  padding-block: clamp(3.5rem, 10vw, 7rem);
+}
+
+/* style_MEB93X: Bricolage Grotesque 700, 48px, line-height 1.2, center */
+.headline {
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 4vw, 48px);
+  line-height: 1.2;
+  margin: 0 0 2rem;
+  color: var(--ink);
+}
+
+.card {
+  max-width: 460px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 50px rgba(16, 24, 40, 0.08);
+}
+
+/* Bricolage Grotesque 500, 14px */
+.banner {
+  background: var(--dark);
+  color: #fff;
+  text-align: center;
+  padding: 0.85rem 1rem;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.body {
+  background: linear-gradient(180deg, var(--pricing-body-top) 0%, var(--pricing-body) 40%, #fff 100%);
+  padding: 1.75rem 1.5rem 1.5rem;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.25rem;
+}
+
+.was {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--muted);
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+}
+
+/* style_6YMPBS: Bricolage Grotesque 700, 48px, line-height 1.2 */
+.now {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.1rem, 5vw, 48px);
+  line-height: 1.2;
+  color: var(--blue-deep);
+  letter-spacing: -0.02em;
+}
+
+/* style_TC16I1: DM Sans 400, 14px, line-height 1.57, center */
+.footnote {
+  text-align: center;
+  font-family: var(--font-dm);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.57;
+  color: var(--muted);
+  margin: 0 0 1.35rem;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--border);
+}
+
+/* style_6K53KM: Bricolage Grotesque 500, 16px, line-height 1.375 */
+.list li {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  padding: 0.7rem 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.375;
+  color: var(--ink);
+  border-bottom: 1px solid var(--border);
+}
+
+.list li::before {
+  content: "✓";
+  color: var(--blue);
+  font-family: var(--font-display);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+.cta {
+  width: 100%;
+  margin-top: 1.15rem;
+}

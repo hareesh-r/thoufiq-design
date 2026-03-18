@@ -1,0 +1,27 @@
+{
+  "sectionId": "instructor",
+  "name": "Mohammad Thoufiq M",
+  "roleLine": "Product Designer  •  Content Creator",
+  "heading": "Meet Your Instructor",
+  "subheading": "Learn From a Working Product Designer With 5+ Years of Experience",
+  "bio": "When I started learning design, the hardest part wasn’t the tools — it was understanding how to actually think like a UI/UX designer.",
+  "tags": ["Product Designer", "UX Mentor", "Content Creator"],
+  "stats": [
+    {
+      "title": "150+ Educational Videos",
+      "body": "Created 150+ design and career-focused videos, reaching 3.5M+ viewers and helping thousands understand product design."
+    },
+    {
+      "title": "25+ Real-World Projects",
+      "body": "Worked on 25+ real projects across industries like Web3, FinTech & Healthcare product design."
+    },
+    {
+      "title": "50+ Freelance Projects Delivered",
+      "body": "Designed UX and UI solutions for startups, businesses, and digital products through freelance collaborations."
+    },
+    {
+      "title": "80% Placement Success",
+      "body": "Students guided through my mentorship have achieved a 75% placement rate in product design roles."
+    }
+  ]
+}

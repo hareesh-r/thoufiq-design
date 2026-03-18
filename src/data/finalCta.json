@@ -1,0 +1,22 @@
+{
+  "sectionId": "final-enquiry",
+  "headline": "Your design career starts with one decision.",
+  "subhead": "Join designers who are learning how to think, design, and build real digital products — not just pretty UI screens.",
+  "cardTitle": "Have Questions Before You Join?",
+  "cardBody": "Fill out the form and our team will reach out to help you understand the course and next steps.",
+  "form": {
+    "fullNameLabel": "Full Name *",
+    "fullNamePlaceholder": "Enter Full Name",
+    "emailLabel": "Email ID *",
+    "emailPlaceholder": "Enter Email ID",
+    "mobileLabel": "Mobile Number",
+    "mobilePlaceholder": "Enter Mobile Number",
+    "submitLabel": "Enquire Now",
+    "footnote": "No spam. Just course details and next steps."
+  },
+  "footer": {
+    "copyright": "© 2025 Design Council Private Limited",
+    "email": "enquiry@course.com",
+    "refund": "Refund Policy"
+  }
+}
