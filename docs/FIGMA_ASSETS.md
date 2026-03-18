@@ -4,9 +4,9 @@
 
 **`docs/Course Website (1).fig`** — full offline export. It’s a ZIP; the main document is binary and **doesn’t expose fonts as readable text** in-repo. See **`docs/LOCAL_FIGMA_FILE.md`** for structure and how to use it (Figma Desktop, images folder, API for tokens).
 
-## Wishlist page (`/wishlist`)
+## Waitlist page (`/waitlist`)
 
-Implements the same **Course Website (1)** language as the Program block (Figma `1182:14339`): dark shell `#101828` (32px radius), **glass** list rows (gradient + blur + border), blue uppercase eyebrow (`--font-body` 600), white Bricolage titles, gradient CTAs. Empty state and remove dialog live inside that system. Node-specific frames (e.g. `1182:27510`…) can be checked in Figma when the API isn’t rate-limited.
+Full-viewport dark hero (Figma `1182:27510`): radial navy background, grid overlay, glass header CTA, badge, headline with Instrument Serif italic accent, gradient **Reserve My Spot** CTA. Copy in `src/data/waitlist.json`.
 
 ## Pulled automatically (via Figma MCP)
 
@@ -19,9 +19,11 @@ These assets were downloaded with the Figma MCP `download_figma_images` tool and
 | `footer-icon-2.svg` | 1182:15703 | Footer (e.g. social) — 124×62 |
 | `footer-icon-3.svg` | 1182:15704 | Footer (e.g. social) — 99×48 |
 | `footer-icon-4.svg` | 1182:15705 | Footer (e.g. social) — 57×27 |
-| `footer-icon-5.svg` | 1182:15706 | Footer (e.g. social) — 80×37 |
+| `footer-icon-5.svg` | 1182:15706 | (optional) social — replaced in app by placeholder until final assets |
+| `footer-gradient.png` | 1182:15412 | Final section — blue glow (`FinalEnquirySection` background) |
+| `footer-logo-placeholder.svg` | — | Single footer logo placeholder (`finalCta.json` → `footer.logoPlaceholder`) |
 
-Footer icons 2–5 are likely social/icon set; wire them as links (e.g. Twitter, LinkedIn, Instagram, YouTube) when you have URLs.
+Footer layout frame: **1182:15409**.
 
 ---
 

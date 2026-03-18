@@ -6,8 +6,13 @@
   "primaryCta": { "label": "Enroll Now", "href": "#pricing" },
   "testimonialInitial": "A",
   "testimonialText": "Aakash G. - landed a ₹9.5LPA role as a fresher",
+  "videoThumbnail": "/assets/video-thumbnail.png",
   "videoEyebrow": "Just 5 mins watch",
-  "videoTitle": "Watch this before joining any UI/UX course",
+  "videoTitleLead": "Watch this before joining",
+  "videoTitleAccent": "any UI/UX course",
   "videoDescription": "See exactly how this course is different — and why 90% of design courses leave you unprepared.",
-  "videoCardQuote": "Watch how this course turns beginners into job-ready UI/UX designers — without wasting months on outdated theory."
+  "videoQuotePrefix": "Watch how ",
+  "videoQuoteEmphasis": "this course turns beginners into job-ready UI/UX designers",
+  "videoQuoteSuffix": "  — without wasting months on outdated theory.",
+  "videoPlayLabel": "Play intro video"
 }

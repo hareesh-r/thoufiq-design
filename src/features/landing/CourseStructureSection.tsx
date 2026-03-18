@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import data from "../../data/courseStructure.json";
 import styles from "./CourseStructureSection.module.css";
 
@@ -18,8 +19,12 @@ export function CourseStructureSection() {
           <div className={styles.timeline} aria-hidden />
         </div>
         <div className={styles.accordions}>
-          {data.modules.map((m) => (
-            <details key={m.id} className={styles.details}>
+          {data.modules.map((m, index) => (
+            <details
+              key={m.id}
+              className={styles.details}
+              style={{ "--stack-z": index } as CSSProperties}
+            >
               <summary className={styles.summary}>
                 <span className={styles.code}>{m.code}</span>
                 <span className={styles.summaryTitle}>{m.title}</span>

@@ -6,7 +6,13 @@ export function InstructorSection() {
     <section id={data.sectionId} className={styles.section} aria-labelledby="ins-title">
       <div className={`container ${styles.grid}`}>
         <div className={styles.photoWrap}>
-          <div className={styles.photo} role="img" aria-label={data.name} />
+          <img
+            className={styles.photo}
+            src={data.portraitImage}
+            alt={data.name}
+            width={800}
+            height={800}
+          />
           <div className={styles.chip}>
             <strong>{data.name}</strong>
             <span>{data.roleLine}</span>

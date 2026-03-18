@@ -21,7 +21,10 @@ export function PricingSection() {
                 <li key={f}>{f}</li>
               ))}
             </ul>
-            <a className={`btn-cta ${styles.cta}`} href={data.cta.href}>
+            <a
+              className={`btn-cta btn-cta--block ${styles.cta}`}
+              href={data.cta.href}
+            >
               {data.cta.label} →
             </a>
           </div>

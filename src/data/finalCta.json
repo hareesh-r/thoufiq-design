@@ -1,6 +1,7 @@
 {
   "sectionId": "final-enquiry",
-  "headline": "Your design career starts with one decision.",
+  "headlinePrefix": "Your design career starts with",
+  "headlineAccent": "one decision.",
   "subhead": "Join designers who are learning how to think, design, and build real digital products — not just pretty UI screens.",
   "cardTitle": "Have Questions Before You Join?",
   "cardBody": "Fill out the form and our team will reach out to help you understand the course and next steps.",
@@ -15,6 +16,7 @@
     "footnote": "No spam. Just course details and next steps."
   },
   "footer": {
+    "logoPlaceholder": "/assets/footer-logo-placeholder.svg",
     "copyright": "© 2025 Design Council Private Limited",
     "email": "enquiry@course.com",
     "refund": "Refund Policy"

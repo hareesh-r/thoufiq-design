@@ -24,10 +24,14 @@
 .photo {
   aspect-ratio: 1;
   max-height: 400px;
+  width: 100%;
   border-radius: var(--radius-xl);
-  background: linear-gradient(160deg, #e4e7ec 0%, #d0d5dd 100%);
+  object-fit: cover;
+  object-position: center top;
   border: 1px solid var(--border);
   box-shadow: 0 20px 50px rgba(16, 24, 40, 0.08);
+  display: block;
+  background: var(--surface-2);
 }
 
 .chip {

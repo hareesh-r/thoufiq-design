@@ -17,6 +17,7 @@ CSS variables (`global.css`): `--font-display`, `--font-body`, `--font-caveat`, 
 |------|---------|------|--------|-------------------|-------------|
 | Global | `body` | Bricolage | — | 16px | 1.5 |
 | Global | `.btn-cta` | Bricolage | 700 | 16px | 1 |
+| Global | CTA sizing | — | — | `16px` pad Y, `24px` pad X, `52px` min-height, `200px` min-width, `32px` radius | Matches Program pill |
 | Header | Logo | Bricolage | 700 | ~21.6px | — |
 | Header | Nav links | Manrope | 600 | 15px | 1.4 |
 | Hero | Badge | Bricolage | 500 | 14px | 1.43 |

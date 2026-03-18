@@ -1,112 +1,337 @@
-/* Bonuses section — Figma desktop */
+/* Free Bonuses — Figma 1182:15225, dark section + #F2F4F7 cards */
 
 .section {
-  padding-block: clamp(3.5rem, 10vw, 7rem);
-  background: var(--surface);
+  --bonus-blue: #2388ff;
+  --bonus-card: #f2f4f7;
+  --bonus-body: #94969d;
+  --bonus-ink: #0d0d0d;
+  --bonus-strike: #ff0000;
+  padding-block: clamp(3.5rem, 8vw, 5.5rem);
+  background: #000000;
+}
+
+.inner {
+  width: min(1240px, 100% - 2rem);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(24px, 4vw, 32px);
 }
 
 .head {
-  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  max-width: 701px;
 }
 
-/* Eyebrow: Manrope 600, 16px, line-height 1.366, UPPER, 6% spacing */
-.title {
+.eyebrow {
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 16px;
-  line-height: 1.366;
+  line-height: 22px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--blue);
-  margin: 0 0 0.5rem;
+  color: var(--bonus-blue);
+  margin: 0;
 }
 
-/* Bricolage Grotesque 700, 48px, line-height 1.2 */
-.subtitle {
+.title {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15em;
+}
+
+.titleLine1 {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(1.35rem, 2.8vw, 48px);
+  font-size: clamp(1.75rem, 4.5vw, 48px);
   line-height: 1.2;
-  margin: 0;
-  white-space: pre-line;
-  color: var(--ink);
+  display: block;
 }
 
-.grid {
-  display: grid;
-  gap: 1.25rem;
+.titleGradient {
+  background: linear-gradient(90deg, #222cdc 0%, #2388ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
-@media (min-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
+.titleMuted {
+  color: #3d4249;
+}
+
+.titleYours {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-style: italic;
+  font-size: clamp(1.5rem, 3.8vw, 40px);
+  line-height: 1.15;
+  color: #4a5058;
+  display: block;
+}
+
+.cardsRow {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: clamp(20px, 3vw, 32px);
+}
+
+@media (min-width: 960px) {
+  .cardsRow {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 31px;
   }
 }
 
-.card {
-  background: linear-gradient(145deg, #fffbeb 0%, #fef3c7 45%, #fde68a 100%);
-  border-radius: var(--radius-md);
-  padding: 1.5rem;
-  border: 1px solid rgba(234, 179, 8, 0.25);
+/* —— Notebook card (narrow) —— */
+.cardNotebook {
+  background: var(--bonus-card);
+  border-radius: 16px;
+  padding: 30px 30px 0;
   display: flex;
   flex-direction: column;
-  min-height: 200px;
+  align-items: stretch;
+  gap: clamp(28px, 4vw, 48px);
+  isolation: isolate;
+  overflow: hidden;
+  min-height: min(388px, auto);
 }
 
-/* style_LYI7UF: Bricolage Grotesque 700, 20px, line-height 1.2 */
-.card h3 {
-  margin: 0 0 0.65rem;
+@media (min-width: 960px) {
+  .cardNotebook {
+    flex: 0 0 min(399px, 34%);
+    max-width: 399px;
+  }
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 1;
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cardHeading {
+  margin: 0;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 20px;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  color: var(--ink);
+  line-height: 24px;
+  color: var(--bonus-ink);
 }
 
-/* style_73NNFS: Bricolage Grotesque 600, 16px, line-height 1.5 */
-.card p {
-  margin: 0 0 auto;
+.cardDesc {
+  margin: 0;
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 16px;
-  line-height: 1.5;
-  color: var(--muted);
-  flex: 1;
+  line-height: 24px;
+  color: var(--bonus-body);
 }
 
 .worthRow {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 0.65rem;
   flex-wrap: wrap;
-  margin-top: 1.25rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(16, 24, 40, 0.08);
+  gap: 16px;
 }
 
-.worth {
-  font-family: var(--font-caveat);
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 1;
-  color: #b45309;
-}
-
-/* style_XLR4YF: Bricolage Grotesque 700, 24px, line-height 1 */
-.price {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 1;
-  color: var(--ink);
-}
-
+.worthLabel,
 .cta {
   font-family: var(--font-caveat);
   font-weight: 400;
   font-size: 24px;
-  line-height: 1;
-  color: #b45309;
-  margin-left: auto;
+  line-height: 24px;
+  color: #000000;
+}
+
+.priceStrike {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
+
+.priceStrike::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  top: 50%;
+  height: 3px;
+  margin-top: -1.5px;
+  background: var(--bonus-strike);
+  border-radius: 1px;
+  pointer-events: none;
+}
+
+.price {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  color: var(--bonus-blue);
+  position: relative;
+}
+
+.notebookFrame {
+  position: relative;
+  width: 100%;
+  height: clamp(180px, 42vw, 205px);
+  border: 4px solid #ffffff;
+  border-radius: 16px;
+  filter: drop-shadow(0px 15px 32px rgba(0, 0, 0, 0.12));
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 1;
+  margin-bottom: 0;
+}
+
+.notebookImg {
+  position: absolute;
+  width: 118%;
+  max-width: none;
+  height: auto;
+  min-height: 120%;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  object-fit: cover;
+  object-position: center 35%;
+  filter: grayscale(1) contrast(1.02);
+}
+
+/* —— Designer Resource Kit card (wide) —— */
+.cardKit {
+  background: var(--bonus-card);
+  border-radius: 16px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 4vw, 40px);
+  isolation: isolate;
+  overflow: hidden;
+  min-height: min(388px, auto);
+}
+
+@media (min-width: 960px) {
+  .cardKit {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
+
+.kitTop {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 1;
+}
+
+.kitFan {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0;
+  min-height: clamp(200px, 28vw, 246px);
+  padding-block: 8px 4px;
+  margin-inline: -8px;
+  overflow-x: auto;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.kitCover {
+  position: relative;
+  flex: 0 0 auto;
+  width: clamp(92px, 16vw, 148px);
+  aspect-ratio: 157 / 222;
+  background: #000000;
+  border-radius: 11px;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  box-shadow:
+    8px 0 24px rgba(0, 0, 0, 0.16),
+    0 4px 12px rgba(0, 0, 0, 0.12);
+  margin-left: clamp(-28px, -4vw, -18px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(10px, 2vw, 14px) 8px;
+  overflow: hidden;
+}
+
+.kitCover:first-child {
+  margin-left: 0;
+}
+
+.kitCoverGlow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 120% 80% at 50% 100%,
+    rgba(255, 44, 47, 0.95) 0%,
+    rgba(255, 80, 40, 0.35) 42%,
+    transparent 72%
+  );
+  opacity: 0.92;
+}
+
+.kitCover[data-gradient="amber"] .kitCoverGlow {
+  background: radial-gradient(
+    ellipse 120% 80% at 50% 100%,
+    rgba(255, 227, 44, 0.9) 0%,
+    rgba(255, 180, 60, 0.3) 45%,
+    transparent 72%
+  );
+}
+
+.kitCoverTitle {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-krona);
+  font-weight: 400;
+  font-size: clamp(9px, 1.35vw, 13px);
+  line-height: 1.2;
+  color: #ffffff;
+  text-align: center;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  max-width: 100%;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+@media (max-width: 959px) {
+  .kitCover {
+    margin-left: -20px;
+  }
+
+  .kitCover:first-child {
+    margin-left: max(0px, calc(50% - 200px));
+  }
+
+  .kitFan {
+    justify-content: flex-start;
+    padding-inline: 12px 24px;
+  }
 }

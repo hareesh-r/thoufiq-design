@@ -17,11 +17,12 @@ export function FinalEnquirySection() {
       className={styles.section}
       aria-labelledby="final-headline"
     >
-      <div className="container">
+      <div className={`container ${styles.sectionMain}`}>
         <div className={styles.grid}>
           <div>
             <h2 id="final-headline" className={styles.headline}>
-              {data.headline}
+              {data.headlinePrefix}{" "}
+              <span className={styles.headlineAccent}>{data.headlineAccent}</span>
             </h2>
             <p className={styles.sub}>{data.subhead}</p>
           </div>
@@ -69,7 +70,10 @@ export function FinalEnquirySection() {
                   autoComplete="tel"
                 />
               </div>
-              <button type="submit" className={`btn-cta ${styles.submit}`}>
+              <button
+                type="submit"
+                className={`btn-cta btn-cta--block ${styles.submit}`}
+              >
                 {f.submitLabel} →
               </button>
               <p className={styles.footnote}>
@@ -78,23 +82,42 @@ export function FinalEnquirySection() {
             </form>
           </div>
         </div>
-        <div className={styles.footerBar}>
-          <img
-            src="/assets/footer-icon-1.svg"
-            alt=""
-            className={styles.footerLogo}
-            width={139}
-            height={63}
-          />
-          <div className={styles.bar}>
-            <span>{data.footer.copyright}</span>
-            <span aria-hidden>•</span>
-            <a href={`mailto:${data.footer.email}`}>{data.footer.email}</a>
-            <span aria-hidden>•</span>
-            <a href="#">{data.footer.refund}</a>
+      </div>
+
+      <footer className={styles.footerBand} aria-label="Site footer">
+        <div className={`container ${styles.footerInner}`}>
+          <div className={styles.logoRow}>
+            <img
+              src={data.footer.logoPlaceholder}
+              alt=""
+              width={160}
+              height={48}
+              className={styles.footerLogoPlaceholder}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div className={styles.metaDivider} aria-hidden />
+          <div className={styles.metaRow}>
+            <span className={styles.copyright}>{data.footer.copyright}</span>
+            <span className={styles.metaDot} aria-hidden>
+              •
+            </span>
+            <a
+              className={styles.metaLink}
+              href={`mailto:${data.footer.email}`}
+            >
+              {data.footer.email}
+            </a>
+            <span className={styles.metaDot} aria-hidden>
+              •
+            </span>
+            <a className={styles.metaLink} href="#">
+              {data.footer.refund}
+            </a>
           </div>
         </div>
-      </div>
+      </footer>
     </section>
   );
 }

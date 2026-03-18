@@ -21,7 +21,7 @@ pnpm build
 | `program.json` | Program overview (dark band) |
 | `courseStructure.json` | **Lorem Ipsum** eyebrow, modules 0–23 (Module 1 includes lesson list from Figma) |
 | `instructor.json` | Instructor bio + stat cards |
-| `bonuses.json` | Free bonuses (Designer Resource Kit, Figma Plugins Kit) |
+| `bonuses.json` | Free bonuses — notebook + Designer Resource Kit cards ([Figma 1182:15225](https://www.figma.com/design/tCFRUP9rd9wXFM6Yvl6OoR/Course-Website--1-?node-id=1182-15225)) |
 | `pricing.json` | ₹9,999 → ₹4,999, feature bullets, Enroll CTA |
 | `faq.json` | FAQ (Q1 answer is verbatim from Figma; Q2–Q5 questions verbatim—answers completed where expanded text wasn’t in the MCP export) |
 | `finalCta.json` | Footer enquiry form + legal line |

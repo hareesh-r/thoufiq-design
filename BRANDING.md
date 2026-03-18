@@ -42,7 +42,8 @@ All user-facing text is driven by JSON files in `src/data/`. Changing these file
 | `title` | `"Not Another UI/UX Course..."` | Main hero headline |
 | `subtitle` | `"This is not a theory-heavy design course..."` | Hero description paragraph |
 | `testimonialText` | `"Aakash G. - landed a ₹9.5LPA role..."` | Social proof testimonial |
-| `videoTitle` | `"Watch this before joining any UI/UX course"` | Video section heading |
+| `videoTitleLead` / `videoTitleAccent` | Split headline (Bricolage + Instrument Serif) | Dark-band video section |
+| `videoQuotePrefix` / `videoQuoteEmphasis` / `videoQuoteSuffix` | Quote under video; emphasis = bold |
 
 ### `src/data/pricing.json`
 

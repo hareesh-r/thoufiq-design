@@ -1,21 +1,31 @@
 {
   "sectionId": "bonuses",
-  "title": "Free bonuses",
-  "subtitle": "₹2,499 worth of resources.\nYours free.",
-  "items": [
-    {
-      "name": "Designer Resource Kit",
-      "description": "A curated set of guides covering Figma plugins, UX/UI reference websites, prompt usage, and font selection and much more",
-      "worthLabel": "Worth",
-      "worthAmount": "₹ 2000",
-      "cta": "Get for Free!!!"
-    },
-    {
-      "name": "Figma Plugins Kit",
-      "description": "Curated Figma plugins and workflows to speed up your UI process.",
-      "worthLabel": "Worth",
-      "worthAmount": "₹400",
-      "cta": "Get for Free!!!"
-    }
-  ]
+  "eyebrow": "Free bonuses",
+  "headline": {
+    "highlight": "₹2,499",
+    "line1Rest": "worth of resources.",
+    "line2": "Yours free."
+  },
+  "notebook": {
+    "name": "Notebook for Brainstorming",
+    "description": "A structured design notebook to capture ideas, map problems, and think clearly before jumping into UI.",
+    "worthLabel": "Worth",
+    "worthAmount": "₹400",
+    "cta": "Get for Free!!!",
+    "image": "/assets/notebook-for-brainstroming.jpg",
+    "imageAlt": "Spiral notebook for design brainstorming on a desk"
+  },
+  "resourceKit": {
+    "name": "Designer Resource Kit",
+    "description": "A curated set of guides covering Figma plugins, UX/UI reference websites, prompt usage, and font selection and much more",
+    "worthLabel": "Worth",
+    "worthAmount": "₹2000",
+    "cta": "Get for Free!!!",
+    "covers": [
+      { "title": "Figma Plugins Kit", "rotate": -8.35, "gradient": "red" },
+      { "title": "Useful Websites for UX/UI Designers", "rotate": 0, "gradient": "red" },
+      { "title": "Prompt Guide", "rotate": 9.23, "gradient": "amber" },
+      { "title": "Fonts Kit", "rotate": -7.15, "gradient": "amber" }
+    ]
+  }
 }

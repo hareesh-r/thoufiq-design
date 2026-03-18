@@ -52,7 +52,7 @@ export function ProgramSection() {
                   </div>
                   <p className={styles.captionText}>{data.captionText}</p>
                 </div>
-                <a href={data.ctaHref} className={styles.cta}>
+                <a href={data.ctaHref} className={`btn-cta ${styles.cta}`}>
                   <span className={styles.ctaLabel}>{data.ctaLabel}</span>
                   <img
                     src="/assets/arrow-right.svg"

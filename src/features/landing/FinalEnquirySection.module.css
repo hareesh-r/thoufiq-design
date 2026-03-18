@@ -1,9 +1,24 @@
-/* Final enquiry / footer section — Figma desktop */
+/* Final enquiry + footer — gradient behind whole section (1182:15412), layout 15409 */
 
 .section {
-  padding-block: clamp(3.5rem, 9vw, 5.5rem) clamp(2.5rem, 5vw, 3.5rem);
-  background: var(--dark);
+  padding-block: clamp(3.5rem, 9vw, 5.5rem) 0;
+  background-color: #0a0e14;
+  background-image: url("/assets/footer-gradient.png");
+  background-repeat: no-repeat;
+  background-position: 75% 10%;
+  background-size: min(140%, 2200px) auto;
   color: #e4e7ec;
+  position: relative;
+}
+
+@media (min-width: 900px) {
+  .section {
+    background-position: 85% 5%;
+  }
+}
+
+.sectionMain {
+  padding-bottom: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 .grid {
@@ -18,7 +33,7 @@
   }
 }
 
-/* style_NR6E1W: Bricolage Grotesque 700, 48px, line-height 1.2, left */
+/* style_NR6E1W: Bricolage 700 + Caveat accent */
 .headline {
   font-family: var(--font-display);
   font-weight: 700;
@@ -26,6 +41,12 @@
   line-height: 1.2;
   color: #fff;
   margin: 0 0 1rem;
+}
+
+.headlineAccent {
+  font-family: var(--font-caveat);
+  font-weight: 400;
+  font-style: italic;
 }
 
 /* Bricolage Grotesque 400, 16px, line-height 1.2, fill rgba(255,255,255,0.8) */
@@ -38,11 +59,16 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
+/* Glassmorphic form card */
 .card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-lg);
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: clamp(20px, 2.5vw, 28px);
   padding: clamp(1.35rem, 3vw, 1.85rem);
+  position: relative;
+  isolation: isolate;
 }
 
 /* style_YGRMXN: Bricolage Grotesque 700, 20px, line-height 1.2 */
@@ -102,7 +128,6 @@
 }
 
 .submit {
-  width: 100%;
   margin-top: 0.35rem;
 }
 
@@ -117,41 +142,77 @@
   text-align: center;
 }
 
-.footerBar {
-  margin-top: 2.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+/* Footer bar — same section gradient behind; logos + meta only */
+.footerBand {
+  width: 100%;
+  margin: 0;
+  padding: clamp(2.5rem, 8vw, 4.5rem) 0 clamp(2rem, 4vw, 3rem);
+  background: transparent;
+}
+
+.footerInner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
 }
 
-.footerLogo {
-  height: 36px;
-  width: auto;
+.logoRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footerLogoPlaceholder {
   display: block;
+  width: auto;
+  max-width: min(200px, 90vw);
+  height: auto;
+  max-height: 52px;
+  object-fit: contain;
 }
 
-/* style_H4EL69: Bricolage Grotesque 400, 16px, line-height 1.2, center */
-.bar {
+.metaDivider {
+  width: min(100%, 560px);
+  height: 1px;
+  margin: clamp(1.65rem, 3.5vw, 2.35rem) 0 clamp(1.1rem, 2.5vw, 1.5rem);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 18%,
+    rgba(255, 255, 255, 0.14) 50%,
+    rgba(255, 255, 255, 0.1) 82%,
+    transparent 100%
+  );
+}
+
+.metaRow {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem 0.85rem;
-  font-family: var(--font-display);
+  gap: 0.35rem 0.55rem;
+  text-align: center;
+  font-family: var(--font-body);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 1.2;
-  color: #98a2b3;
+  font-size: 14px;
+  line-height: 1.43;
 }
 
-.bar a {
+.copyright {
+  color: #667085;
+}
+
+.metaDot {
+  color: rgba(255, 255, 255, 0.2);
+  user-select: none;
+}
+
+.metaLink {
   color: #e4e7ec !important;
   text-decoration: none !important;
+  transition: color 0.15s ease;
 }
 
-.bar a:hover {
+.metaLink:hover {
   color: var(--blue) !important;
 }

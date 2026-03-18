@@ -112,11 +112,11 @@ export function WishlistPage() {
                   <h2 className={styles.emptyTitle}>{data.empty.title}</h2>
                   <p className={styles.emptyBody}>{data.empty.body}</p>
                   <div className={styles.emptyActions}>
-                    <a className={styles.emptyPrimary} href={data.empty.cta.href}>
+                    <a className="btn-cta" href={data.empty.cta.href}>
                       {data.empty.cta.label}
                     </a>
                     <a
-                      className={styles.emptySecondary}
+                      className="btn-ghost"
                       href={data.empty.secondaryCta.href}
                     >
                       {data.empty.secondaryCta.label}
@@ -168,10 +168,7 @@ export function WishlistPage() {
                                   />
                                 </svg>
                               </button>
-                              <a
-                                className={styles.cardCta}
-                                href={data.cardCta.href}
-                              >
+                              <a className={`btn-cta ${styles.cardCta}`} href={data.cardCta.href}>
                                 {data.cardCta.label}
                               </a>
                             </div>

@@ -155,24 +155,17 @@
   margin: 0;
 }
 
-/* CTA button — gradient, radius 32, glow shadow */
+/* CTA — global .btn-cta supplies size + gradient */
 .cta {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 16px 28px;
-  background: linear-gradient(90deg, #222cdc 0%, #2388ff 100%);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 32px;
-  box-shadow: 0px 14px 32px 4px rgba(35, 136, 255, 0.4),
-    inset 0px 0px 4px 0px rgba(255, 255, 255, 1);
+  text-align: center;
   text-decoration: none;
-  white-space: nowrap;
-  transition: opacity 0.15s;
+  max-width: 100%;
 }
 
 .cta:hover {
-  opacity: 0.92;
+  opacity: 0.96;
 }
 
 /* style_NC4LEM / style_ZSD76W: Bricolage Grotesque 700 16px, #FFFFFF */

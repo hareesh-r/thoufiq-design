@@ -47,7 +47,7 @@ export function AudienceSection() {
                 ))}
               </div>
             </div>
-            <a href={data.cta.href} className={styles.cta}>
+            <a href={data.cta.href} className={`btn-cta ${styles.cta}`}>
               <span className={styles.ctaLabel}>
                 Yes, this is for me - <span className={styles.ctaBold}>Let's go</span>
               </span>

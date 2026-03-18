@@ -1,8 +1,9 @@
-/* Hero section — Figma desktop frame */
+/* Hero — primary (light) + secondary video band (dark) */
 
 .section {
-  padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(2.5rem, 6vw, 4rem);
+  padding: clamp(2rem, 5vw, 3.5rem) 0 0;
   text-align: center;
+  overflow-x: clip;
 }
 
 .inner {
@@ -15,9 +16,10 @@
   flex-direction: column;
   align-items: center;
   gap: clamp(1.25rem, 3vw, 2rem);
+  padding-bottom: clamp(3.5rem, 9vw, 6rem);
 }
 
-/* style_BLP4LW: Bricolage Grotesque 500, 14px, line-height 1.43, center */
+/* style_BLP4LW */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -36,7 +38,7 @@
   margin: 0;
 }
 
-/* style_Y8PI0V: Bricolage Grotesque 700, 64px, line-height 1.03, center */
+/* style_Y8PI0V */
 .title {
   font-family: var(--font-display);
   font-weight: 700;
@@ -47,18 +49,26 @@
   color: var(--ink);
 }
 
-/* Figma 1182:14232 — single style_Y8PI0V for full headline; line break only */
 .titleAccent {
   display: block;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: inherit;
-  line-height: inherit;
-  letter-spacing: inherit;
+  font-family: var(--font-instrument-serif);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 64px;
+  line-height: 66px;
+  letter-spacing: 0px;
+  text-align: center;
   color: inherit;
 }
 
-/* style_T5XEEE: Bricolage Grotesque 400, 20px, line-height 1.625, center */
+@media (max-width: 640px) {
+  .titleAccent {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+    line-height: 1.1;
+  }
+}
+
+/* style_T5XEEE */
 .subtitle {
   margin: 0;
   max-width: 52rem;
@@ -68,26 +78,6 @@
   font-size: clamp(1rem, 2.2vw, 20px);
   line-height: 1.625;
   color: var(--muted);
-}
-
-/* CTA: Bricolage Grotesque 700, 16px */
-.enroll {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 18px 28px;
-  min-width: 200px;
-  min-height: 60px;
-  background: var(--cta-grad);
-  color: #fff !important;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1;
-  border-radius: var(--radius-xl);
-  text-decoration: none !important;
-  box-shadow: var(--cta-shadow);
 }
 
 .testimonial {
@@ -100,7 +90,6 @@
   border-radius: 40px;
 }
 
-/* style_SBT5P3: Bricolage Grotesque 400, 20px, line-height 1.2 */
 .avatar {
   width: 44px;
   height: 44px;
@@ -117,7 +106,6 @@
   flex-shrink: 0;
 }
 
-/* style_B7QFS3: Bricolage Grotesque 400, 16px, line-height 1.5 */
 .testimonial p {
   margin: 0;
   font-family: var(--font-display);
@@ -128,14 +116,24 @@
   text-align: left;
 }
 
-.videoBlock {
-  width: 100%;
-  max-width: 640px;
-  margin-inline: auto;
-  text-align: left;
+/* —— Secondary hero: full-bleed dark, below testimonial —— */
+.secondaryHero {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: clamp(3rem, 7vw, 5rem) 0 clamp(3.5rem, 8vw, 5.5rem);
+  position: relative;
+  z-index: 1;
 }
 
-/* style_HWL76I: Manrope 600, 16px, 1.366, UPPER, 6% letter-spacing */
+.secondaryInner {
+  width: min(920px, 100% - 2rem);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 .videoEyebrow {
   font-family: var(--font-body);
   font-weight: 600;
@@ -144,105 +142,146 @@
   color: var(--blue);
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  margin: 0 0 0.35rem;
+  margin: 0 0 1rem;
 }
 
-/* style_MEB93X: Bricolage Grotesque 700, 48px, line-height 1.2 */
-.videoTitle {
+.videoHeading {
+  margin: 0 0 1rem;
+  max-width: 38rem;
+  font-weight: 700;
+  font-size: clamp(1.65rem, 4.2vw, 44px);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+}
+
+.videoTitleLead {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(1.5rem, 4vw, 48px);
-  line-height: 1.2;
-  margin: 0 0 0.5rem;
-  color: var(--ink);
+  color: #d0d5dd;
 }
 
-/* style_42TNFZ: Bricolage Grotesque 600, 16px, line-height 1.2 */
+.videoTitleAccent {
+  font-family: var(--font-instrument-serif);
+  font-weight: 400;
+  font-style: italic;
+  color: #c8cdd5;
+}
+
 .videoDesc {
-  margin: 0 0 1.25rem;
-  color: var(--muted);
-  font-family: var(--font-display);
-  font-weight: 600;
+  margin: 0;
+  max-width: 36rem;
+  color: #94969d;
+  font-family: var(--font-body);
+  font-weight: 400;
   font-size: 16px;
-  line-height: 1.2;
+  line-height: 1.5;
 }
 
-.grid2 {
-  display: grid;
-  gap: 1.5rem;
-  margin-top: 0.5rem;
-}
-
-@media (min-width: 960px) {
-  .grid2 {
-    grid-template-columns: 1fr 1fr;
-    align-items: start;
-    text-align: left;
-  }
-
-  .grid2 .videoBlock {
-    margin-inline: 0;
-  }
-}
-
+/* Good gap before video */
 .videoCard {
-  background: var(--dark);
-  border-radius: 40px;
-  padding: 2rem 1.75rem;
+  margin-top: clamp(2.25rem, 5vw, 3.75rem);
+  width: 100%;
+  max-width: 880px;
   position: relative;
-  min-height: 220px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 0 24px 48px rgba(16, 24, 40, 0.12);
+  border-radius: clamp(20px, 3vw, 28px);
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  min-height: min(52vw, 420px);
+  max-height: min(70vh, 520px);
+  background-color: #101828;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(35, 136, 255, 0.45);
+  box-shadow:
+    0 0 0 1px rgba(35, 136, 255, 0.12),
+    0 24px 64px rgba(0, 0, 0, 0.45),
+    0 0 48px rgba(35, 136, 255, 0.08);
 }
 
-.play {
-  width: 56px;
-  height: 56px;
+.videoCardDim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 15, 25, 0.2) 0%, rgba(10, 15, 25, 0.35) 45%, rgba(0, 0, 0, 0.5) 100%);
+  pointer-events: none;
+}
+
+.playFab {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(64px, 12vw, 88px);
+  height: clamp(64px, 12vw, 88px);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: none;
   border-radius: 50%;
-  background: var(--cta-grad);
-  margin-bottom: 1rem;
-  box-shadow: 0 8px 24px rgba(35, 136, 255, 0.45);
+  z-index: 2;
+  filter: drop-shadow(0 10px 28px rgba(35, 136, 255, 0.5));
+  transition: transform 0.2s ease;
+}
+
+.playFab:hover {
+  transform: translate(-50%, -50%) scale(1.06);
+}
+
+.playFab:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 4px;
+}
+
+.playFabInner {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--cta-grad);
+  box-shadow: 0 8px 24px rgba(35, 136, 255, 0.45);
 }
 
-.play img {
-  width: 24px;
-  height: 24px;
+.playFabInner img {
+  width: clamp(26px, 5vw, 36px);
+  height: clamp(26px, 5vw, 36px);
+  margin-left: 4px;
   object-fit: contain;
 }
 
-/* style_Y4D84O: Bricolage Grotesque 600, 64px, line-height 1.2 */
-.quoteOpen,
-.quoteClose {
+.videoQuoteOverlay {
   position: absolute;
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 64px;
-  line-height: 1.2;
-  color: rgba(35, 136, 255, 0.25);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  padding: clamp(2.5rem, 8vw, 4rem) clamp(1.25rem, 4vw, 2.5rem) clamp(1.25rem, 3vw, 1.75rem);
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.55) 38%, rgba(0, 0, 0, 0.92) 100%);
+  pointer-events: none;
 }
 
-.quoteOpen {
-  top: 1rem;
-  left: 1.25rem;
-}
-
-.quoteClose {
-  bottom: 0.75rem;
-  right: 1.25rem;
-}
-
-/* style_F6QYE8: Manrope 400, 24px, line-height 1.366 */
 .videoQuote {
-  margin: 0;
-  padding-top: 0.5rem;
-  color: #f2f4f7;
+  margin: 0 auto;
+  max-width: 48rem;
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: 24px;
-  line-height: 1.366;
-  position: relative;
-  z-index: 1;
+  font-size: clamp(0.9rem, 2.4vw, 1.125rem);
+  line-height: 1.5;
+  color: #f2f4f7;
+  text-align: center;
+}
+
+.quoteMark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.35em;
+  line-height: 0;
+  color: var(--blue);
+  vertical-align: -0.12em;
+  margin: 0 0.08em;
+}
+
+.videoQuoteBold {
+  font-weight: 700;
+  color: #ffffff;
 }

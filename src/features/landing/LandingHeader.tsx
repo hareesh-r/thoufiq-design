@@ -15,11 +15,11 @@ export function LandingHeader() {
             <span>.</span>
           </a>
           <Link
-            to="/wishlist"
+            to="/waitlist"
             className={styles.navLink}
-            aria-current={pathname === "/wishlist" ? "page" : undefined}
+            aria-current={pathname === "/waitlist" ? "page" : undefined}
           >
-            Wishlist
+            Waitlist
           </Link>
         </div>
         <a className="btn-cta" href={site.headerCta.href}>
