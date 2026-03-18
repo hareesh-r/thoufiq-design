@@ -1,6 +1,11 @@
 {
   "sectionId": "instructor",
   "portraitImage": "/assets/Mohammad%20Thoufiq.png",
+  "layout": {
+    "leftColumnMaxWidthPx": 460,
+    "photoSlotTopPx": 110,
+    "photoMaxWidthPercent": 160
+  },
   "name": "Mohammad Thoufiq M",
   "roleLine": "Product Designer • Content Creator",
   "heading": "Meet Your Instructor",

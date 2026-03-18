@@ -70,8 +70,20 @@ function SocialIcon({ platform }: { platform: (typeof SOCIAL_ORDER)[number] }) {
 }
 
 export function InstructorSection() {
+  const lay = (data as { layout?: Record<string, number> }).layout ?? {};
+  const sectionStyle = {
+    ["--ins-left-max" as string]: `${lay.leftColumnMaxWidthPx ?? 539}px`,
+    ["--ins-photo-top" as string]: `-${lay.photoSlotTopPx ?? 75}px`,
+    ["--ins-photo-max-w" as string]: `${lay.photoMaxWidthPercent ?? 100}%`,
+  };
+
   return (
-    <section id={data.sectionId} className={styles.section} aria-labelledby="ins-title">
+    <section
+      id={data.sectionId}
+      className={styles.section}
+      style={sectionStyle}
+      aria-labelledby="ins-title"
+    >
       <div className={`container ${styles.wrap}`}>
         <div className={styles.left}>
           <div className={styles.blueCard}>
