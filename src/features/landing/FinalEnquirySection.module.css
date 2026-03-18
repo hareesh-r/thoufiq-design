@@ -58,7 +58,7 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* Frame 2147225445 — frosted panel */
+/* Frame 2147225445 — frosted panel + liquid glass rim */
 .formCard {
   display: flex;
   flex-direction: column;
@@ -68,10 +68,44 @@
   max-width: 539px;
   margin-inline: auto;
   box-sizing: border-box;
-  background: rgba(26, 26, 26, 0.1);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: rgba(22, 28, 40, 0.35);
   border-radius: 40px;
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--lg-border);
+  box-shadow: var(--lg-outer-glow), var(--lg-specular), var(--lg-depth);
+  backdrop-filter: var(--lg-blur) var(--lg-sat);
+  -webkit-backdrop-filter: var(--lg-blur) var(--lg-sat);
+}
+
+.formCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+  background: linear-gradient(
+    128deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.04) 32%,
+    transparent 48%,
+    rgba(180, 210, 255, 0.08) 78%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  mix-blend-mode: soft-light;
+}
+
+.formCard::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: 39px;
+  pointer-events: none;
+  z-index: 0;
+  box-shadow: inset 0 0 24px rgba(255, 255, 255, 0.04);
+  opacity: 0.9;
 }
 
 @media (min-width: 900px) {
@@ -81,6 +115,8 @@
 }
 
 .formCardInner {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -180,8 +216,10 @@
 
 .input:focus {
   outline: none;
-  border-color: rgba(255, 255, 255, 0.22);
-  box-shadow: 0 0 0 2px rgba(35, 136, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.32);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 0 0 2px rgba(35, 136, 255, 0.28);
 }
 
 .ctaBlock {
