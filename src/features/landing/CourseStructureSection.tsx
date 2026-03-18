@@ -13,7 +13,10 @@ export function CourseStructureSection() {
         <div className={styles.sticky}>
           <p className={styles.eyebrow}>{data.eyebrow}</p>
           <h2 id="cs-title" className={styles.title}>
-            {data.title}
+            <span className={styles.titleLine}>
+              <span className={styles.titleLead}>{data.titleLead}</span>
+              <span className={styles.titleAccent}>{data.titleAccent}</span>
+            </span>
           </h2>
           <p className={styles.desc}>{data.description}</p>
           <div className={styles.timeline} aria-hidden />
@@ -26,10 +29,13 @@ export function CourseStructureSection() {
               style={{ "--stack-z": index } as CSSProperties}
             >
               <summary className={styles.summary}>
-                <span className={styles.code}>{m.code}</span>
-                <span className={styles.summaryTitle}>{m.title}</span>
-                <span className={styles.plus} aria-hidden>
-                  +
+                <div className={styles.summaryMain}>
+                  <span className={styles.code}>{m.code}</span>
+                  <span className={styles.summaryTitle}>{m.title}</span>
+                </div>
+                <span className={styles.toggle} aria-hidden>
+                  <span className={styles.togglePlus}>+</span>
+                  <span className={styles.toggleMinus}>−</span>
                 </span>
               </summary>
               {"lessons" in m && m.lessons && (

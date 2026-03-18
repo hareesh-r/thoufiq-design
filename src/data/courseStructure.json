@@ -1,7 +1,8 @@
 {
   "sectionId": "course-structure",
   "eyebrow": "Lorem Ipsum",
-  "title": "Course Structure",
+  "titleLead": "Course ",
+  "titleAccent": "Structure",
   "description": "Master web design with our proven 6-module system.\n\nEach lesson builds on the last, taking you",
   "modules": [
     { "id": "m0", "code": "Module 0", "title": "Why You're Here & About the Course" },

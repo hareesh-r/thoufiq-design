@@ -1,7 +1,8 @@
 {
   "sectionId": "program",
   "eyebrow": "Program Overview",
-  "title": "Why you'll love this course",
+  "titleLead": "Why you'll love ",
+  "titleAccent": "this course",
   "description": "Our UI/UX & Product Design program delivers industry-leading results through a simplified, hands-on learning approach.",
   "cards": [
     {

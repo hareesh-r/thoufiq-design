@@ -4,8 +4,24 @@
   "titleAccent": "Something Much More Practical",
   "subtitle": "This is not a theory-heavy design course. You’ll learn how real product designers think, solve problems, and ship work that hiring managers actually care about.",
   "primaryCta": { "label": "Enroll Now", "href": "#pricing" },
-  "testimonialInitial": "A",
-  "testimonialText": "Aakash G. - landed a ₹9.5LPA role as a fresher",
+  "testimonials": [
+    {
+      "initial": "A",
+      "text": "Aakash G. — landed a ₹9.5LPA role as a fresher"
+    },
+    {
+      "initial": "P",
+      "text": "Priya S. — doubled her freelance rate within 3 months"
+    },
+    {
+      "initial": "R",
+      "text": "Rahul K. — first UI internship at a Bangalore product company"
+    },
+    {
+      "initial": "N",
+      "text": "Neha M. — from graphic design to full-time UX in one cohort"
+    }
+  ],
   "videoThumbnail": "/assets/video-thumbnail.png",
   "videoEyebrow": "Just 5 mins watch",
   "videoTitleLead": "Watch this before joining",

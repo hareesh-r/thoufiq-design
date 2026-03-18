@@ -1,4 +1,4 @@
-/* Hero — primary (light) + secondary video band (dark) */
+/* Hero — primary (light) + secondary video band (light, Figma 1182:14237) */
 
 .section {
   padding: clamp(2rem, 5vw, 3.5rem) 0 0;
@@ -80,6 +80,101 @@
   color: var(--muted);
 }
 
+/* Hero Enroll — 258×60, sparkles icon, horizontal shine sweep */
+.heroEnroll {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: min(258px, 100%);
+  width: min(258px, calc(100vw - 2rem));
+  height: 60px;
+  padding: 0 20px;
+  background: linear-gradient(90deg, #222cdc 0%, #2388ff 100%);
+  box-shadow: 0 14px 32px 4px rgba(35, 136, 255, 0.4), inset 0 0 4px #fff;
+  border-radius: 32px;
+  color: #fff !important;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  text-decoration: none !important;
+  overflow: hidden;
+  cursor: pointer;
+  transition: filter 0.15s ease, transform 0.15s ease;
+  isolation: isolate;
+}
+
+.heroEnroll:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+
+.heroEnroll:focus-visible {
+  outline: 2px solid #222cdc;
+  outline-offset: 3px;
+}
+
+/* Shine on top of gradient, clipped — sweeps left → right, infinite */
+.heroEnrollShine {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heroEnrollShineBeam {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 45%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.06) 35%,
+    rgba(227, 240, 255, 0.55) 50%,
+    rgba(255, 255, 255, 0.35) 52%,
+    rgba(255, 255, 255, 0.06) 68%,
+    transparent 100%
+  );
+  animation: heroEnrollShineSweep 2.4s linear infinite;
+  will-change: transform;
+}
+
+@keyframes heroEnrollShineSweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(320%);
+  }
+}
+
+.heroEnrollRow {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.heroEnrollSparkle {
+  flex-shrink: 0;
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroEnrollShineBeam {
+    animation: none;
+    opacity: 0;
+  }
+}
+
 .testimonial {
   display: inline-flex;
   align-items: center;
@@ -88,6 +183,35 @@
   background: var(--surface);
   border: 1px solid var(--border-strong);
   border-radius: 40px;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* Off-screen clone for measuring intrinsic width (must match .testimonial box model) */
+.testimonialMeasure {
+  position: fixed;
+  left: -9999px;
+  top: 0;
+  visibility: hidden;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.testimonialAnimated {
+  overflow: hidden;
+  transition: width 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  vertical-align: top;
+}
+
+@media (max-width: 640px) {
+  .testimonialAnimated {
+    width: auto !important;
+    max-width: 100%;
+  }
+
+  .testimonialLine {
+    white-space: normal;
+  }
 }
 
 .avatar {
@@ -106,7 +230,7 @@
   flex-shrink: 0;
 }
 
-.testimonial p {
+.testimonialLine {
   margin: 0;
   font-family: var(--font-display);
   font-weight: 400;
@@ -114,19 +238,22 @@
   line-height: 1.5;
   color: var(--ink);
   text-align: left;
+  white-space: nowrap;
 }
 
-/* —— Secondary hero: full-bleed dark, below testimonial —— */
+/* —— Secondary hero — Figma 1182:14237 (light band + framed video) —— */
 .secondaryHero {
   width: 100vw;
   margin-left: calc(50% - 50vw);
   padding: clamp(3rem, 7vw, 5rem) 0 clamp(3.5rem, 8vw, 5.5rem);
   position: relative;
   z-index: 1;
+  background: var(--page);
 }
 
 .secondaryInner {
-  width: min(920px, 100% - 2rem);
+  /* ~1242px artboard width */
+  width: min(1242px, 100% - 2rem);
   margin-inline: auto;
   display: flex;
   flex-direction: column;
@@ -147,62 +274,90 @@
 
 .videoHeading {
   margin: 0 0 1rem;
-  max-width: 38rem;
+  max-width: min(100%, 56rem);
   font-weight: 700;
   font-size: clamp(1.65rem, 4.2vw, 44px);
   line-height: 1.18;
   letter-spacing: -0.02em;
 }
 
+/* Keep lead + accent on one line when viewport fits (avoids split between sans / serif) */
+.videoTitleLine {
+  display: inline-block;
+  max-width: 100%;
+  text-align: center;
+}
+
+@media (min-width: 720px) {
+  .videoTitleLine {
+    white-space: nowrap;
+  }
+}
+
 .videoTitleLead {
   font-family: var(--font-display);
   font-weight: 700;
-  color: #d0d5dd;
+  color: var(--ink);
 }
 
 .videoTitleAccent {
   font-family: var(--font-instrument-serif);
   font-weight: 400;
   font-style: italic;
-  color: #c8cdd5;
+  color: var(--ink);
 }
 
 .videoDesc {
-  margin: 0;
-  max-width: 36rem;
-  color: #94969d;
-  font-family: var(--font-body);
-  font-weight: 400;
+  /* See exactly how this course is different — and why 90% of design courses leave you unprepared. */
+  width: 1240px;
+  height: 19px;
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 600;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #94969D;
+  justify-content: center;
 }
 
-/* Good gap before video */
-.videoCard {
+/*
+ * Video frame: Figma border 18.22px, radius 48.57px, ~1242×596 media
+ * Padding simulates stroke; inner radius = outer − border
+ */
+.videoFrame {
+  --vf-radius: clamp(26px, 5vw, 48.57px);
+  --vf-border: clamp(8px, 2.2vw, 18.22px);
   margin-top: clamp(2.25rem, 5vw, 3.75rem);
   width: 100%;
-  max-width: 880px;
-  position: relative;
-  border-radius: clamp(20px, 3vw, 28px);
-  overflow: hidden;
-  aspect-ratio: 16 / 9;
-  min-height: min(52vw, 420px);
-  max-height: min(70vh, 520px);
-  background-color: #101828;
-  background-size: cover;
-  background-position: center;
-  border: 1px solid rgba(35, 136, 255, 0.45);
+  max-width: 1242px;
+  padding: var(--vf-border);
+  border-radius: var(--vf-radius);
+  background: linear-gradient(145deg, #e8f1fa 0%, #d8e8f6 45%, #cfe2f3 100%);
   box-shadow:
-    0 0 0 1px rgba(35, 136, 255, 0.12),
-    0 24px 64px rgba(0, 0, 0, 0.45),
-    0 0 48px rgba(35, 136, 255, 0.08);
+    0 1px 0 rgba(255, 255, 255, 0.75) inset,
+    0 12px 40px rgba(15, 40, 80, 0.08);
+  box-sizing: border-box;
 }
 
-.videoCardDim {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(10, 15, 25, 0.2) 0%, rgba(10, 15, 25, 0.35) 45%, rgba(0, 0, 0, 0.5) 100%);
-  pointer-events: none;
+.videoInner {
+  position: relative;
+  width: 100%;
+  border-radius: max(10px, calc(var(--vf-radius) - var(--vf-border)));
+  overflow: hidden;
+  aspect-ratio: 1242.275 / 596.244;
+  background: #e4e7ec;
+}
+
+/* Cropped fill — no full-frame tint; image stays true to source */
+.videoThumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
 }
 
 .playFab {
@@ -210,28 +365,52 @@
   top: 42%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: clamp(64px, 12vw, 88px);
-  height: clamp(64px, 12vw, 88px);
+  width: clamp(72px, 14vw, 96px);
+  height: clamp(72px, 14vw, 96px);
   border: none;
   padding: 0;
   cursor: pointer;
-  background: none;
+  background: transparent;
   border-radius: 50%;
   z-index: 2;
-  filter: drop-shadow(0 10px 28px rgba(35, 136, 255, 0.5));
-  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.22s ease;
 }
 
 .playFab:hover {
-  transform: translate(-50%, -50%) scale(1.06);
+  transform: translate(-50%, -50%) scale(1.05);
 }
 
 .playFab:focus-visible {
   outline: 2px solid var(--blue);
-  outline-offset: 4px;
+  outline-offset: 6px;
+  border-radius: 50%;
+}
+
+/* Frosted glass ring (blurs video behind) */
+.playGlassRing {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 148%;
+  height: 148%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.12) inset,
+    0 8px 32px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  pointer-events: none;
 }
 
 .playFabInner {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -239,24 +418,30 @@
   height: 100%;
   border-radius: 50%;
   background: var(--cta-grad);
-  box-shadow: 0 8px 24px rgba(35, 136, 255, 0.45);
+  box-shadow: 0 6px 20px rgba(35, 136, 255, 0.4);
 }
 
 .playFabInner img {
-  width: clamp(26px, 5vw, 36px);
-  height: clamp(26px, 5vw, 36px);
+  width: clamp(26px, 5vw, 34px);
+  height: clamp(26px, 5vw, 34px);
   margin-left: 4px;
   object-fit: contain;
 }
 
+/* Quote band only — no blue wash over the whole thumbnail */
 .videoQuoteOverlay {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 1;
-  padding: clamp(2.5rem, 8vw, 4rem) clamp(1.25rem, 4vw, 2.5rem) clamp(1.25rem, 3vw, 1.75rem);
-  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.55) 38%, rgba(0, 0, 0, 0.92) 100%);
+  padding: clamp(2rem, 7vw, 3.25rem) clamp(1.25rem, 4vw, 2.5rem) clamp(1rem, 2.5vw, 1.5rem);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.25) 28%,
+    rgba(0, 0, 0, 0.82) 100%
+  );
   pointer-events: none;
 }
 

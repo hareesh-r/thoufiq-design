@@ -41,7 +41,7 @@ All user-facing text is driven by JSON files in `src/data/`. Changing these file
 |-------|---------------|---------|
 | `title` | `"Not Another UI/UX Course..."` | Main hero headline |
 | `subtitle` | `"This is not a theory-heavy design course..."` | Hero description paragraph |
-| `testimonialText` | `"Aakash G. - landed a ₹9.5LPA role..."` | Social proof testimonial |
+| `testimonials` | Array of `{ initial, text }` | Rotating social proof (4s interval, width animates to content) |
 | `videoTitleLead` / `videoTitleAccent` | Split headline (Bricolage + Instrument Serif) | Dark-band video section |
 | `videoQuotePrefix` / `videoQuoteEmphasis` / `videoQuoteSuffix` | Quote under video; emphasis = bold |
 
@@ -98,7 +98,7 @@ To rebrand the entire site, follow these steps in order:
 1. **`src/data/site.json`** — Update `siteName`, `seoTitle`, `seoDescription`, `logoWordmark`, and `baseUrl`
 2. **`src/data/finalCta.json`** — Update `footer.copyright` (legal entity) and `footer.email`
 3. **`src/data/instructor.json`** — Update `name`, `roleLine`, `bio`, `tags`, and `stats` for the new instructor
-4. **`src/data/hero.json`** — Update `title`, `subtitle`, `testimonialText`, and video copy
+4. **`src/data/hero.json`** — Update `title`, `subtitle`, `testimonials`, and video copy
 5. **`src/data/pricing.json`** — Update prices, features, and CTA labels
 6. **`index.html`** — Update the `<title>` tag and `<meta name="description">`
 7. **`public/favicon.svg`** — Replace with new brand favicon

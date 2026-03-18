@@ -19,7 +19,8 @@ export function ProgramSection() {
               <div className={styles.eyebrowGroup}>
                 <p className={styles.eyebrow}>{data.eyebrow}</p>
                 <h2 id="prog-title" className={styles.title}>
-                  {data.title}
+                  {data.titleLead}
+                  <span className={styles.titleAccent}>{data.titleAccent}</span>
                 </h2>
               </div>
               <p className={styles.desc}>{data.description}</p>

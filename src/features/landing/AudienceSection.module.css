@@ -56,10 +56,13 @@
 
 /* Figma 1182:14264 — style_MEB93X applies to full title; same as .title */
 .titleItalic {
-  font-family: inherit;
-  font-weight: inherit;
-  font-size: inherit;
-  line-height: inherit;
+  font-family: var(--font-instrument-serif);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 48px;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: center;
   color: inherit;
 }
 
