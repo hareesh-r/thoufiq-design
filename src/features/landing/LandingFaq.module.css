@@ -26,6 +26,9 @@
     flex: 0 1 488px;
     max-width: 488px;
     min-width: 0;
+    position: sticky;
+    top: calc(var(--header-h) + 1.5rem);
+    align-self: flex-start;
   }
 
   .accordions {

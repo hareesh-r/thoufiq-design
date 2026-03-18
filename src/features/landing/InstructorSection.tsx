@@ -60,7 +60,7 @@ export function InstructorSection() {
             <div className={styles.radialGlow} aria-hidden />
             <div className={styles.gridPatternOverlay} aria-hidden />
             <div className={styles.photoSlot}>
-              <div className={styles.photoCrop}>
+              <div className={styles.photoHorizClip}>
                 <img
                   className={styles.photo}
                   src={data.portraitImage}
@@ -68,8 +68,8 @@ export function InstructorSection() {
                   width={539}
                   height={900}
                 />
-                <div className={styles.photoShade} aria-hidden />
               </div>
+              <div className={styles.photoShade} aria-hidden />
               <div className={styles.glassStack}>
                 <div className={styles.nameplate}>
                   <p className={styles.nameText}>{data.name}</p>

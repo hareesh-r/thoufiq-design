@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import data from "../../data/courseStructure.json";
+import { AccordionDetails } from "./AccordionDetails";
 import styles from "./CourseStructureSection.module.css";
 
 export function CourseStructureSection() {
@@ -22,7 +23,7 @@ export function CourseStructureSection() {
         </div>
         <div className={styles.accordions}>
           {data.modules.map((m, index) => (
-            <details
+            <AccordionDetails
               key={m.id}
               className={styles.details}
               style={{ "--stack-z": index } as CSSProperties}
@@ -46,7 +47,7 @@ export function CourseStructureSection() {
                   </ul>
                 </div>
               )}
-            </details>
+            </AccordionDetails>
           ))}
         </div>
       </div>

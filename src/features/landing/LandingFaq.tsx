@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import data from "../../data/faq.json";
+import { AccordionDetails } from "./AccordionDetails";
 import styles from "./LandingFaq.module.css";
 
 export function LandingFaq() {
@@ -15,11 +16,11 @@ export function LandingFaq() {
         </div>
         <div className={styles.accordions}>
           {data.items.map((item, index) => (
-            <details
+            <AccordionDetails
               key={item.question}
               className={styles.details}
-              open={index === 0}
               style={{ "--stack-z": index } as CSSProperties}
+              defaultOpen={index === 0}
             >
               <summary className={styles.summary}>
                 <span className={styles.question}>{item.question}</span>
@@ -31,7 +32,7 @@ export function LandingFaq() {
               <div className={styles.body}>
                 <p className={styles.answer}>{item.answer}</p>
               </div>
-            </details>
+            </AccordionDetails>
           ))}
         </div>
       </div>

@@ -2,7 +2,7 @@
 
 .section {
   padding-block: clamp(3rem, 8vw, 5.5rem);
-  padding-top: clamp(4rem, 10vw, 6rem);
+  padding-top: clamp(5rem, 12vw, 7.5rem);
   overflow-x: clip;
 }
 
@@ -41,7 +41,7 @@
   position: relative;
   width: 100%;
   /* Shorter frame so more of the portrait sits above the blue area */
-  min-height: clamp(440px, 52vh, 600px);
+  min-height: clamp(440px, 70vh, 600px);
   border-radius: 50px;
   background: linear-gradient(0deg, #222cdc 0%, #2388ff 100%);
   overflow: visible;
@@ -98,42 +98,40 @@
 }
 
 /*
- * Portrait fills the card; wider image + negative margin = tighter side crop (bigger face).
- * Glass name + icons sit in this layer so backdrop-filter blurs the photo, not empty blue.
+ * Full portrait height visible; only left/right cropped.
+ * Top of image extends above the blue card; horizontal clip only.
  */
 .photoSlot {
   position: absolute;
   left: 0;
   right: 0;
-  top: -88px;
+  top: -75px;
   bottom: 0;
   z-index: 1;
   pointer-events: none;
   isolation: isolate;
 }
 
-.photoCrop {
+.photoHorizClip {
   position: absolute;
   inset: 0;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
   border-radius: 0 0 50px 50px;
   pointer-events: none;
 }
 
-/* Zoom + side crop; anchor toward top so head clears the blue card */
 .photo {
+  display: block;
   position: absolute;
   left: 50%;
-  top: 0;
-  transform: translateX(-50%) scale(1.08);
-  transform-origin: center 18%;
-  width: 142%;
-  min-width: 142%;
-  height: 118%;
-  min-height: 118%;
-  object-fit: cover;
-  object-position: center 0%;
-  display: block;
+  bottom: 0;
+  transform: translateX(-50%);
+  height: 100%;
+  width: auto;
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
   filter: grayscale(100%) contrast(1.08) brightness(1.03);
 }
 
@@ -378,14 +376,7 @@
   }
 
   .photoSlot {
-    top: -72px;
-  }
-
-  .photo {
-    width: 138%;
-    min-width: 138%;
-    transform: translateX(-50%) scale(1.05);
-    transform-origin: center 15%;
+    top: -96px;
   }
 
   .glassStack {
