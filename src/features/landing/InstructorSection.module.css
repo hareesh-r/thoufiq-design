@@ -4,6 +4,8 @@
   padding-block: clamp(3rem, 8vw, 5.5rem);
   padding-top: clamp(5rem, 12vw, 7.5rem);
   overflow-x: clip;
+  /* layout.sectionMinHeightPx — optional min height of entire section */
+  min-height: var(--ins-section-min-h, auto);
 }
 
 .wrap {
@@ -13,6 +15,8 @@
   gap: clamp(2rem, 4vw, 2.5rem);
   max-width: 1240px;
   margin-inline: auto;
+  /* layout.wrapMinHeightPx — min height of photo + text row (inherits from section) */
+  min-height: var(--ins-wrap-min-h, auto);
 }
 
 @media (min-width: 960px) {

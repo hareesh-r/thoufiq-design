@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import data from "../../data/instructor.json";
 import styles from "./InstructorSection.module.css";
 
@@ -69,13 +70,29 @@ function SocialIcon({ platform }: { platform: (typeof SOCIAL_ORDER)[number] }) {
   }
 }
 
+type InstructorLayout = {
+  leftColumnMaxWidthPx?: number;
+  photoSlotTopPx?: number;
+  photoMaxWidthPercent?: number;
+  /** Min height of the whole Meet Your Instructor `<section>` (px) */
+  sectionMinHeightPx?: number;
+  /** Min height of the inner row (photo + copy). Both columns stretch to at least this on desktop. */
+  wrapMinHeightPx?: number;
+};
+
 export function InstructorSection() {
-  const lay = (data as { layout?: Record<string, number> }).layout ?? {};
-  const sectionStyle = {
-    ["--ins-left-max" as string]: `${lay.leftColumnMaxWidthPx ?? 539}px`,
-    ["--ins-photo-top" as string]: `-${lay.photoSlotTopPx ?? 75}px`,
-    ["--ins-photo-max-w" as string]: `${lay.photoMaxWidthPercent ?? 100}%`,
+  const lay = ((data as { layout?: InstructorLayout }).layout ?? {}) as InstructorLayout;
+  const sectionStyle: CSSProperties & Record<string, string> = {
+    ["--ins-left-max"]: `${lay.leftColumnMaxWidthPx ?? 539}px`,
+    ["--ins-photo-top"]: `-${lay.photoSlotTopPx ?? 75}px`,
+    ["--ins-photo-max-w"]: `${lay.photoMaxWidthPercent ?? 100}%`,
   };
+  if (lay.sectionMinHeightPx != null && lay.sectionMinHeightPx > 0) {
+    sectionStyle["--ins-section-min-h"] = `${lay.sectionMinHeightPx}px`;
+  }
+  if (lay.wrapMinHeightPx != null && lay.wrapMinHeightPx > 0) {
+    sectionStyle["--ins-wrap-min-h"] = `${lay.wrapMinHeightPx}px`;
+  }
 
   return (
     <section
