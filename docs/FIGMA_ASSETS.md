@@ -4,10 +4,6 @@
 
 **`docs/Course Website (1).fig`** — full offline export. It’s a ZIP; the main document is binary and **doesn’t expose fonts as readable text** in-repo. See **`docs/LOCAL_FIGMA_FILE.md`** for structure and how to use it (Figma Desktop, images folder, API for tokens).
 
-## Waitlist page (`/waitlist`)
-
-Full-viewport dark hero (Figma `1182:27510`): radial navy background, grid overlay, glass header CTA, badge, headline with Instrument Serif italic accent, gradient **Reserve My Spot** CTA. Copy in `src/data/waitlist.json`.
-
 ## Pulled automatically (via Figma MCP)
 
 These assets were downloaded with the Figma MCP `download_figma_images` tool and live in **`public/assets/`**.

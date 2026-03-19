@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import site from "../../data/site.json";
 import styles from "./LandingHeader.module.css";
 
@@ -14,13 +14,6 @@ export function LandingHeader() {
             {site.logoWordmark}
             <span>.</span>
           </a>
-          <Link
-            to="/waitlist"
-            className={styles.navLink}
-            aria-current={pathname === "/waitlist" ? "page" : undefined}
-          >
-            Waitlist
-          </Link>
         </div>
         <a className="btn-cta" href={site.headerCta.href}>
           {site.headerCta.label}

@@ -9,7 +9,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "emulator:functions": "npm run build --prefix functions && firebase emulators:start --only functions"
   },
   "dependencies": {
     "plyr": "^3.8.4",

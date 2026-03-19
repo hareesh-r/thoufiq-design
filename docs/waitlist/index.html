@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buildly — Practical UI/UX Design Course</title>
+    <meta name="description" content="Not Another UI/UX Course — Something Much More Practical. Go from confused beginner to confident UI/UX designer with a practical, industry-focused learning approach.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo" id="logo-link">
+                <div class="logo-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <rect x="3" y="3" width="7" height="7" rx="1.5" fill="currentColor" opacity="0.6"/>
+                        <rect x="14" y="3" width="7" height="7" rx="1.5" fill="currentColor"/>
+                        <rect x="3" y="14" width="7" height="7" rx="1.5" fill="currentColor"/>
+                        <rect x="14" y="14" width="7" height="7" rx="1.5" fill="currentColor" opacity="0.6"/>
+                    </svg>
+                </div>
+                <span>Buildly</span>
+            </a>
+            <button class="btn btn-nav" id="btn-join-waitlist">Join Waitlist</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="grid-overlay"></div>
+        <div class="hero-glow"></div>
+        <div class="container hero-container">
+            <div class="badge">
+                <svg class="sparkle-icon" width="14" height="14" viewBox="0 0 24 24" fill="#7AA8FF">
+                    <path d="M12 0 L14.5 9.5 L24 12 L14.5 14.5 L12 24 L9.5 14.5 L0 12 L9.5 9.5 Z"/>
+                </svg>
+                First Batch · Limited Seats
+            </div>
+            <h1 class="hero-title">
+                Not Another <span class="text-gradient-blue font-serif italic">UI/UX Course</span> -<br>
+                Something Much More Practical
+            </h1>
+            <p class="hero-subtitle">
+                Go from confused beginner to confident UI/UX designer with a practical,<br class="desktop-only"> industry-focused learning approach.
+            </p>
+            <div class="hero-cta">
+                <button class="btn btn-primary-glow" id="btn-reserve-spot">
+                    <span class="shimmer"></span>
+                    <svg class="sparkle-icon" width="16" height="16" viewBox="0 0 24 24" fill="white">
+                        <path d="M12 0 L14.5 9.5 L24 12 L14.5 14.5 L12 24 L9.5 14.5 L0 12 L9.5 9.5 Z"/>
+                    </svg>
+                    Reserve My Spot
+                </button>
+            </div>
+            <p class="waitlist-note">Waitlist members get launch discount.</p>
+        </div>
+    </section>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modal-overlay">
+        <!-- Step 1: Personal Info -->
+        <div class="modal modal-step" id="modal-step1">
+            <div class="modal-header">
+                <span class="step-badge">Step 1 of 2</span>
+                <button class="modal-close" id="modal-close-1" aria-label="Close modal">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-track">
+                    <div class="progress-fill" style="width: 50%"></div>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <h2 class="modal-title">Let's get started</h2>
+                <p class="modal-subtitle">We'll use this to keep you updated on the course launch</p>
+                <form id="waitlist-form-step1">
+                    <div class="form-group">
+                        <label for="full-name">Full Name *</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="full-name" placeholder="Enter Full Name" required autocomplete="name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email-id">Email ID *</label>
+                        <div class="input-wrapper">
+                            <input type="email" id="email-id" placeholder="Enter Email ID" required autocomplete="email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile-number">Mobile Number (WhatsApp)</label>
+                        <div class="input-wrapper">
+                            <input type="tel" id="mobile-number" placeholder="Enter Mobile Number" autocomplete="tel">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary-glow btn-full" id="btn-continue">
+                        <svg class="sparkle-icon" width="14" height="14" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 0 L14.5 9.5 L24 12 L14.5 14.5 L12 24 L9.5 14.5 L0 12 L9.5 9.5 Z"/>
+                        </svg>
+                        Continue →
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Step 2: Experience Level -->
+        <div class="modal modal-step" id="modal-step2" style="display: none;">
+            <div class="modal-header">
+                <span class="step-badge">Step 2 of 2</span>
+                <button class="modal-close" id="modal-close-2" aria-label="Close modal">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-track">
+                    <div class="progress-fill" style="width: 100%"></div>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" style="width: 100%"></div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <h2 class="modal-title">Your experience</h2>
+                <p class="modal-subtitle">This helps us tailor the course to your level</p>
+                <div class="experience-options" id="experience-options">
+                    <label class="experience-option selected" data-value="beginner">
+                        <div class="radio-circle">
+                            <div class="radio-dot"></div>
+                        </div>
+                        <div class="option-text">
+                            <span class="option-title">Complete Beginner</span>
+                            <span class="option-desc">No prior design experience</span>
+                        </div>
+                    </label>
+                    <label class="experience-option" data-value="some-knowledge">
+                        <div class="radio-circle">
+                            <div class="radio-dot"></div>
+                        </div>
+                        <div class="option-text">
+                            <span class="option-title">Some Knowledge</span>
+                            <span class="option-desc">Dabbled in design, need structure</span>
+                        </div>
+                    </label>
+                    <label class="experience-option" data-value="intermediate">
+                        <div class="radio-circle">
+                            <div class="radio-dot"></div>
+                        </div>
+                        <div class="option-text">
+                            <span class="option-title">Intermediate</span>
+                            <span class="option-desc">Have experience, want to level up</span>
+                        </div>
+                    </label>
+                    <label class="experience-option" data-value="career-switcher">
+                        <div class="radio-circle">
+                            <div class="radio-dot"></div>
+                        </div>
+                        <div class="option-text">
+                            <span class="option-title">Career Switcher</span>
+                            <span class="option-desc">Transitioning from another field</span>
+                        </div>
+                    </label>
+                </div>
+                <div class="step2-actions">
+                    <button class="btn btn-back" id="btn-back" aria-label="Go back">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                    </button>
+                    <button class="btn btn-primary-glow btn-full" id="btn-reserve-final">
+                        <svg class="sparkle-icon" width="14" height="14" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 0 L14.5 9.5 L24 12 L14.5 14.5 L12 24 L9.5 14.5 L0 12 L9.5 9.5 Z"/>
+                        </svg>
+                        Reserve My Spot
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success Modal -->
+        <div class="modal modal-success" id="modal-success" style="display: none;">
+            <div class="modal-body success-body">
+                <div class="success-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+                        <path d="M8 12l3 3 5-5" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h2 class="success-title">You're In! Early Access Secured 🎉</h2>
+                <p class="success-subtitle">You're officially on the waitlist for the practical UI/UX design course.</p>
+                <div class="success-info-box">
+                    <p class="info-primary">We'll notify you when enrollment opens for the first batch.</p>
+                    <p class="info-secondary">"Waitlist members will receive early-bird pricing."</p>
+                </div>
+                <button class="btn btn-primary-glow btn-full" id="btn-whatsapp">
+                    <span class="shimmer"></span>
+                    <svg class="whatsapp-icon" width="18" height="18" viewBox="0 0 24 24" fill="white">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    Join Our WhatsApp Community
+                </button>
+                <button class="btn-close-subtle" id="btn-close-success">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <canvas id="confetti-canvas"></canvas>
+    <script src="script.js"></script>
+</body>
+</html>

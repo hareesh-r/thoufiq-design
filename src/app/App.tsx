@@ -12,8 +12,6 @@ import { BonusesSection } from "../features/landing/BonusesSection";
 import { PricingSection } from "../features/landing/PricingSection";
 import { LandingFaq } from "../features/landing/LandingFaq";
 import { FinalEnquirySection } from "../features/landing/FinalEnquirySection";
-import { WaitlistPage } from "../features/waitlist/WaitlistPage";
-
 function HomePage() {
   return (
     <>
@@ -39,8 +37,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/waitlist" element={<WaitlistPage />} />
-      <Route path="/wishlist" element={<Navigate to="/waitlist" replace />} />
+      <Route path="/wishlist" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }

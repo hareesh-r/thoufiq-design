@@ -1,5 +1,46 @@
 # Enquiry form → Google Sheet (Firebase Cloud Functions)
 
+## Test locally
+
+1. Put your service account JSON in **`functions/gridandgoal-*.json`** (already gitignored).
+2. **Terminal A** — start the Functions emulator (from repo root):
+
+   ```bash
+   pnpm emulator:functions
+   ```
+
+   Wait until you see something like `submitEnquiry` and port **5001**. Emulator UI: **http://localhost:4000**.
+
+3. **Create `.env.local`** in the project root (same folder as `package.json`):
+
+   ```env
+   VITE_ENQUIRY_SUBMIT_URL=http://127.0.0.1:5001/gridandgoal-e7880/us-central1/submitEnquiry
+   ```
+
+   (Emulator uses **`us-central1`** even though production uses `asia-south1`.)
+
+4. **Terminal B** — Vite dev server:
+
+   ```bash
+   pnpm dev
+   ```
+
+5. Open the site, scroll to the enquiry form, submit. Check **Google Sheet** for a new row.
+
+**If the emulator errors about `GOOGLE_SERVICE_ACCOUNT_KEY`:** add `functions/.secret.local` (gitignored) with one line:
+
+`GOOGLE_SERVICE_ACCOUNT_KEY=` then paste the **full JSON** of your service account on the same line (minified is fine).
+
+**Quick API check (optional):**
+
+```bash
+curl -s -X POST http://127.0.0.1:5001/gridandgoal-e7880/us-central1/submitEnquiry \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Test","email":"test@example.com","mobile":"9999999999"}'
+```
+
+---
+
 The function **`submitEnquiry`** receives `POST` JSON `{ name, email, mobile }` and appends a row to **Sheet1** columns **A–D**:
 
 | A | B | C | D |
@@ -77,4 +118,5 @@ In [Google Cloud Console](https://console.cloud.google.com) → **APIs & Service
 
 ## Region
 
-The function is deployed to **`asia-south1`**. Change `setGlobalOptions({ region: "..." })` in `functions/src/index.ts` if you prefer another region.
+- **Production:** **`asia-south1`**
+- **Emulator:** **`us-central1`** (Firebase Gen-2 emulator limitation; URL uses `us-central1` locally)
