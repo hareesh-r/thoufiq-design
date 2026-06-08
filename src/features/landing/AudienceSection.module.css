@@ -77,6 +77,17 @@
   margin: 0;
 }
 
+@media (max-width: 767px) {
+  .title {
+    font-size: clamp(1.85rem, 5.2vw, 2.5rem);
+  }
+
+  .subtitle {
+    font-size: clamp(1.0625rem, 3vw, 1.125rem);
+    line-height: 1.45;
+  }
+}
+
 /* Cards + CTA area — layout_C6PJXG: column, center, gap 32px */
 .cardsArea {
   display: flex;
@@ -186,6 +197,24 @@
 
 /* Mobile responsive */
 @media (max-width: 767px) {
+  .section {
+    min-height: calc(100vh - var(--header-h));
+    min-height: var(--section-viewport-min);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .section .container {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 0;
+    width: 100%;
+  }
+
   .inner {
     gap: 32px;
   }

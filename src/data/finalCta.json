@@ -1,12 +1,17 @@
 {
   "sectionId": "final-enquiry",
-  "headlinePrefix": "Your design career starts with",
+  "headlineLine1": "Your design",
+  "headlineLine2": "career starts with",
   "headlineAccent": "one decision.",
   "subhead": "Join designers who are learning how to think, design, and build real digital products — not just pretty UI screens.",
   "cardTitleBefore": "Have ",
   "cardTitleHighlight": "Questions",
   "cardTitleAfter": " Before You Join?",
   "cardBody": "Fill out the form and our team will reach out to help you understand the course and next steps.",
+  "successCardTitle": "We've received your enquiry",
+  "successCardBody": "Thanks for taking the time — we'll use what you shared to give you a clear, helpful follow-up about the program.",
+  "successInfoPrimary": "Our team will get in touch with you soon to walk through the course and answer your questions.",
+  "successInfoSecondary": "We review every submission personally so you get a real conversation, not a generic reply.",
   "form": {
     "fullNameLabel": "Full Name *",
     "fullNamePlaceholder": "Enter Full Name",
@@ -18,12 +23,11 @@
     "submittingLabel": "Sending…",
     "footnote": "No spam. Just course details and next steps.",
     "successFootnote": "Thanks — we'll be in touch.",
-    "errorFootnote": "Something went wrong. Please try again or email us directly."
+    "errorFootnote": "Something went wrong. Please try again in a moment."
   },
   "footer": {
-    "logoPlaceholder": "/assets/footer-logo-placeholder.svg",
     "copyrightEntity": "Grid and Goal Private Limited",
-    "email": "support@gridandgoal.com",
+    "email": "thoufiq.designs@gmail.com",
     "refund": "Refund Policy"
   }
 }

@@ -8,6 +8,8 @@ type PageSEOProps = {
   path?: string;
   ogImage?: string;
   noindex?: boolean;
+  /** Legal/subpages: only Organization + WebSite JSON-LD (no Course/FAQ). */
+  structuredData?: "full" | "minimal";
 };
 
 export function PageSEO({
@@ -16,6 +18,7 @@ export function PageSEO({
   path = "/",
   ogImage,
   noindex = false,
+  structuredData = "full",
 }: PageSEOProps) {
   const { siteName, baseUrl, defaultOgImage } = site;
   const canonical = `${baseUrl.replace(/\/$/, "")}${path}`;
@@ -79,8 +82,12 @@ export function PageSEO({
       {imageUrl && <meta name="twitter:image" content={imageUrl} />}
       <script type="application/ld+json">{JSON.stringify(orgLd)}</script>
       <script type="application/ld+json">{JSON.stringify(websiteLd)}</script>
-      <script type="application/ld+json">{JSON.stringify(courseLd)}</script>
-      <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
+      {structuredData === "full" && (
+        <>
+          <script type="application/ld+json">{JSON.stringify(courseLd)}</script>
+          <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
+        </>
+      )}
     </Helmet>
   );
 }

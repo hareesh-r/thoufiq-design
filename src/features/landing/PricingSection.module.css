@@ -176,33 +176,12 @@
   color: rgba(0, 0, 0, 0.6);
 }
 
+/* Figma pricing card — full-width pill; global .btn-cta + shine/glow */
 .cta {
-  box-sizing: border-box;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  height: 60px;
-  margin: 0;
-  padding: 0 24px;
-  text-decoration: none !important;
-  color: #fff !important;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1;
-  background: linear-gradient(90deg, #222cdc 0%, #2388ff 100%);
-  box-shadow: 0 14px 32px 4px rgba(35, 136, 255, 0.32);
   border-radius: 32px;
+  min-height: 60px;
+  height: 60px;
   border: none;
-  cursor: pointer;
-  transition: filter 0.15s ease, transform 0.15s ease;
-}
-
-.cta:hover {
-  filter: brightness(1.05);
-  transform: translateY(-1px);
 }
 
 .ctaLabel {
@@ -214,13 +193,24 @@
   color: #fff;
 }
 
+@media (max-width: 767px) {
+  .headline {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+  }
+
+  .featureText {
+    font-size: clamp(1rem, 2.8vw, 1.0625rem);
+    line-height: 1.45;
+  }
+}
+
 @media (max-width: 480px) {
   .body {
     padding: 24px 20px 28px;
   }
 
   .priceCurrent {
-    font-size: 40px;
-    line-height: 48px;
+    font-size: clamp(2rem, 9vw, 2.75rem);
+    line-height: 1.1;
   }
 }

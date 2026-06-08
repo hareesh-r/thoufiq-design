@@ -1,8 +1,0 @@
-node_modules
-lib
-*.local
-.runtimeconfig.json
-
-# Service account keys — never commit (use firebase functions:secrets:set for deploy)
-gridandgoal-*.json
-*-firebase-adminsdk*.json

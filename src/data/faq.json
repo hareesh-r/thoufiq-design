@@ -2,27 +2,47 @@
   "sectionId": "faq",
   "titleLead": "Got questions?",
   "titleAccent": "Good.",
-  "intro": "Got questions? We've got answers. Here are the most common questions from students before they transform their careers with web design.",
+  "intro": "Here are the questions students ask most before they enroll — straight answers, no fluff.",
   "items": [
     {
       "question": "I'm a complete beginner. Is this for me?",
-      "answer": "100%. This course starts from zero — no design background needed. Most of our successful students started with zero experience."
+      "answer": "Yes. This course is designed for absolute beginners. You don't need any design background. Everything is taught step by step — from fundamentals to building real projects and a portfolio."
     },
     {
       "question": "How is this different from free YouTube content?",
-      "answer": "YouTube is great for tips, but this is a full roadmap: structured modules, assignments, live Q&A, portfolio guidance, and interview prep—so you finish hireable, not just informed."
+      "answer": "YouTube is unstructured. You'll keep jumping between videos without a clear path. This course gives you a complete roadmap, real assignments, and a system that takes you from zero to job-ready — without confusion."
     },
     {
       "question": "What if I get stuck or need help?",
-      "answer": "You'll have live Q&A sessions, community support, and clear milestones so you're never guessing what to do next."
+      "answer": "You'll have access to a private community where you can ask questions, get feedback, and stay accountable. You're not learning alone."
     },
     {
       "question": "Do I need to know Figma first?",
-      "answer": "No. We build Figma skills step by step inside the course—from basics through advanced UI and prototyping."
+      "answer": "No. Figma is taught from scratch inside the course. You'll learn everything you need as you progress."
     },
     {
       "question": "How long do I have access?",
-      "answer": "One-time payment · Lifetime Course Access to the materials included with your enrollment."
+      "answer": "You'll get 1 year of access. You can learn at your own pace and revisit the content anytime."
+    },
+    {
+      "question": "How much time do I need to invest?",
+      "answer": "If you're serious, 1–2 hours per day is enough to make consistent progress. The more you execute, the faster you'll see results."
+    },
+    {
+      "question": "Will I get a job after this course?",
+      "answer": "If you follow the process, complete projects, and apply consistently — you'll be in a strong position to get shortlisted and crack interviews."
+    },
+    {
+      "question": "Is this worth ₹6999?",
+      "answer": "If you're looking for random videos, no. If you want a clear path, real skills, and a portfolio that can get you interviews, this is built for that. One good opportunity can easily recover your investment."
+    },
+    {
+      "question": "What if I don't like the course?",
+      "answer": "Go through the curriculum carefully before enrolling. Since this is a digital product with full access, refunds are not provided by default."
+    },
+    {
+      "question": "Can I learn this while working or studying?",
+      "answer": "Yes. The course is self-paced. You can fit it into your schedule and progress consistently without needing full-time commitment."
     }
   ]
 }

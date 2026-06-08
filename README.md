@@ -36,6 +36,3 @@ Replace placeholder blocks (program carousel, instructor photo, video) with expo
 
 Set `baseUrl` and optional `defaultOgImage` in `site.json`. JSON-LD: Organization, WebSite, Course, FAQPage.
 
-## Enquiry form → Google Sheet
-
-Firebase Cloud Function `submitEnquiry` appends rows to Google Sheets. Setup: **`docs/FIREBASE_ENQUIRY_SHEETS.md`**. Set **`VITE_ENQUIRY_SUBMIT_URL`** before production build (see `.env.example`).

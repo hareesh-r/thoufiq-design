@@ -2,9 +2,14 @@
   "siteName": "Grid and Goal",
   "baseUrl": "https://gridandgoal.com",
   "seoTitle": "UI/UX Course — Not Another UI/UX Course | Grid and Goal",
-  "seoDescription": "Not Another UI/UX Course — Something Much More Practical. Comprehensive UI/UX & Product Design program with live sessions, modules, and career guidance.",
+  "seoDescription": "Not Another UI/UX Course — 60-day structured program. Comprehensive UI/UX & Product Design program with live sessions, modules, and career guidance.",
   "defaultOgImage": "",
   "logoWordmark": "Grid and Goal",
+  "logoSrc": "/assets/Gird%20and%20goal%20Logo.png",
+  "logoFooterSrc": "/assets/Grid%20and%20Goal%20Logo%20Footer.png",
   "headerCta": { "label": "Enquire Now", "href": "#final-enquiry" },
-  "heroCta": { "label": "Enroll Now", "href": "#pricing" }
+  "heroCta": {
+    "label": "Join Waitlist",
+    "href": "/waitlist"
+  }
 }

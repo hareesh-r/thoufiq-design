@@ -21,6 +21,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('waitlist-form-step1');
     const experienceOptions = document.getElementById('experience-options');
 
+    const SHEETS_API =
+        'https://script.google.com/macros/s/AKfycbw3fNSkCnNFI50WJF8lxuQ27uQhPcFEuCzMITtzNOiP5dfs51fmNNdU2WBykia4P-Rm/exec';
+    let hasSubmitted = false;
+
+    function submitToSheet(joinedWhatsApp) {
+        const name = document.getElementById('full-name').value.trim();
+        const email = document.getElementById('email-id').value.trim();
+        const phone = document.getElementById('mobile-number').value.trim();
+        const selected = experienceOptions.querySelector('.experience-option.selected');
+        const experience = selected
+            ? selected.querySelector('.option-title').textContent
+            : 'Complete Beginner';
+
+        fetch(SHEETS_API, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain' },
+            body: JSON.stringify({
+                name,
+                email,
+                phone,
+                experience,
+                joinedWhatsApp,
+                source: 'waitlist',
+            }),
+        }).catch(() => {});
+    }
+
     // ==========================================
     // Navbar Scroll Effect
     // ==========================================
@@ -224,6 +251,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Reserve final
     btnReserveFinal.addEventListener('click', () => {
+        if (!hasSubmitted) {
+            hasSubmitted = true;
+            submitToSheet(false);
+        }
         showStep(3);
     });
 
@@ -231,8 +262,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Success -> WhatsApp / Close
     // ==========================================
     btnWhatsapp.addEventListener('click', () => {
-        // Replace with your actual WhatsApp group link
-        window.open('https://chat.whatsapp.com/your-group-invite', '_blank');
+        submitToSheet(true);
+        window.open('https://chat.whatsapp.com/H5w6deN2uJf3pc197K5GWu', '_blank');
     });
 
     btnCloseSuccess.addEventListener('click', () => {

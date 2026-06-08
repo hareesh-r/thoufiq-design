@@ -1,47 +1,320 @@
 {
   "sectionId": "course-structure",
-  "eyebrow": "Lorem Ipsum",
+  "eyebrow": "What You'll Learn",
   "titleLead": "Course ",
   "titleAccent": "Structure",
-  "description": "Master web design with our proven 6-module system.\nEach lesson builds on the last, taking you",
+  "description": "A practical path from UX foundations to portfolio, interviews, and the job market.\nEach module builds on the last, taking you",
   "modules": [
-    { "id": "m0", "code": "Module 0", "title": "Why You're Here & About the Course" },
+    {
+      "id": "m0",
+      "code": "Module 0",
+      "title": "Course Orientation",
+      "lessons": [
+        "Why You're Here",
+        "About Me & What You'll Get From This Course",
+        "What You Will Learn",
+        "How This Course Is Structured",
+        "What Makes This Course Different",
+        "Wrap-up"
+      ]
+    },
     {
       "id": "m1",
       "code": "Module 1",
       "title": "Introduction to UI/UX",
       "lessons": [
-        "What UX actually means",
-        "What UI actually means",
+        "What UX Really Means",
+        "What UI Really Means",
         "UX vs UI (Clear Difference)",
         "Why UX Comes First",
-        "How digital products are built",
+        "How Digital Products Are Built",
         "Roles Inside a Product Team",
         "Assignment 1",
         "Wrap-up"
       ]
     },
-    { "id": "m2", "code": "Module 2", "title": "UX Thinking & Psychology" },
-    { "id": "m3", "code": "Module 3", "title": "Fundamentals of UX" },
-    { "id": "m4", "code": "Module 4", "title": "UX Laws & Principles" },
-    { "id": "m5", "code": "Module 5", "title": "Design Thinking Process" },
-    { "id": "m6", "code": "Module 6", "title": "Problem Identification" },
-    { "id": "m7", "code": "Module 7", "title": "FigJam for UX" },
-    { "id": "m8", "code": "Module 8", "title": "Real-Time Implementation" },
-    { "id": "m9", "code": "Module 9", "title": "The Fundamentals of UI Design" },
-    { "id": "m10", "code": "Module 10", "title": "Figma Basic to Advanced" },
-    { "id": "m11", "code": "Module 11", "title": "High-Fidelity UI Screens" },
-    { "id": "m12", "code": "Module 12", "title": "Prototyping" },
-    { "id": "m13", "code": "Module 13", "title": "Figma Make" },
-    { "id": "m14", "code": "Module 14", "title": "AI in UI/UX" },
-    { "id": "m15", "code": "Module 15", "title": "Prompting Techniques" },
-    { "id": "m16", "code": "Module 16", "title": "Case Study Creation" },
-    { "id": "m17", "code": "Module 17", "title": "Resume & Portfolio" },
-    { "id": "m18", "code": "Module 18", "title": "Job Application Strategy" },
-    { "id": "m19", "code": "Module 19", "title": "How to crack Interview" },
-    { "id": "m20", "code": "Module 20", "title": "Current Job Market" },
-    { "id": "m21", "code": "Module 21", "title": "Communication" },
-    { "id": "m22", "code": "Module 22", "title": "Freelancing" },
-    { "id": "m23", "code": "Module 23", "title": "Live Experience Sharing" }
+    {
+      "id": "m2",
+      "code": "Module 2",
+      "title": "UX Thinking & Psychology",
+      "lessons": [
+        "Why Psychology Matters in UX",
+        "How Humans Think (System 1 & System 2)",
+        "Cognitive Load",
+        "Attention & Distraction",
+        "Mental Models",
+        "Behavior Loops (Habit Cycle)",
+        "Decision Making",
+        "Emotional Design",
+        "Wrap-up"
+      ]
+    },
+    {
+      "id": "m3",
+      "code": "Module 3",
+      "title": "UX Fundamentals",
+      "lessons": [
+        "What Makes Good UX",
+        "Core UX Principles",
+        "Interaction Basics",
+        "Accessibility Basics",
+        "UX Anti-Patterns",
+        "Assignment 2",
+        "Wrap-up"
+      ]
+    },
+    {
+      "id": "m4",
+      "code": "Module 4",
+      "title": "UX Laws",
+      "lessons": [
+        "Hick's Law",
+        "Fitts's Law",
+        "Jakob's Law",
+        "Law of Proximity",
+        "Aesthetic-Usability Effect",
+        "Doherty Threshold",
+        "Zeigarnik Effect",
+        "Von Restorff Effect",
+        "Assignment 3"
+      ]
+    },
+    {
+      "id": "m5",
+      "code": "Module 5",
+      "title": "Design Thinking Process",
+      "lessons": [
+        "Empathize (User Interviews, Observational Research, Surveys, Analysis, Competitor Research)",
+        "Define (Empathy Mapping, Personas, Affinity Mapping, Needs & Pain Points, JTBD)",
+        "Ideate (Information Architecture, Task Flows, User Flows, Journey Mapping, Feature Prioritization)",
+        "Prototype (Low-Fidelity, Mid-Fidelity, High-Fidelity Wireframes, Layout Thinking)",
+        "Test (Usability Testing, Heuristic Evaluation, Observations, Findings, Iteration)",
+        "Wrap-up"
+      ]
+    },
+    {
+      "id": "m6",
+      "code": "Module 6",
+      "title": "Problem Identification",
+      "lessons": [
+        "Why Problem Identification Matters",
+        "Common Beginner Mistakes",
+        "Thinking Like a Business",
+        "Selecting a Final Problem",
+        "SWOT Analysis",
+        "Final Problem Definition",
+        "Wrap-up"
+      ]
+    },
+    {
+      "id": "m7",
+      "code": "Module 7",
+      "title": "FigJam for UX",
+      "lessons": [
+        "What is FigJam & Why It's Used",
+        "FigJam Walkthrough",
+        "Wrap-up"
+      ]
+    },
+    {
+      "id": "m8",
+      "code": "Module 8",
+      "title": "Real-Time Implementation",
+      "lessons": [
+        "Introduction to Practical Implementation",
+        "Problem Statement",
+        "Applying the Design Thinking Process",
+        "Final Output"
+      ]
+    },
+    {
+      "id": "m9",
+      "code": "Module 9",
+      "title": "UI Design Fundamentals",
+      "lessons": [
+        "Visual Hierarchy",
+        "Typography",
+        "Color Psychology",
+        "Spacing & Grids",
+        "Layout Systems",
+        "Component Thinking",
+        "Wrap-up"
+      ]
+    },
+    {
+      "id": "m10",
+      "code": "Module 10",
+      "title": "Building Interfaces with Figma",
+      "lessons": [
+        "Getting Started with Figma",
+        "Interface Overview",
+        "Auto Layout",
+        "Styles, Variables & Tokens",
+        "Components",
+        "Design Systems (Untitled UI)",
+        "Prototyping"
+      ]
+    },
+    {
+      "id": "m11",
+      "code": "Module 11",
+      "title": "High-Fidelity UI Design (scratch to end)",
+      "lessons": [
+        "Converting Low-Fidelity to High-Fidelity",
+        "Building a Screen Library",
+        "UI States (Empty, Error, Success, Loading)",
+        "Visual Polish",
+        "Accessibility Review"
+      ]
+    },
+    {
+      "id": "m12",
+      "code": "Module 12",
+      "title": "Prototyping",
+      "lessons": ["Interactive Prototyping for the project chosen"]
+    },
+    {
+      "id": "m13",
+      "code": "Module 13",
+      "title": "Figma Make",
+      "lessons": [
+        "Understanding Figma Make",
+        "Basic vs Advanced Prompting",
+        "Preview & Publish"
+      ]
+    },
+    {
+      "id": "m14",
+      "code": "Module 14",
+      "title": "AI in UI/UX",
+      "lessons": [
+        "AI for UX Research",
+        "AI for Competitor Analysis",
+        "AI for Information Architecture & Flows",
+        "AI Wireframe Generation",
+        "AI Usability Testing",
+        "Practical Workflow"
+      ]
+    },
+    {
+      "id": "m15",
+      "code": "Module 15",
+      "title": "Prompting for Designers",
+      "lessons": [
+        "UX Prompts",
+        "Why Prompting Matters",
+        "UI Prompts",
+        "Case Study Prompts",
+        "Prompting Best Practices",
+        "Prompting Mindset"
+      ]
+    },
+    {
+      "id": "m16",
+      "code": "Module 16",
+      "title": "Case Study Creation",
+      "lessons": [
+        "What is a Case Study",
+        "Importance of Case Studies",
+        "Storytelling in Case Studies",
+        "Good vs Bad Examples",
+        "Creating a Case Study (Project Walkthrough)"
+      ]
+    },
+    {
+      "id": "m17",
+      "code": "Module 17",
+      "title": "Resume & Portfolio",
+      "lessons": [
+        "Resume Do's and Don'ts",
+        "Resume Creation (Figma & Canva)",
+        "ATS Optimization",
+        "Using AI Tools Effectively",
+        "Portfolio Fundamentals",
+        "Portfolio Platforms (Behance)"
+      ]
+    },
+    {
+      "id": "m18",
+      "code": "Module 18",
+      "title": "Job Application Strategy",
+      "lessons": [
+        "How Hiring Actually Works",
+        "Job Portals",
+        "Direct Messaging Strategy",
+        "Follow-Up Strategy",
+        "Handling Rejection",
+        "Improving Response Rate",
+        "Weekly Job Search System",
+        "Wrap-up"
+      ]
+    },
+    {
+      "id": "m19",
+      "code": "Module 19",
+      "title": "Cracking Interviews",
+      "lessons": [
+        "Self Introduction",
+        "Understanding the Interview Process",
+        "Common UI/UX Interview Questions",
+        "Questions to Ask Interviewers",
+        "Interview Mindset",
+        "Wrap-up"
+      ]
+    },
+    {
+      "id": "m20",
+      "code": "Module 20",
+      "title": "Current Job Market",
+      "lessons": [
+        "Reality of the UI/UX Market",
+        "Why Designers Struggle",
+        "What Companies Expect",
+        "Types of Companies & Hiring Differences",
+        "Expectations by Experience Level",
+        "Impact of AI on Hiring",
+        "How to Stay Relevant",
+        "Key Skills for the Future",
+        "Salary Expectations",
+        "What to Do If You're Not Getting Calls",
+        "Time to Get a Job",
+        "Wrap-up"
+      ]
+    },
+    {
+      "id": "m21",
+      "code": "Module 21",
+      "title": "Communication for Designers",
+      "lessons": [
+        "Why Communication Matters",
+        "Types of Communication",
+        "Speaking with Non-Designers",
+        "Asking Better Questions",
+        "Giving & Receiving Feedback",
+        "Communication in Interviews",
+        "Working with Developers",
+        "Daily Communication Improvement",
+        "Wrap-up"
+      ]
+    },
+    {
+      "id": "m22",
+      "code": "Module 22",
+      "title": "Freelancing",
+      "lessons": [
+        "Getting Your First Clients",
+        "Scope Management",
+        "Deliverables",
+        "Contracts",
+        "Pricing Basics",
+        "Client Communication"
+      ]
+    },
+    {
+      "id": "m23",
+      "code": "Module 23",
+      "title": "Industry Experience",
+      "lessons": ["Experience shared by working professionals"]
+    }
   ]
 }

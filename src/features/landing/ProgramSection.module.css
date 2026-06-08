@@ -1,6 +1,10 @@
 /* Program section — matches Figma node 1182:14339 */
 
 .section {
+  /* Transparent so grid shows in the padding / around the frame; dark `.card` is opaque and hides the grid */
+  position: relative;
+  isolation: isolate;
+  background: transparent;
   padding-block: clamp(3rem, 8vw, 5rem);
 }
 
@@ -115,8 +119,8 @@
 }
 
 /*
- * Program feature card — Background+Border (Figma ref)
- * 376.33×226, padding 24, gap 26, rgba(255,255,255,0.05), radius 16
+ * Program feature card — layout from Figma 1182:14359; glass from Apple-like liquid-glass ref
+ * (backdrop + fill + border + inset/outer shadow + ::before highlight + ::after edge gloss)
  */
 .featureCard {
   box-sizing: border-box;
@@ -126,6 +130,7 @@
   max-width: 376.33px;
   width: 100%;
   min-height: 226px;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -134,14 +139,23 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: var(--lg-blur) var(--lg-sat);
-  -webkit-backdrop-filter: var(--lg-blur) var(--lg-sat);
-  border: 1px solid var(--lg-border);
+
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+
+  /* Dark glass: tinted base + tiny highlight so it stays legible, not milky */
+  background: linear-gradient(
+    155deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(8, 12, 22, 0.82) 48%,
+    rgba(6, 10, 18, 0.88) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.09);
+
   box-shadow:
-    0 0 32px rgba(100, 160, 255, 0.1),
-    var(--lg-specular),
-    var(--lg-depth);
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.35),
+    0 10px 36px rgba(0, 0, 0, 0.5);
 }
 
 .featureCard::before {
@@ -149,31 +163,39 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  pointer-events: none;
   z-index: 0;
   background: linear-gradient(
-    130deg,
-    rgba(255, 255, 255, 0.18) 0%,
-    rgba(255, 255, 255, 0.03) 35%,
-    transparent 52%,
-    rgba(170, 200, 255, 0.09) 88%
+    120deg,
+    rgba(255, 255, 255, 0.14) 0%,
+    rgba(255, 255, 255, 0.04) 22%,
+    transparent 42%
   );
-  mix-blend-mode: soft-light;
+  opacity: 0.35;
+  pointer-events: none;
 }
 
 .featureCard::after {
   content: "";
   position: absolute;
-  inset: 1px;
-  border-radius: 15px;
-  pointer-events: none;
+  inset: 0;
+  border-radius: inherit;
   z-index: 0;
-  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.035);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 18px 36px rgba(255, 255, 255, 0.03);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .featureCard {
+    backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+  }
 }
 
 .featureCardInner {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -183,14 +205,13 @@
   min-height: 0;
 }
 
-/* Icon well — Figma 1182:14385 Overlay+Border: fill_AKSTRF + stroke_YSBDXC */
+/* Icon well — paint0_linear x1/y1→x2/y2 + stroke #2B3FF3 @ 20% (SVG) */
 .iconCircle {
   width: 56px;
   height: 56px;
   border-radius: 16px;
   background: linear-gradient(90deg, #222cdc 0%, #2388ff 100%);
   border: 1px solid rgba(43, 63, 243, 0.2);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -220,6 +241,9 @@
   letter-spacing: -0.02em;
   color: #ffffff;
   margin: 0;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 /* style_LU5WY8: Bricolage Grotesque 400 14px, line-height 1.625, left, fill #D0D5DD */
@@ -371,21 +395,55 @@
   .featureCard {
     max-width: 100%;
     min-height: 0;
+    height: auto;
   }
 
   .bottomBar {
     flex-direction: column;
-    gap: 20px;
+    gap: 14px;
   }
 
   .captionGroup {
     flex-direction: column;
     text-align: center;
     margin: 0 auto;
+    gap: 10px;
+    max-width: 100%;
+  }
+
+  .avatarStack {
+    width: 116px;
+    height: 36px;
+    margin-inline: auto;
+  }
+
+  .avatarImg {
+    width: 36px;
+    height: 36px;
+    border-width: 2px;
+  }
+
+  .avatarStack .avatarImg:nth-child(2) {
+    left: 20px;
+  }
+  .avatarStack .avatarImg:nth-child(3) {
+    left: 40px;
+  }
+  .avatarStack .avatarImg:nth-child(4) {
+    left: 60px;
+  }
+  .avatarStack .avatarImg:nth-child(5) {
+    left: 80px;
+  }
+
+  .captionText {
+    font-size: 14px;
+    line-height: 1.35;
   }
 
   .cta {
     align-self: center;
     max-width: 100%;
+    height: 52px;
   }
 }

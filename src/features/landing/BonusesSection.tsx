@@ -82,18 +82,19 @@ export function BonusesSection() {
               </div>
             </div>
             <div className={styles.kitVisual}>
-              <div className={styles.kitRow}>
-                {resourceKit.covers.map((cover) => (
-                  <div key={cover.src} className={styles.kitCoverWrap}>
-                    <img
-                      src={cover.src}
-                      alt={cover.alt}
-                      className={styles.kitCoverImg}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                ))}
+              <div className={styles.kitComposite}>
+                <picture>
+                  <source media="(max-width: 959px)" srcSet={resourceKit.imageMobile} />
+                  <img
+                    className={styles.kitCompositeImg}
+                    src={resourceKit.imageDesktop}
+                    alt={resourceKit.imageAlt}
+                    width={1599}
+                    height={428}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
               </div>
             </div>
           </article>

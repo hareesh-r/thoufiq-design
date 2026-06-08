@@ -9,11 +9,10 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "lint": "eslint .",
-    "emulator:functions": "npm run build --prefix functions && firebase emulators:start --only functions"
+    "lint": "eslint ."
   },
   "dependencies": {
-    "plyr": "^3.8.4",
+    "liquid-glass-react": "^1.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-helmet-async": "^2.0.5",

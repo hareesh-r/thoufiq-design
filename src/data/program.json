@@ -44,6 +44,6 @@
     "/assets/avatars/avatar-5.jpg"
   ],
   "captionText": "Designers who chose quality",
-  "ctaLabel": "Enroll Now",
-  "ctaHref": "#pricing"
+  "ctaLabel": "Join Waitlist",
+  "ctaHref": "/waitlist"
 }

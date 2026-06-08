@@ -1,4 +1,5 @@
 import data from "../../data/program.json";
+import { newTabIfHttp } from "../../linkTargets";
 import styles from "./ProgramSection.module.css";
 
 export function ProgramSection() {
@@ -58,7 +59,11 @@ export function ProgramSection() {
                   </div>
                   <p className={styles.captionText}>{data.captionText}</p>
                 </div>
-                <a href={data.ctaHref} className={`btn-cta ${styles.cta}`}>
+                <a
+                  href={data.ctaHref}
+                  className={`btn-cta ${styles.cta}`}
+                  {...newTabIfHttp(data.ctaHref)}
+                >
                   <span className={styles.ctaLabel}>{data.ctaLabel}</span>
                   <img
                     src="/assets/arrow-right.svg"

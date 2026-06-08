@@ -6,6 +6,33 @@
   overflow-x: clip;
 }
 
+/* Figma: ≥111px gap under header → badge — mobile (1182:19813) */
+@media (max-width: 767px) {
+  .section {
+    padding-top: 111px;
+    min-height: calc(100vh - var(--header-h));
+    min-height: var(--section-viewport-min);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .section .container {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 0;
+    width: 100%;
+  }
+
+  .stack {
+    gap: clamp(1rem, 3vw, 1.35rem);
+    padding-bottom: clamp(2.25rem, 7vw, 4rem);
+  }
+}
+
 .inner {
   max-width: 901px;
   margin: 0 auto;
@@ -61,13 +88,6 @@
   color: inherit;
 }
 
-@media (max-width: 640px) {
-  .titleAccent {
-    font-size: clamp(1.75rem, 8vw, 2.5rem);
-    line-height: 1.1;
-  }
-}
-
 /* style_T5XEEE */
 .subtitle {
   margin: 0;
@@ -80,7 +100,7 @@
   color: var(--muted);
 }
 
-/* Hero Enroll — 258×60, sparkles icon, horizontal shine sweep */
+/* Hero Enroll — 258×60, sparkles; shine/glow from global .cta-motion */
 .heroEnroll {
   position: relative;
   display: inline-flex;
@@ -116,49 +136,9 @@
   outline-offset: 3px;
 }
 
-/* Shine on top of gradient, clipped — sweeps left → right, infinite */
-.heroEnrollShine {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.heroEnrollShineBeam {
-  position: absolute;
-  top: -28%;
-  bottom: -28%;
-  left: 0;
-  width: 48%;
-  transform-origin: center center;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.06) 35%,
-    rgba(227, 240, 255, 0.55) 50%,
-    rgba(255, 255, 255, 0.35) 52%,
-    rgba(255, 255, 255, 0.06) 68%,
-    transparent 100%
-  );
-  animation: heroEnrollShineSweep 2.4s linear infinite;
-  will-change: transform;
-}
-
-/* Same sweep axis (left → right); tilted reflection band (mirror of previous angle) */
-@keyframes heroEnrollShineSweep {
-  0% {
-    transform: translateX(-100%) rotate(11deg);
-  }
-  100% {
-    transform: translateX(320%) rotate(11deg);
-  }
-}
-
 .heroEnrollRow {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -170,11 +150,45 @@
   color: #fff;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .heroEnrollShineBeam {
-    animation: none;
-    opacity: 0;
+/*
+ * Mobile hero typography — Figma 1182:19813 (Course Website (1))
+ * Badge style_RZ6ZFL, title style_5QB3CO, subtitle style_K3N2ZC, CTA style_FMVAIJ,
+ * testimonial layout_AK1L9R + avatar style_ZJLJHX + body style_CAQF0E
+ */
+@media (max-width: 767px) {
+  .badge {
+    font-size: 14px;
+    line-height: 1.4285714285714286;
   }
+
+  .title {
+    font-size: 40px;
+    line-height: 1.25;
+  }
+
+  .titleAccent {
+    font-size: 40px;
+    line-height: 1.25;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    line-height: 1.7142857142857142;
+  }
+
+  .heroEnroll {
+    font-size: 16px;
+    line-height: 1;
+  }
+}
+
+/* Extra space between Enroll CTA and testimonial pill (stack gap + this) */
+.testimonialWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 0.75rem;
 }
 
 .testimonial {
@@ -205,14 +219,18 @@
   vertical-align: top;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 767px) {
+  /* layout_AK1L9R + stroke_2H331B — Figma 1182:19813 */
+  .testimonial {
+    padding: 7.342657566070557px 11.748251914978027px;
+    gap: 7.342657566070557px;
+    border-radius: 29.370630264282227px;
+    border-width: 0.7342657446861267px;
+  }
+
   .testimonialAnimated {
     width: auto !important;
     max-width: 100%;
-  }
-
-  .testimonialLine {
-    white-space: normal;
   }
 }
 
@@ -243,14 +261,112 @@
   white-space: nowrap;
 }
 
+@media (max-width: 767px) {
+  /* style_CAQF0E + layout_VE6KJT + style_ZJLJHX — Figma 1182:19813 */
+  .testimonialLine {
+    white-space: normal;
+    font-size: 11.748251914978027px;
+    line-height: 1.4999999594120759;
+    min-width: 0;
+    overflow-wrap: break-word;
+  }
+
+  .avatar {
+    width: 32.31px;
+    height: 32.31px;
+    font-size: 14.685315132141113px;
+    line-height: 1.199999948047458;
+  }
+}
+
 /* —— Secondary hero — Figma 1182:14237 (light band + framed video) —— */
 .secondaryHero {
   width: 100vw;
   margin-left: calc(50% - 50vw);
-  padding: clamp(3rem, 7vw, 5rem) 0 clamp(3.5rem, 8vw, 5.5rem);
+  padding: clamp(3rem, 7vw, 5rem) 0 clamp(4rem, 9vw, 6rem);
   position: relative;
   z-index: 1;
   background: var(--page);
+}
+
+@media (max-width: 767px) {
+  .secondaryHero {
+    /* Only the primary hero block uses full viewport; video band is content-sized */
+    padding-top: clamp(1.25rem, 4vw, 2rem);
+    padding-bottom: clamp(2rem, 6vw, 3.25rem);
+    padding-left: max(0.75rem, env(safe-area-inset-left));
+    padding-right: max(0.75rem, env(safe-area-inset-right));
+  }
+
+  .secondaryInner {
+    width: min(1242px, 100% - 1.25rem);
+  }
+
+  /* Figma 1182:19825 — layout_YCFBTO: 8px eyebrow→title; layout_4I5ZO7: 16px to body */
+  .videoEyebrow {
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 1.366000039236886;
+  }
+
+  .videoHeading {
+    margin-bottom: 16px;
+    font-size: 40px;
+    line-height: 1.25;
+  }
+
+  .videoTitleLead,
+  .videoTitleAccent {
+    color: #1a1a1a;
+  }
+
+  .videoTitleDesktop {
+    display: none;
+  }
+
+  .videoTitleMobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .videoTitleL1,
+  .videoTitleL2,
+  .videoTitleL3 {
+    color: #1a1a1a;
+  }
+
+  /* style_ILFU76 */
+  .videoDesc {
+    margin-bottom: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.2000000817435128;
+    color: #94969d;
+  }
+
+  /* layout_XZFSA4 — space before video (tighter on mobile for continuous scroll) */
+  .videoFrame {
+    margin-top: 36px;
+    max-width: 100%;
+    --vf-radius: 48.57381820678711px;
+    --vf-border: 18.21518325805664px;
+  }
+
+  /* layout_DLQN7V: 80×80; centered on thumbnail */
+  .playFab {
+    top: 50%;
+    width: 80px;
+    height: 80px;
+  }
+
+  .playFabInner img {
+    width: 25.1px;
+    height: 25.1px;
+  }
+
 }
 
 .secondaryInner {
@@ -309,24 +425,49 @@
   color: var(--ink);
 }
 
+.videoTitleDesktop {
+  display: block;
+}
+
+.videoTitleMobile {
+  display: none;
+}
+
+.videoTitleL1,
+.videoTitleL2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.videoTitleL3 {
+  font-family: var(--font-instrument-serif);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink);
+}
+
 .videoDesc {
-  /* See exactly how this course is different — and why 90% of design courses leave you unprepared. */
-  width: 1240px;
-  height: 19px;
-  font-family: 'Bricolage Grotesque';
+  box-sizing: border-box;
+  width: 100%;
+  max-width: min(100%, 1240px);
+  min-height: auto;
+  margin: 0 auto;
+  padding: 0 0.5rem;
+  font-family: var(--font-display);
   font-style: normal;
   font-weight: 600;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: clamp(0.9375rem, 2.8vw, 1rem);
+  line-height: 1.45;
   display: flex;
   align-items: center;
   text-align: center;
-  color: #94969D;
+  color: #94969d;
   justify-content: center;
 }
 
 /*
- * Video frame: Figma border 18.22px, radius 48.57px, ~1242×596 media
+ * Video frame: border + radius; 16:9 preview + YouTube embed
  * Padding simulates stroke; inner radius = outer − border
  */
 .videoFrame {
@@ -349,12 +490,12 @@
   width: 100%;
   border-radius: max(10px, calc(var(--vf-radius) - var(--vf-border)));
   overflow: hidden;
-  aspect-ratio: 1242.275 / 596.244;
+  aspect-ratio: 16 / 9;
   background: #e4e7ec;
 }
 
-/* Plyr — match site blue + dark chrome */
-.plyrHost {
+/* YouTube embed — 16:9 iframe fills the 16:9 frame */
+.embedHost {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -362,34 +503,13 @@
   background: #101828;
 }
 
-.plyrHost :global(.plyr) {
+.videoIframe {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  max-height: 100%;
-  --plyr-color-main: var(--blue, #2388ff);
-  --plyr-video-background: #101828;
-  --plyr-menu-background: rgba(16, 24, 40, 0.96);
-  --plyr-menu-color: #e4e7ec;
-  --plyr-audio-control-color: #e4e7ec;
-  font-family: var(--font-body, system-ui, sans-serif);
-}
-
-.plyrHost :global(.plyr__control--overlaid) {
-  background: var(--blue, #2388ff);
-  color: #fff;
-}
-
-.plyrHost :global(.plyr__control--overlaid:hover) {
-  background: #1a6fd4;
-}
-
-.plyrHost :global(.plyr__video-wrapper) {
-  height: 100%;
-  background: #101828;
-}
-
-.plyrHost :global(.plyr video) {
-  object-fit: contain;
+  border: 0;
+  display: block;
 }
 
 /* Cropped fill — no full-frame tint; image stays true to source */
@@ -403,7 +523,7 @@
 
 .playFab {
   position: absolute;
-  top: 42%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: clamp(72px, 14vw, 96px);
@@ -469,45 +589,3 @@
   object-fit: contain;
 }
 
-/* Quote band only — no blue wash over the whole thumbnail */
-.videoQuoteOverlay {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  padding: clamp(2rem, 7vw, 3.25rem) clamp(1.25rem, 4vw, 2.5rem) clamp(1rem, 2.5vw, 1.5rem);
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(0, 0, 0, 0.25) 28%,
-    rgba(0, 0, 0, 0.82) 100%
-  );
-  pointer-events: none;
-}
-
-.videoQuote {
-  margin: 0 auto;
-  max-width: 48rem;
-  font-family: var(--font-body);
-  font-weight: 400;
-  font-size: clamp(0.9rem, 2.4vw, 1.125rem);
-  line-height: 1.5;
-  color: #f2f4f7;
-  text-align: center;
-}
-
-.quoteMark {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.35em;
-  line-height: 0;
-  color: var(--blue);
-  vertical-align: -0.12em;
-  margin: 0 0.08em;
-}
-
-.videoQuoteBold {
-  font-weight: 700;
-  color: #ffffff;
-}

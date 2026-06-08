@@ -2,23 +2,64 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#101828" />
-    <title>UI/UX Course | Grid and Goal</title>
+    <meta name="theme-color" content="#080C18" />
+
+    <title>Grid and Goal — Practical UI/UX Design Course</title>
     <meta
       name="description"
-      content="Not Another UI/UX Course — practical UI/UX & product design training with structured modules and mentorship."
+      content="Not Another UI/UX Course — 60-day structured program. Go from confused beginner to confident UI/UX designer with a practical, industry-focused learning approach."
     />
+
+    <!-- Favicon & Touch Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn, etc.) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Grid and Goal — Practical UI/UX Design Course" />
+    <meta property="og:description" content="Not Another UI/UX Course — 60-day structured program. Go from confused beginner to confident UI/UX designer with a practical, industry-focused learning approach." />
+    <meta property="og:image" content="https://gridandgoal.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://gridandgoal.com" />
+    <meta property="og:site_name" content="Grid and Goal" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Grid and Goal — Practical UI/UX Design Course" />
+    <meta name="twitter:description" content="Not Another UI/UX Course — 60-day structured program. Go from confused beginner to confident UI/UX designer." />
+    <meta name="twitter:image" content="https://gridandgoal.com/og-image.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&family=Caveat:wght@400&family=DM+Sans:wght@400&family=Instrument+Serif:ital@0;1&family=Krona+One&family=Manrope:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&family=Caveat:wght@400&family=DM+Sans:wght@400&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800&family=Krona+One&family=Manrope:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+      }(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      
+      fbq('init', '3173435396194727');
+      fbq('track', 'PageView');
+      </script>
+  <!-- End Meta Pixel Code -->
+  <meta name="google-site-verification" content="79oet3KKmpDMCm34VwJeI6w5TYORKD1bjkJFnO3kNCE" />
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <noscript>
+      <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=3173435396194727&ev=PageView&noscript=1"/>
+    </noscript>
   </body>
 </html>

@@ -36,8 +36,11 @@
   --font-dm: "DM Sans", system-ui, sans-serif;
   --max: 1240px;
   --header-h: 80px;
-  --grid-cell: 72px;
-  --grid-line: 1px;
+  /* Figma 1182:15412 — 21×12 cells on 1434×819.43 artboard */
+  --grid-cell: 68.285714286px;
+  --grid-line: 1.365714286px;
+  --grid-lit-w: 1434px;
+  --grid-lit-h: 819.428571432px;
   /* Grid overlay sits above page content (below header/modals) */
   --grid-z: 35;
 
@@ -56,6 +59,13 @@
 @media (max-width: 767px) {
   :root {
     --header-h: 72px;
+    /* One “screen” below sticky header — mobile full-bleed sections */
+    --section-viewport-min: calc(100svh - var(--header-h));
+    /* Denser than desktop — line + lit SVG stay aligned via same scale factor */
+    --grid-cell: calc(68.285714286px * 0.62);
+    --grid-line: calc(1.365714286px * 0.62);
+    --grid-lit-w: calc(1434px * 0.62);
+    --grid-lit-h: calc(819.428571432px * 0.62);
   }
 }
 
@@ -67,9 +77,10 @@
 
 html {
   scroll-behavior: smooth;
+  min-height: 100%;
 }
 
-/* Site-wide subtle grid + lit squares (fixed background) */
+/* Site-wide subtle grid + lit squares (scrolls with the page, not viewport-fixed) */
 body {
   margin: 0;
   font-family: var(--font-display);
@@ -79,46 +90,48 @@ body {
   background: var(--page);
   -webkit-font-smoothing: antialiased;
   position: relative;
+  min-height: 100%;
 }
 
 /*
- * Site grid: above #root so it shows on white AND dark sections.
+ * Site grid: between body background and #root (see #root z-index). Visible where main content is transparent.
  * ::before = dark lines (visible on light backgrounds)
  * ::after  = light lines (visible on dark backgrounds)
- * Lit cells: very subtle blue, 360px tile (5×72px cells)
+ * Lit cells: one Figma-sized tile (public/assets/grid-lights-*.svg) repeats with the same cell size as line grids.
+ * Position absolute + full body height so the pattern repeats and moves with document scroll (not fixed to the viewport).
  */
 body::before {
   content: "";
-  position: fixed;
+  position: absolute;
   inset: 0;
   z-index: var(--grid-z);
   pointer-events: none;
   background-image:
     linear-gradient(to right, rgba(0, 0, 0, 0.028) var(--grid-line), transparent var(--grid-line)),
     linear-gradient(to bottom, rgba(0, 0, 0, 0.028) var(--grid-line), transparent var(--grid-line)),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='360'%3E%3Crect x='0' y='72' width='72' height='72' fill='rgba(35,136,255,0.008)'/%3E%3Crect x='144' y='0' width='72' height='72' fill='rgba(35,136,255,0.006)'/%3E%3Crect x='216' y='144' width='72' height='72' fill='rgba(35,136,255,0.007)'/%3E%3Crect x='72' y='216' width='72' height='72' fill='rgba(35,136,255,0.005)'/%3E%3C/svg%3E");
+    url("/assets/grid-lights-light.svg");
   background-size:
     var(--grid-cell) var(--grid-cell),
     var(--grid-cell) var(--grid-cell),
-    360px 360px;
+    var(--grid-lit-w) var(--grid-lit-h);
   background-repeat: repeat;
   background-position: 0 0, 0 0, 0 0;
 }
 
 body::after {
   content: "";
-  position: fixed;
+  position: absolute;
   inset: 0;
   z-index: calc(var(--grid-z) + 1);
   pointer-events: none;
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.028) var(--grid-line), transparent var(--grid-line)),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.028) var(--grid-line), transparent var(--grid-line)),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='360'%3E%3Crect x='72' y='0' width='72' height='72' fill='rgba(100,170,255,0.016)'/%3E%3Crect x='288' y='72' width='72' height='72' fill='rgba(100,170,255,0.014)'/%3E%3Crect x='0' y='216' width='72' height='72' fill='rgba(100,170,255,0.012)'/%3E%3Crect x='180' y='288' width='72' height='72' fill='rgba(100,170,255,0.015)'/%3E%3C/svg%3E");
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) var(--grid-line), transparent var(--grid-line)),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) var(--grid-line), transparent var(--grid-line)),
+    url("/assets/grid-lights-dark.svg");
   background-size:
     var(--grid-cell) var(--grid-cell),
     var(--grid-cell) var(--grid-cell),
-    360px 360px;
+    var(--grid-lit-w) var(--grid-lit-h);
   background-repeat: repeat;
   background-position: 0 0, 0 0, 0 0;
 }
@@ -130,9 +143,13 @@ h4 {
   font-family: var(--font-display);
 }
 
+/*
+ * Sit above body grid overlays (--grid-z) so section backgrounds can fully cover the pattern.
+ * (Child z-index cannot out-stack body::before while #root stays at 0.)
+ */
 #root {
   position: relative;
-  z-index: 0;
+  z-index: calc(var(--grid-z) + 10);
   min-height: 100vh;
 }
 
@@ -168,7 +185,65 @@ img {
   }
 }
 
+/* Only `transform` animates — shadow + gradient stay static (no pulsing glow) */
+@keyframes ctaShineSweepRTL {
+  0% {
+    transform: translate3d(190%, 0, 0) rotate(-45deg);
+  }
+  100% {
+    transform: translate3d(-190%, 0, 0) rotate(-45deg);
+  }
+}
+
 /* style_NC4LEM: Bricolage Grotesque 700, 16px — fixed aspect via shared padding + min dimensions */
+.btn-cta,
+.cta-motion {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn-cta::before,
+.cta-motion::before {
+  content: "";
+  position: absolute;
+  /* Glare band — width + stops control thickness; gradient alphas control intensity */
+  top: -50%;
+  bottom: -50%;
+  left: -40%;
+  width: 78%;
+  transform-origin: center center;
+  border-radius: inherit;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.11) 41%,
+    rgba(255, 255, 255, 0.32) 50%,
+    rgba(255, 255, 255, 0.11) 59%,
+    transparent 70%
+  );
+  filter: blur(12px);
+  opacity: 1;
+  animation: ctaShineSweepRTL 2s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Sweep shine off — “Enquire Now” and similar; keeps gradient, border, hover, shadow */
+.btn-cta.btn-cta--no-shine::before,
+.cta-motion.btn-cta--no-shine::before {
+  animation: none !important;
+  opacity: 0;
+}
+
+.btn-cta > *,
+.cta-motion > * {
+  position: relative;
+  z-index: 1;
+}
+
 .btn-cta {
   display: inline-flex;
   align-items: center;
@@ -234,4 +309,58 @@ img {
 
 .section-y {
   padding-block: clamp(3.5rem, 10vw, 7rem);
+}
+
+/* ── FAQ & course module accordions: smooth expand/collapse ── */
+@supports (interpolate-size: allow-keywords) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+
+  details.accordion-details {
+    overflow: hidden;
+  }
+
+  details.accordion-details::details-content {
+    overflow: clip;
+    transition:
+      height 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+      content-visibility 0.5s allow-discrete;
+  }
+
+  details.accordion-details:not([open])::details-content {
+    height: 0;
+  }
+
+  details.accordion-details[open]::details-content {
+    height: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @supports (interpolate-size: allow-keywords) {
+    details.accordion-details::details-content {
+      transition: none;
+    }
+  }
+
+  details.accordion-details > summary {
+    transition: none !important;
+  }
+
+  .btn-cta,
+  .cta-motion {
+    animation: none !important;
+    box-shadow: var(--cta-shadow);
+  }
+
+  header .btn-cta {
+    box-shadow: none !important;
+  }
+
+  .btn-cta::before,
+  .cta-motion::before {
+    animation: none !important;
+    opacity: 0;
+  }
 }

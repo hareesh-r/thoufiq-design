@@ -1,5 +1,6 @@
 import { useId } from "react";
 import data from "../../data/pricing.json";
+import { newTabIfHttp } from "../../linkTargets";
 import styles from "./PricingSection.module.css";
 
 function CheckIcon() {
@@ -59,7 +60,11 @@ export function PricingSection() {
               ))}
             </ul>
 
-            <a className={styles.cta} href={data.cta.href}>
+            <a
+              className={`btn-cta btn-cta--block ${styles.cta}`}
+              href={data.cta.href}
+              {...newTabIfHttp(data.cta.href)}
+            >
               <span className={styles.ctaLabel}>{data.cta.label}</span>
               <svg className={styles.ctaArrow} viewBox="0 0 16 16" width={16} height={16} aria-hidden>
                 <path

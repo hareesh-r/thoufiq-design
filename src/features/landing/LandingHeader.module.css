@@ -5,7 +5,11 @@
   height: var(--header-h);
   background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
+}
+
+/* Header “Enquire Now” — flat ambient glow (shine sweep disabled via .btn-cta--no-shine in global.css) */
+.header :global(.btn-cta) {
+  box-shadow: none;
 }
 
 .inner {
@@ -39,17 +43,4 @@
 
 .navLink[aria-current="page"] {
   color: var(--ink) !important;
-}
-
-.logo {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.35rem;
-  letter-spacing: -0.03em;
-  color: var(--ink) !important;
-  text-decoration: none !important;
-}
-
-.logo:hover {
-  color: var(--blue-deep) !important;
 }

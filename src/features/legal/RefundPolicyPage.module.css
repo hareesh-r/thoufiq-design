@@ -1,0 +1,263 @@
+/* Refund policy — matches landing typography (FAQ / enquiry) */
+
+.page {
+  min-height: calc(100vh - var(--header-h));
+  padding-block: clamp(1.5rem, 4vw, 2.5rem) clamp(3rem, 8vw, 5rem);
+  background: var(--page);
+}
+
+.wrap {
+  max-width: 1260px;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+  margin-bottom: clamp(1.5rem, 4vw, 2.25rem);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.crumb {
+  color: var(--muted);
+  text-decoration: none !important;
+  transition: color 0.15s ease;
+}
+
+.crumb:hover {
+  color: var(--blue-deep);
+}
+
+.crumbSep {
+  color: var(--border-strong);
+  user-select: none;
+}
+
+.crumbCurrent {
+  color: var(--ink);
+}
+
+.article {
+  max-width: 42rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.title {
+  margin: 0 0 1rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.65rem, 3.2vw, 2.25rem);
+  line-height: 1.15;
+  color: #1a1a1a;
+}
+
+.titleLead {
+  color: #1a1a1a;
+}
+
+.titleAccent {
+  font-family: var(--font-instrument-serif);
+  font-weight: 400;
+  font-style: italic;
+  color: #1a1a1a;
+}
+
+.intro {
+  margin: 0 0 1rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.lastUpdated {
+  margin: 0 0 2.25rem;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.lastUpdatedLabel {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.sectionList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.section {
+  margin: 0 0 1.75rem;
+  padding: 0;
+}
+
+.section:last-of-type {
+  margin-bottom: 2.5rem;
+}
+
+.sectionTitle {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.0625rem;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.sectionNum {
+  color: var(--blue-deep);
+  font-weight: 700;
+}
+
+.sectionBlocks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.sectionBody {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.blockList {
+  margin: 0;
+}
+
+.listLead,
+.listOutro {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.listOutro {
+  margin: 0.5rem 0 0;
+}
+
+.bulletList {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.bulletList li {
+  margin-bottom: 0.35rem;
+}
+
+.bulletList li:last-child {
+  margin-bottom: 0;
+}
+
+.contactCard {
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--surface) 0%, var(--page) 100%);
+  box-shadow: 0 1px 0 rgba(16, 24, 40, 0.04);
+}
+
+.contactHeading {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.125rem;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.contactIntro {
+  margin: 0 0 1rem;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.contactEntity {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--ink);
+}
+
+.contactEmail {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--blue);
+  text-decoration: none !important;
+}
+
+.contactEmail:hover {
+  color: var(--blue-deep);
+  text-decoration: underline !important;
+}
+
+.backWrap {
+  margin: 2rem 0 0;
+}
+
+.backLink {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--muted);
+  text-decoration: none !important;
+  transition: color 0.15s ease;
+}
+
+.backLink:hover {
+  color: var(--blue-deep);
+}
+
+/* Slim footer — aligns with final enquiry band rhythm */
+.siteFooter {
+  border-top: 1px solid var(--border);
+  padding: clamp(1.25rem, 3vw, 1.75rem) 0;
+  background: var(--surface);
+}
+
+.footerInner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.footerMeta {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--muted);
+}

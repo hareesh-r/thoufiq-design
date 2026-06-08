@@ -10,13 +10,13 @@
   "empty": {
     "title": "Nothing saved yet",
     "body": "Browse the course and tap the heart to add programs here.",
-    "cta": { "label": "View course", "href": "/#pricing" },
+    "cta": { "label": "View course", "href": "/waitlist" },
     "secondaryCta": { "label": "Home", "href": "/" }
   },
-  "cardCta": { "label": "Enroll", "href": "/#final-enquiry" },
+  "cardCta": { "label": "Enroll", "href": "/waitlist" },
   "bar": {
     "caption": "Ready to start?",
-    "cta": { "label": "Enroll now", "href": "/#final-enquiry" }
+    "cta": { "label": "Join Waitlist", "href": "/waitlist" }
   },
   "removeModal": {
     "title": "Remove from wishlist?",

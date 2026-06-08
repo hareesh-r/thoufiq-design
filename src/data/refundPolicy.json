@@ -1,0 +1,233 @@
+{
+  "seoTitle": "Refund, Access & Community Policy | Grid and Goal",
+  "seoDescription": "Purchases, refunds, course access, intellectual property, community conduct, and legal terms for Grid and Goal.",
+  "eyebrow": "Legal",
+  "titleLead": "Refund, Access &",
+  "titleAccent": "Community Policy",
+  "intro": "This policy governs all purchases, access, and usage of the Grid and Goal course, platform, and community. By enrolling, you agree to all terms outlined below.",
+  "lastUpdated": "March 28, 2026",
+  "sections": [
+    {
+      "title": "No Refund Policy",
+      "blocks": [
+        { "type": "p", "text": "All purchases made on Grid and Goal are final." },
+        {
+          "type": "p",
+          "text": "Due to the digital nature of the product and immediate access to proprietary content, we do not offer refunds once enrollment is completed and access is granted."
+        },
+        {
+          "type": "ul",
+          "lead": "You are responsible for reviewing:",
+          "items": [
+            "Course curriculum",
+            "Program structure",
+            "Eligibility and expectations"
+          ],
+          "outro": "before making a purchase decision."
+        }
+      ]
+    },
+    {
+      "title": "Exceptional Refund Consideration",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Refund requests, if any, are reviewed only under exceptional and valid circumstances."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Approval is not guaranteed",
+            "Decisions are made solely at the discretion of Grid and Goal",
+            "Lack of results, personal time constraints, or change of interest will not be considered valid reasons"
+          ]
+        },
+        {
+          "type": "ul",
+          "lead": "If a refund is approved:",
+          "items": [
+            "Full access to course content and community will be revoked immediately",
+            "Continued use, storage, or distribution of any material is strictly prohibited"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Access Validity",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Course access is valid for 12 months from the date of enrollment."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Extensions are not guaranteed",
+            "Requests may be considered only in genuine cases",
+            "Access may be revoked at any time if policy violations occur"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Intellectual Property & Content Protection",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "All content provided under Grid and Goal, including but not limited to:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Videos",
+            "Frameworks",
+            "Templates",
+            "Case studies",
+            "Community discussions"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "are the intellectual property of Grid and Goal."
+        },
+        {
+          "type": "p",
+          "text": "You are strictly prohibited from:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Sharing access credentials",
+            "Recording, copying, or redistributing content",
+            "Uploading course material to any public or private platform",
+            "Reselling or repackaging any part of the course"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Violation will result in immediate termination without refund."
+        }
+      ]
+    },
+    {
+      "title": "Piracy & Legal Enforcement",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Any unauthorized distribution, reproduction, or commercial use of course content will be treated as a serious legal offense."
+        },
+        {
+          "type": "p",
+          "text": "Grid and Goal reserves the right to initiate legal proceedings under applicable laws, including:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Indian Copyright Act, 1957 (Section 63)",
+            "Applicable IT and intellectual property laws"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "This may result in:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Financial penalties",
+            "Legal notices",
+            "Civil and/or criminal liability"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Community Access & Conduct",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Enrollment may include access to a private community."
+        },
+        {
+          "type": "p",
+          "text": "You agree to:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Maintain respectful and professional behavior",
+            "Avoid harassment, hate speech, spam, or self-promotion",
+            "Follow all community guidelines"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Grid and Goal reserves the right to:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Suspend or permanently remove any member from the community",
+            "Restrict access without prior notice"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Community removal does not qualify for a refund."
+        }
+      ]
+    },
+    {
+      "title": "Limitation of Liability",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Grid and Goal does not guarantee:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Job placement",
+            "Income outcomes",
+            "Career transitions"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Results depend on individual effort, consistency, and execution."
+        },
+        {
+          "type": "p",
+          "text": "We are not liable for:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Personal decisions",
+            "Career outcomes",
+            "Indirect or consequential losses"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Policy Updates",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Grid and Goal reserves the right to update or modify this policy at any time without prior notice."
+        },
+        {
+          "type": "p",
+          "text": "Continued use of the platform after updates constitutes acceptance of the revised terms."
+        }
+      ]
+    }
+  ],
+  "contact": {
+    "heading": "Contact Information",
+    "body": "For any queries regarding this policy:",
+    "entity": "Grid and Goal Support Team",
+    "email": "thoufiq.designs@gmail.com"
+  }
+}

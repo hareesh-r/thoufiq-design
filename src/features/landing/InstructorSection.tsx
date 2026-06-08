@@ -106,7 +106,6 @@ export function InstructorSection() {
           <div className={styles.blueCard}>
             <div className={styles.gridPattern} aria-hidden />
             <div className={styles.radialGlow} aria-hidden />
-            <div className={styles.gridPatternOverlay} aria-hidden />
             <div className={styles.photoSlot}>
               <div className={styles.photoHorizClip}>
                 <img

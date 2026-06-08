@@ -14,7 +14,7 @@ All user-facing text is driven by JSON files in `src/data/`. Changing these file
 |-------|---------------|---------|
 | `siteName` | `"Grid and Goal"` | Used in SEO meta tags (`og:site_name`), JSON-LD schemas (Organization, WebSite, Course provider) |
 | `seoTitle` | `"UI/UX Course — Not Another UI/UX Course \| Grid and Goal"` | `<title>` tag and `og:title` / `twitter:title` |
-| `seoDescription` | `"Not Another UI/UX Course — Something Much More Practical..."` | `<meta name="description">` and social sharing descriptions |
+| `seoDescription` | `"Not Another UI/UX Course — 60-day structured program..."` | `<meta name="description">` and social sharing descriptions |
 | `logoWordmark` | `"Grid and Goal"` | Header logo text and `aria-label` (rendered in `LandingHeader.tsx`) |
 | `baseUrl` | `"https://example.com"` | Canonical URLs, Open Graph URLs, JSON-LD |
 

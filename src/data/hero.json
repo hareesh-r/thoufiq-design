@@ -1,9 +1,12 @@
 {
-  "badge": "Limited Spots Available",
+  "badge": "🔥 Second Cohort Starts June 26",
   "title": "Not Another UI/UX Course - ",
-  "titleAccent": "Something Much More Practical",
+  "titleAccent": "60-day structured program",
   "subtitle": "This is not a theory-heavy design course. You’ll learn how real product designers think, solve problems, and ship work that hiring managers actually care about.",
-  "primaryCta": { "label": "Enroll Now", "href": "#pricing" },
+  "primaryCta": {
+    "label": "Join Waitlist",
+    "href": "/waitlist"
+  },
   "testimonials": [
     {
       "initial": "A",
@@ -11,25 +14,25 @@
     },
     {
       "initial": "P",
-      "text": "Priya S. — doubled her freelance rate within 3 months"
+      "text": "Priya S. — earning 60,000/month as a UX designer"
     },
     {
-      "initial": "R",
-      "text": "Rahul K. — first UI internship at a Bangalore product company"
+      "initial": "S",
+      "text": "Sneha R. — Got placed after 3 years of career gap. "
     },
     {
-      "initial": "N",
-      "text": "Neha M. — from graphic design to full-time UX in one cohort"
+      "initial": "A",
+      "text": "Arjun M. — transitioned from Graphic Designer to Product Designer."
     }
   ],
   "videoThumbnail": "/assets/video-thumbnail.png",
-  "videoSrc": "/assets/hero/hero.mp4",
+  "videoYoutubeId": "8ocZC-UXgt0",
   "videoEyebrow": "Just 5 mins watch",
   "videoTitleLead": "Watch this before joining",
   "videoTitleAccent": "any UI/UX course",
+  "videoTitleLine1": "Watch this before",
+  "videoTitleLine2": "joining any UI/UX",
+  "videoTitleLine3": "course",
   "videoDescription": "See exactly how this course is different — and why 90% of design courses leave you unprepared.",
-  "videoQuotePrefix": "Watch how ",
-  "videoQuoteEmphasis": "this course turns beginners into job-ready UI/UX designers",
-  "videoQuoteSuffix": "  — without wasting months on outdated theory.",
   "videoPlayLabel": "Play intro video"
 }

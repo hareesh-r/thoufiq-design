@@ -81,6 +81,18 @@
   color: #94969d;
 }
 
+@media (max-width: 767px) {
+  .title {
+    font-size: clamp(1.65rem, 5vw, 2.25rem);
+    line-height: 1.15;
+  }
+
+  .intro {
+    font-size: clamp(1.0625rem, 3.2vw, 1.125rem);
+    line-height: 1.5;
+  }
+}
+
 .accordions {
   display: flex;
   flex-direction: column;
@@ -124,6 +136,7 @@
   padding: 24px;
   cursor: pointer;
   list-style: none;
+  transition: background-color 0.35s ease;
 }
 
 .details[open] .summary {
@@ -173,19 +186,48 @@
   font-size: 1.45rem;
   line-height: 1;
   font-weight: 400;
+  transition:
+    opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .toggleMinus {
-  display: none;
   font-size: 1.6rem;
+  opacity: 0;
+  transform: scale(0.88) rotate(-90deg);
+  pointer-events: none;
+}
+
+.togglePlus {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
 }
 
 .details[open] .togglePlus {
-  display: none;
+  opacity: 0;
+  transform: scale(0.88) rotate(90deg);
+  pointer-events: none;
 }
 
 .details[open] .toggleMinus {
-  display: flex;
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .togglePlus,
+  .toggleMinus {
+    transition: none;
+  }
+
+  .toggleMinus {
+    transform: none;
+  }
+
+  .details[open] .togglePlus {
+    transform: none;
+  }
 }
 
 .body {
@@ -201,4 +243,16 @@
   font-size: 16px;
   line-height: 22px;
   color: #999999;
+}
+
+@media (max-width: 767px) {
+  .question {
+    font-size: clamp(1.0625rem, 3.2vw, 1.125rem);
+    line-height: 1.35;
+  }
+
+  .answer {
+    font-size: clamp(1rem, 2.8vw, 1.0625rem);
+    line-height: 1.5;
+  }
 }

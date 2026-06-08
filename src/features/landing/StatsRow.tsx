@@ -100,18 +100,20 @@ export function StatsRow() {
   }, [targets]);
 
   return (
-    <div ref={ref} className={styles.row} role="list">
-      {data.items.map((item, i) => {
-        const t = targets[i];
-        return (
-          <div key={item.label} className={styles.cell} role="listitem">
-            <span className={styles.value}>
-              {t ? `${counts[i]}${t.suffix}` : item.value}
-            </span>
-            <span className={styles.label}>{item.label}</span>
-          </div>
-        );
-      })}
+    <div className={styles.wrap}>
+      <div ref={ref} className={styles.row} role="list">
+        {data.items.map((item, i) => {
+          const t = targets[i];
+          return (
+            <div key={item.label} className={styles.cell} role="listitem">
+              <span className={styles.value}>
+                {t ? `${counts[i]}${t.suffix}` : item.value}
+              </span>
+              <span className={styles.label}>{item.label}</span>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

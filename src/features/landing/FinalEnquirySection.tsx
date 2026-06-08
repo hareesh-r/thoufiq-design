@@ -1,11 +1,15 @@
 import { FormEvent, useState } from "react";
+import { BrandLogo } from "../../components/BrandLogo";
+import { gasRequestSucceeded, postToGoogleAppsScript } from "../../config/googleAppsScript";
 import data from "../../data/finalCta.json";
 import styles from "./FinalEnquirySection.module.css";
 
-type SubmitState = "idle" | "submitting" | "success" | "error";
+type Phase = "form" | "success";
 
 export function FinalEnquirySection() {
-  const [state, setState] = useState<SubmitState>("idle");
+  const [phase, setPhase] = useState<Phase>("form");
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -13,50 +17,29 @@ export function FinalEnquirySection() {
     const fd = new FormData(form);
     const name = String(fd.get("name") ?? "").trim();
     const email = String(fd.get("email") ?? "").trim();
-    const mobile = String(fd.get("mobile") ?? "").trim();
+    const phone = String(fd.get("mobile") ?? "").trim();
+    if (!name || !email || !phone) return;
 
-    const url = import.meta.env.VITE_ENQUIRY_SUBMIT_URL?.trim();
-    if (!url) {
-      console.warn(
-        "[enquiry] Set VITE_ENQUIRY_SUBMIT_URL to your Cloud Function URL for production."
-      );
-      setState("success");
-      form.reset();
-      return;
-    }
-
-    setState("submitting");
+    setSubmitting(true);
+    setSubmitError(false);
     try {
-      const res = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, mobile }),
+      const res = await postToGoogleAppsScript({
+        name,
+        email,
+        phone,
+        source: "enquiry",
       });
-      const json = (await res.json().catch(() => ({}))) as {
-        error?: string;
-      };
-      if (!res.ok) {
-        throw new Error(json.error || res.statusText);
-      }
-      setState("success");
+      if (!(await gasRequestSucceeded(res))) throw new Error("Apps Script error");
+      setPhase("success");
       form.reset();
     } catch {
-      setState("error");
+      setSubmitError(true);
+    } finally {
+      setSubmitting(false);
     }
   }
 
   const f = data.form;
-  const footnoteClass =
-    state === "success"
-      ? styles.footnoteDone
-      : state === "error"
-        ? styles.footnoteError
-        : "";
-
-  let footnoteText = f.footnote;
-  if (state === "submitting") footnoteText = f.submittingLabel;
-  else if (state === "success") footnoteText = f.successFootnote;
-  else if (state === "error") footnoteText = f.errorFootnote;
 
   return (
     <section
@@ -68,111 +51,151 @@ export function FinalEnquirySection() {
         <div className={styles.grid}>
           <div>
             <h2 id="final-headline" className={styles.headline}>
-              {data.headlinePrefix}{" "}
+              <span className={styles.headlineLead}>
+                <span className={styles.headlineLine1}>{data.headlineLine1}</span>
+                <span className={styles.headlineLine2}>{data.headlineLine2}</span>
+              </span>
               <span className={styles.headlineAccent}>{data.headlineAccent}</span>
             </h2>
             <p className={styles.sub}>{data.subhead}</p>
           </div>
           <div className={styles.formCard}>
-            <div className={styles.formCardInner}>
-              <div className={styles.cardHeader}>
-                <h3 className={styles.cardTitle}>
-                  {data.cardTitleBefore}
-                  <span className={styles.cardTitleEm}>{data.cardTitleHighlight}</span>
-                  {data.cardTitleAfter}
-                </h3>
-                <p className={styles.cardBody}>{data.cardBody}</p>
-              </div>
-              <form className={styles.form} onSubmit={onSubmit}>
-                <div className={styles.fields}>
-                  <div className={styles.field}>
-                    <label className={styles.label} htmlFor="fe-name">
-                      {f.fullNameLabel}
-                    </label>
-                    <input
-                      id="fe-name"
-                      name="name"
-                      className={styles.input}
-                      placeholder={f.fullNamePlaceholder}
-                      required
-                      autoComplete="name"
-                      disabled={state === "submitting"}
-                    />
+            <div
+              className={`${styles.formCardInner} ${phase === "form" ? styles.formCardInnerWithForm : ""}`}
+            >
+              {phase === "success" ? (
+                <>
+                  <div className={styles.cardHeader}>
+                    <h3 className={styles.cardTitle} id="final-enquiry-success-heading">
+                      {data.successCardTitle}
+                    </h3>
+                    <p className={styles.cardBody}>{data.successCardBody}</p>
                   </div>
-                  <div className={styles.field}>
-                    <label className={styles.label} htmlFor="fe-email">
-                      {f.emailLabel}
-                    </label>
-                    <input
-                      id="fe-email"
-                      name="email"
-                      type="email"
-                      className={styles.input}
-                      placeholder={f.emailPlaceholder}
-                      required
-                      autoComplete="email"
-                      disabled={state === "submitting"}
-                    />
-                  </div>
-                  <div className={styles.field}>
-                    <label className={styles.label} htmlFor="fe-mobile">
-                      {f.mobileLabel}
-                    </label>
-                    <input
-                      id="fe-mobile"
-                      name="mobile"
-                      type="tel"
-                      className={styles.input}
-                      placeholder={f.mobilePlaceholder}
-                      required
-                      autoComplete="tel"
-                      disabled={state === "submitting"}
-                    />
-                  </div>
-                </div>
-                <div className={styles.ctaBlock}>
-                  <button
-                    type="submit"
-                    className={styles.submit}
-                    disabled={state === "submitting"}
+                  <div
+                    className={styles.successPanel}
+                    role="status"
+                    aria-live="polite"
+                    aria-labelledby="final-enquiry-success-heading"
+                    aria-atomic="true"
                   >
-                    <span className={styles.submitText}>
-                      {state === "submitting" ? f.submittingLabel : f.submitLabel}
-                    </span>
-                    <svg
-                      className={styles.submitArrow}
-                      viewBox="0 0 16 16"
-                      width={16}
-                      height={16}
-                      aria-hidden
-                    >
-                      <path
-                        d="M3 8h10M9 4l4 4-4 4"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.33"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
+                    <div className={styles.successIconWrap} aria-hidden>
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                        <circle
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          fill="rgba(255, 255, 255, 0.12)"
+                          stroke="rgba(255, 255, 255, 0.35)"
+                          strokeWidth="1.5"
+                        />
+                        <path
+                          d="M8 12l3 3 5-5"
+                          stroke="rgba(255, 255, 255, 0.95)"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <div className={styles.successInfoBox}>
+                      <p className={styles.successInfoPrimary}>{data.successInfoPrimary}</p>
+                      <p className={styles.successInfoSecondary}>{data.successInfoSecondary}</p>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className={styles.cardHeader}>
+                    <h3 className={styles.cardTitle}>
+                      {data.cardTitleBefore}
+                      <span className={styles.cardTitleEm}>{data.cardTitleHighlight}</span>
+                      {data.cardTitleAfter}
+                    </h3>
+                    <p className={styles.cardBody}>{data.cardBody}</p>
+                  </div>
+
+                  <form className={styles.form} onSubmit={onSubmit}>
+                  <div className={styles.fields}>
+                    <div className={styles.field}>
+                      <label className={styles.label} htmlFor="fe-name">
+                        {f.fullNameLabel}
+                      </label>
+                      <input
+                        id="fe-name"
+                        name="name"
+                        className={styles.input}
+                        placeholder={f.fullNamePlaceholder}
+                        required
+                        autoComplete="name"
+                        disabled={submitting}
                       />
-                    </svg>
-                  </button>
-                  <p
-                    className={`${styles.footnote} ${footnoteClass}`}
-                    role={state === "error" ? "alert" : undefined}
-                  >
-                    {footnoteText}
-                  </p>
-                  {state === "error" ? (
+                    </div>
+                    <div className={styles.field}>
+                      <label className={styles.label} htmlFor="fe-email">
+                        {f.emailLabel}
+                      </label>
+                      <input
+                        id="fe-email"
+                        name="email"
+                        type="email"
+                        className={styles.input}
+                        placeholder={f.emailPlaceholder}
+                        required
+                        autoComplete="email"
+                        disabled={submitting}
+                      />
+                    </div>
+                    <div className={styles.field}>
+                      <label className={styles.label} htmlFor="fe-mobile">
+                        {f.mobileLabel}
+                      </label>
+                      <input
+                        id="fe-mobile"
+                        name="mobile"
+                        type="tel"
+                        className={styles.input}
+                        placeholder={f.mobilePlaceholder}
+                        required
+                        autoComplete="tel"
+                        disabled={submitting}
+                      />
+                    </div>
+                  </div>
+                  <div className={styles.ctaBlock}>
                     <button
-                      type="button"
-                      className={styles.retryBtn}
-                      onClick={() => setState("idle")}
+                      type="submit"
+                      className={`cta-motion btn-cta--no-shine ${styles.submit}`}
+                      disabled={submitting}
                     >
-                      Try again
+                      <span className={styles.submitText}>
+                        {submitting ? f.submittingLabel : f.submitLabel}
+                      </span>
+                      <svg
+                        className={styles.submitArrow}
+                        viewBox="0 0 16 16"
+                        width={16}
+                        height={16}
+                        aria-hidden
+                      >
+                        <path
+                          d="M3 8h10M9 4l4 4-4 4"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.33"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
                     </button>
-                  ) : null}
-                </div>
-              </form>
+                    <p
+                      className={`${styles.footnote} ${submitError ? styles.footnoteError : ""}`}
+                    >
+                      {submitError ? f.errorFootnote : f.footnote}
+                    </p>
+                  </div>
+                </form>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -181,15 +204,7 @@ export function FinalEnquirySection() {
       <footer className={styles.footerBand} aria-label="Site footer">
         <div className={`container ${styles.footerInner}`}>
           <div className={styles.logoRow}>
-            <img
-              src={data.footer.logoPlaceholder}
-              alt=""
-              width={160}
-              height={48}
-              className={styles.footerLogoPlaceholder}
-              loading="lazy"
-              decoding="async"
-            />
+            <BrandLogo variant="footer" href="/" />
           </div>
           <div className={styles.metaRow}>
             <span className={styles.copyright}>
@@ -207,7 +222,7 @@ export function FinalEnquirySection() {
             <span className={styles.metaDot} aria-hidden>
               •
             </span>
-            <a className={styles.metaLink} href="#">
+            <a className={styles.metaLink} href="/refund">
               {data.footer.refund}
             </a>
           </div>

@@ -1,9 +1,58 @@
-node_modules
-dist
+# Dependencies
+node_modules/
+.pnpm-store/
 
-# GCP service account keys (if placed in repo root or functions/)
-gridandgoal-*.json
+# Build output
+dist/
+*.tsbuildinfo
+
+# Vite bundles accidentally copied into public/ (real assets live in src/ or stable public paths)
+public/assets/index-*.js
+public/assets/index-*.css
+public/assets/vendor-*.js
+public/assets/plyr-*.js
+
+# Environment variables (keep .env.example in git)
+.env
+.env.*
+!.env.example
+
+# Firebase local deploy cache
+.firebase/
+
+# Tooling caches
+.eslintcache
+.vite/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# OS
 .DS_Store
-docs/_fig_unpack
+Thumbs.db
+
+# Editor
+.idea/
+*.swp
+*.swo
+
+# Design source assets (large / binary)
+docs/_fig_unpack/
 docs/Course Website (1).fig
 docs/figma.pdf
+
+# Credentials / service account keys
+gridandgoal-*.json
+*-credentials.json
+*serviceAccount*.json
+
+# Local business exports (orders, sales reports, etc.)
+*.csv
+*.xls
+*.xlsx
+
+# Redundant JS config (source of truth: vite.config.ts)
+vite.config.js
