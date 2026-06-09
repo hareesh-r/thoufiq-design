@@ -2,13 +2,13 @@
   "sectionId": "program",
   "eyebrow": "Program Overview",
   "titleLead": "Why you'll love ",
-  "titleAccent": "this course",
+  "titleAccent": "this Program",
   "description": "Our UI/UX & Product Design program delivers industry-leading results through a simplified, hands-on learning approach.",
   "cards": [
     {
       "icon": "/assets/prog-icon-recorded.svg",
-      "title": "20+ Hours Recorded Sessions",
-      "desc": "In-depth, structured lessons you can watch at your own pace — revisit concepts anytime without rushing or missing details."
+      "title": "20+ hours of High Quality Content",
+      "desc": "In-depth, structured lessons you can watch at your own pace. Revisit concepts anytime and learn without rushing or missing important details."
     },
     {
       "icon": "/assets/prog-icon-ai.svg",
@@ -22,13 +22,13 @@
     },
     {
       "icon": "/assets/prog-icon-review.svg",
-      "title": "1 - 1 Review Support",
+      "title": "1 - 1 Mentor support",
       "desc": "Get direct feedback on your designs so you know what's working, what's not, and how to improve faster."
     },
     {
       "icon": "/assets/prog-icon-live.svg",
-      "title": "Live Sessions With Industry Professionals",
-      "desc": "Get real insights from designers, developers, and hiring managers about building products and growing your career."
+      "title": "Weekly Live Sessions",
+      "desc": "Get direct access to guidance on UI/UX design, portfolio reviews, freelancing, interviews, and career growth - every single week."
     },
     {
       "icon": "/assets/prog-icon-ux.svg",
@@ -44,6 +44,6 @@
     "/assets/avatars/avatar-5.jpg"
   ],
   "captionText": "Designers who chose quality",
-  "ctaLabel": "Join Waitlist",
+  "ctaLabel": "Enroll Now",
   "ctaHref": "/waitlist"
 }

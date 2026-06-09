@@ -1,0 +1,32 @@
+{
+  "sectionId": "addons",
+  "eyebrow": "Add-ons",
+  "title": "₹30,000+ Worth of Add-Ons",
+  "subtitle": "Included Free",
+  "items": [
+    {
+      "id": "mentorship",
+      "price": "₹15,000",
+      "title": "Weekly Mentorship",
+      "description": "Get direct guidance on portfolios, case studies, interviews, freelancing, and career growth through weekly live sessions.",
+      "image": "/assets/addons/mentorship.svg",
+      "imageAlt": "Weekly mentorship with live guidance sessions"
+    },
+    {
+      "id": "community",
+      "price": "₹10,000",
+      "title": "Private Community",
+      "description": "Connect with fellow designers, get feedback on your work, ask questions, and stay accountable throughout your journey.",
+      "image": "/assets/addons/community.svg",
+      "imageAlt": "Private designer community group"
+    },
+    {
+      "id": "resource-vault",
+      "price": "₹5,000",
+      "title": "UX Resource Vault",
+      "description": "Access Figma plugin kits, AI prompt guides, font collections, website references, and productivity resources.",
+      "image": "/assets/addons/resource-vault.svg",
+      "imageAlt": "UX resource vault with Figma plugins and design guides"
+    }
+  ]
+}

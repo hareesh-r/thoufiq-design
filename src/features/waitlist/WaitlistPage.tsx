@@ -247,7 +247,7 @@ export function WaitlistPage() {
             </div>
           </a>
           <button className="wl-btn-nav" onClick={openModal}>
-            Join Waitlist
+            Enroll Now
           </button>
         </div>
       </nav>

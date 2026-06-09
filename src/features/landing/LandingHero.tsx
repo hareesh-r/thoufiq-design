@@ -108,6 +108,23 @@ function RotatingTestimonials({
   );
 }
 
+const BADGE_SEP = " | ";
+
+function HeroBadge({ text }: { text: string }) {
+  const sepIndex = text.indexOf(BADGE_SEP);
+  if (sepIndex === -1) return <p className={styles.badge}>{text}</p>;
+
+  const lead = text.slice(0, sepIndex + BADGE_SEP.length);
+  const highlight = text.slice(sepIndex + BADGE_SEP.length);
+
+  return (
+    <p className={styles.badge}>
+      {lead}
+      <span className={styles.badgeHighlight}>{highlight}</span>
+    </p>
+  );
+}
+
 export function LandingHero() {
   return (
     <>
@@ -115,7 +132,7 @@ export function LandingHero() {
         <div className="container">
           <div className={styles.inner}>
             <div className={styles.stack}>
-              <p className={styles.badge}>{data.badge}</p>
+              <HeroBadge text={data.badge} />
               <h1 id="hero-title" className={styles.title}>
                 {data.title}
                 <span className={styles.titleAccent}>{data.titleAccent}</span>

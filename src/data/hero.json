@@ -1,10 +1,10 @@
 {
-  "badge": "🔥 Second Cohort Starts June 26",
-  "title": "Not Another UI/UX Course - ",
-  "titleAccent": "60-day structured program",
-  "subtitle": "This is not a theory-heavy design course. You’ll learn how real product designers think, solve problems, and ship work that hiring managers actually care about.",
+  "badge": "🔥 Next Cohort Starts 10th July | 46 Seats Left",
+  "title": "Become an Industry-Ready",
+  "titleAccent": "UI/UX Designer in 60 Days",
+  "subtitle": "Learn UI/UX design the way it's actually used in the industry, build real case studies, and gain the confidence to apply for high-paying jobs and freelance projects.",
   "primaryCta": {
-    "label": "Join Waitlist",
+    "label": "Enroll Now",
     "href": "/waitlist"
   },
   "testimonials": [
@@ -28,11 +28,11 @@
   "videoThumbnail": "/assets/video-thumbnail.png",
   "videoYoutubeId": "8ocZC-UXgt0",
   "videoEyebrow": "Just 5 mins watch",
-  "videoTitleLead": "Watch this before joining",
-  "videoTitleAccent": "any UI/UX course",
+  "videoTitleLead": "Watch this to See If This Program",
+  "videoTitleAccent": "Is Right for You",
   "videoTitleLine1": "Watch this before",
   "videoTitleLine2": "joining any UI/UX",
   "videoTitleLine3": "course",
-  "videoDescription": "See exactly how this course is different — and why 90% of design courses leave you unprepared.",
+  "videoDescription": "See exactly how our program works and find out whether it's the right fit for your goals before you enroll.",
   "videoPlayLabel": "Play intro video"
 }

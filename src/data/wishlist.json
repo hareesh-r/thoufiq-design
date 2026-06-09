@@ -16,7 +16,7 @@
   "cardCta": { "label": "Enroll", "href": "/waitlist" },
   "bar": {
     "caption": "Ready to start?",
-    "cta": { "label": "Join Waitlist", "href": "/waitlist" }
+    "cta": { "label": "Enroll Now", "href": "/waitlist" }
   },
   "removeModal": {
     "title": "Remove from wishlist?",

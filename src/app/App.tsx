@@ -8,16 +8,17 @@ import { AudienceSection } from "../features/landing/AudienceSection";
 import { ProgramSection } from "../features/landing/ProgramSection";
 import { CourseStructureSection } from "../features/landing/CourseStructureSection";
 import { InstructorSection } from "../features/landing/InstructorSection";
-import { BonusesSection } from "../features/landing/BonusesSection";
+import { AddOnsSection } from "../features/landing/AddOnsSection";
 import { PricingSection } from "../features/landing/PricingSection";
 import { LandingFaq } from "../features/landing/LandingFaq";
 import { FinalEnquirySection } from "../features/landing/FinalEnquirySection";
 import { ScrollReveal } from "../components/ScrollReveal";
 import { RefundPolicyPage } from "../features/legal/RefundPolicyPage";
 import { WaitlistPage } from "../features/waitlist/WaitlistPage";
+import { EnquiryPopup } from "../components/EnquiryPopup";
 
 const SHOW_WAITLIST = false;
-const SHOW_PRICING = false;
+const SHOW_PRICING = true;
 
 function HomePage() {
   return (
@@ -44,7 +45,7 @@ function HomePage() {
           <InstructorSection />
         </ScrollReveal>
         <ScrollReveal>
-          <BonusesSection />
+          <AddOnsSection />
         </ScrollReveal>
         {SHOW_PRICING ? (
           <ScrollReveal>
@@ -58,6 +59,7 @@ function HomePage() {
           <FinalEnquirySection />
         </ScrollReveal>
       </main>
+      <EnquiryPopup />
     </>
   );
 }

@@ -58,11 +58,15 @@
   -webkit-backdrop-filter: blur(21px);
   color: var(--ink);
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: 400;
   font-size: 14px;
   line-height: 1.43;
   border-radius: var(--radius-pill);
   margin: 0;
+}
+
+.badgeHighlight {
+  font-weight: 700;
 }
 
 /* style_Y8PI0V */
